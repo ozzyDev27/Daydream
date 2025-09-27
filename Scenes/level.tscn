@@ -1,26 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://de58m3cv0apkm"]
+[gd_scene load_steps=4 format=3 uid="uid://de58m3cv0apkm"]
 
 [ext_resource type="PackedScene" uid="uid://c5i7tpog1kf84" path="res://Scenes/stage.tscn" id="1_8rkhp"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="2_6ko4u"]
+[ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="2_6phgx"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Stage" parent="." instance=ExtResource("1_8rkhp")]
+scale = Vector2(2, 2)
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(0.6, 0.6)
+script = ExtResource("2_6phgx")
 
-[node name="Player1" parent="." instance=ExtResource("2_6ko4u")]
+[node name="Player0" parent="." instance=ExtResource("2_6ko4u")]
 position = Vector2(-279, -79)
 
-[node name="Player2" parent="." instance=ExtResource("2_6ko4u")]
+[node name="Player1" parent="." instance=ExtResource("2_6ko4u")]
 position = Vector2(-143, -9)
 deviceID = 1
-
-[node name="Player3" parent="." instance=ExtResource("2_6ko4u")]
-position = Vector2(-24, -9)
-deviceID = 2
-
-[node name="Player4" parent="." instance=ExtResource("2_6ko4u")]
-position = Vector2(76, 10)
-deviceID = 3

@@ -128,7 +128,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paucl"]
-size = Vector2(34, 5)
+size = Vector2(34, 18)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_5xflf")
@@ -140,5 +140,5 @@ animation = &"Standing"
 autoplay = "Standing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 29.5)
+position = Vector2(-1, 23)
 shape = SubResource("RectangleShape2D_paucl")
