@@ -65,7 +65,7 @@ func _physics_process(delta):
 			sprite.play("RunningDown")
 		elif angle >= 5*PI/8 and angle < 7*PI/8:
 			sprite.play("RunningSideDown")
-		elif angle >= 7*PI/8 or angle < -7*PI/8:
+		elif angle >= PI - PI/8 or angle < -PI + PI/8:
 			sprite.play("Running")
 		elif angle >= -7*PI/8 and angle < -5*PI/8:
 			sprite.play("RunningSideUp")
@@ -82,7 +82,7 @@ func _physics_process(delta):
 			sprite.play("Standing")
 		elif angle >= 5*PI/8 and angle < 7*PI/8:
 			sprite.play("StandingSideDown")
-		elif angle >= 7*PI/8 or angle < -7*PI/8:
+		elif angle >= PI - PI/8 or angle < -PI + PI/8:
 			sprite.play("StandingSide")
 		elif angle >= -7*PI/8 and angle < -5*PI/8:
 			sprite.play("StandingSideUp")
@@ -90,7 +90,9 @@ func _physics_process(delta):
 			sprite.play("StandingUp")
 		elif angle >= -3*PI/8 and angle < -PI/8:
 			sprite.play("StandingSideUp")
-
+			
+	print(angle)
+	
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
 	if Input.is_action_just_pressed("Action"+suffix) and "Battery Bullets" in upgrades:
