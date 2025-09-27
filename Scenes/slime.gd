@@ -1,6 +1,7 @@
 extends Node2D
 
 var speed = 1
+var health = 3
 var nearest_player: Node2D = null
 
 func get_nearest_player():
@@ -19,5 +20,17 @@ func _physics_process(delta):
 
 # hit by player
 func _on_area_2d_body_entered(body):
-	#body.health -= 1
+	body.damage_flash()
 	queue_free() # TODO VFX
+
+func damage_flash():
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(10, 10, 10), 0.03)
+	tween.tween_property(self, "modulate", Color.WHITE, 0.03)
+	#tween.tween_callback(tween.queue_free)
+
+func damage(amount: int):
+	health -= amount
+	damage_flash()
+	if health <= 0:
+		queue_free() # TODO death FX

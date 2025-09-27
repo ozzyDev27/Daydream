@@ -51,6 +51,11 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func damage_flash():
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(10, 10, 10), 0.03)
+	tween.tween_property(self, "modulate", Color.WHITE, 0.03)
+
 func summonBullet():
 	var newBullet = bullet.instantiate()
 	newBullet.position = position
