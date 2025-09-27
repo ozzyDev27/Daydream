@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://drgvnpmmad2j2"]
+[gd_scene load_steps=7 format=4 uid="uid://drgvnpmmad2j2"]
 
 [ext_resource type="TileSet" uid="uid://chtl7pkvocun1" path="res://Scenes/timemap.tres" id="1_iixi8"]
-[ext_resource type="Texture2D" uid="uid://b1mrl2x7hebti" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/TX Props.png" id="2_cyadu"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_xgxfi"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="4_5f3p6"]
+[ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="5_cyadu"]
+[ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_xgxfi"]
 
 [sub_resource type="Environment" id="Environment_tspv2"]
 tonemap_mode = 3
@@ -27,12 +28,6 @@ z_index = 1
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD8//3/AQAAAAAAAAADAP7/AQAJAAAAAAAKAAEAAQAJAAAAAAD3//n/AQAFAAAAAAD4/wAAAQABAAYAAAAJAPv/AQABAAYAAAAHAAUAAQABAAYAAAABAPr/AQADAAYAAAD8/wUAAQADAAYAAAAEAAMAAQAHAAYAAAADAAMAAQAGAAYAAAAEAAIAAQAHAAUAAAAEAAQAAQAHAAcAAAAFAAMAAQAIAAYAAAAGAAIAAQAJAAUAAAAGAAMAAQAJAAYAAAAGAAQAAQAJAAcAAAD1//7/AQAKAAYAAAD2//3/AQALAAUAAAD2//7/AQALAAYAAAD2////AQALAAcAAAD3//7/AQAMAAYAAAAGAPz/AQAKAAYAAAAHAPv/AQALAAUAAAAHAPz/AQALAAYAAAAHAP3/AQALAAcAAAAIAPz/AQAMAAYAAAA=")
 tile_set = ExtResource("1_iixi8")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(208, -32)
-texture = ExtResource("2_cyadu")
-region_enabled = true
-region_rect = Rect2(256, 0, 32, 64)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tspv2")
@@ -62,3 +57,12 @@ moveSpeed = 125
 acceleration = 1000
 friction = 500
 deviceID = 3
+
+[node name="LevelEnd" parent="." instance=ExtResource("5_cyadu")]
+position = Vector2(316, -177)
+
+[node name="Spawner" parent="." instance=ExtResource("5_xgxfi")]
+position = Vector2(-227, -177)
+
+[node name="Spawner2" parent="." instance=ExtResource("5_xgxfi")]
+position = Vector2(332, 161)

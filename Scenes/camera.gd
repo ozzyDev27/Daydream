@@ -4,7 +4,7 @@ extends Camera2D
 @onready var playerTwo = $"../Player1"
 
 @export var min_zoom: float = 0.5 
-@export var max_zoom: float = 2.0 
+@export var max_zoom: float = 3.0 
 @export var max_distance: float = 500.0
 @export var zoom_speed: float = 2.0 
 
