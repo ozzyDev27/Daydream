@@ -16,7 +16,7 @@ var bullet = load("res://Scenes/bullet.tscn")
 var last_input_vector = Vector2.ZERO
 
 func _ready():
-	health = max_health
+	
 	if deviceID == 0:
 		upgrades = GlobalState.player0upgrades
 	elif deviceID == 1:
@@ -27,6 +27,11 @@ func _ready():
 		upgrades = GlobalState.player3upgrades
 	print(upgrades)
 	print(level)
+	
+	if "Extra Health" in upgrades:
+		max_health += 2
+		
+	health = max_health
 
 func _physics_process(delta):
 	var suffix = str(deviceID)
