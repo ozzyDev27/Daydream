@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://bcruhc4adg2mm"]
 
-[ext_resource type="Texture2D" uid="uid://cvg6oxc5x5vdh" path="res://Sprites/Characters/ozzy/Airburst/Character1M_1_damage_1.png" id="1_mstou"]
+[ext_resource type="PackedScene" uid="uid://b2flvhhefgcxn" path="res://Scenes/player_mouse.tscn" id="1_l0xsu"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_lisd6"]
 [ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_hhb4j"]
 [ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="4_l0xsu"]
 [ext_resource type="Script" uid="uid://cb4xx8u1ssw8c" path="res://Scenes/grid_snap_picker.gd" id="4_ua6wq"]
 [ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="6_l0xsu"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hhb4j"]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy0g7"]
+size = Vector2(6.5, 7.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua6wq"]
 size = Vector2(30, 30)
@@ -34,19 +34,25 @@ size = Vector2(126, 126)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Slop2D" type="Sprite2D" parent="."]
-position = Vector2(76, 47)
-texture = ExtResource("1_mstou")
+[node name="PlayerMouse" parent="." instance=ExtResource("1_l0xsu")]
+position = Vector2(-253, -82)
+scale = Vector2(2, 2)
+moveSpeed = 300
+acceleration = 4000
+friction = 2000
+
+[node name="Slop2D" type="Sprite2D" parent="PlayerMouse"]
+position = Vector2(5, 0)
 script = ExtResource("2_lisd6")
 
-[node name="Area2D" type="Area2D" parent="Slop2D"]
+[node name="Area2D" type="Area2D" parent="PlayerMouse/Slop2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slop2D/Area2D"]
-position = Vector2(-3, 0)
-shape = SubResource("CircleShape2D_hhb4j")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMouse/Slop2D/Area2D"]
+position = Vector2(-8.25, -3.75)
+shape = SubResource("RectangleShape2D_sy0g7")
 
 [node name="Piece2" type="Area2D" parent="."]
-position = Vector2(232, 208)
+position = Vector2(-62, 98)
 collision_layer = 17
 collision_mask = 16
 script = ExtResource("4_ua6wq")
@@ -101,7 +107,7 @@ offset_right = 53.0
 offset_bottom = -22.0
 
 [node name="Piece1" type="Area2D" parent="."]
-position = Vector2(116, 104)
+position = Vector2(-178, -6)
 collision_layer = 17
 collision_mask = 16
 script = ExtResource("4_ua6wq")
@@ -155,7 +161,7 @@ offset_right = 53.0
 offset_bottom = -22.0
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(448, 96)
+position = Vector2(-46, -65)
 script = ExtResource("4_l0xsu")
 
 [node name="sprite" type="Node2D" parent="Node2D"]
@@ -259,3 +265,6 @@ offset_left = 148.0
 offset_top = -63.0
 offset_right = 188.0
 offset_bottom = -40.0
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

@@ -5,7 +5,6 @@ extends CharacterBody2D
 @export var acceleration = 2000
 @export var friction = 1000
 @export var deviceID = 0
-@export var bulletSpeed=1
 
 @export var movement_deadzone: float = 0.15
 
