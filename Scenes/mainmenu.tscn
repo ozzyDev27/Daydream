@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0e666f0hck86"]
+[gd_scene load_steps=5 format=3 uid="uid://bae81u16x823u"]
 
 [ext_resource type="Script" uid="uid://ce2x4dfji7n6l" path="res://Scenes/mainmenu.gd" id="1_pposm"]
 [ext_resource type="Texture2D" uid="uid://c38awdllxx0dg" path="res://Sprites/start button test.png" id="2_rtnl3"]
-[ext_resource type="PackedScene" uid="uid://b2flvhhefgcxn" path="res://Scenes/player_mouse.tscn" id="2_web8u"]
+[ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="2_web8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_web8u"]
 size = Vector2(120, 72.5)
