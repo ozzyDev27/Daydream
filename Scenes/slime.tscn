@@ -15,6 +15,7 @@ radius = 13.0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_swwnm")
+speed = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_aiwxb")
@@ -44,7 +45,9 @@ shape = SubResource("CircleShape2D_aiwxb")
 autostart = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
+path_postprocessing = 1
+avoidance_enabled = true
+debug_path_custom_line_width = 1.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

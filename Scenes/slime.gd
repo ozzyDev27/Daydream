@@ -1,6 +1,6 @@
-extends Node2D
+extends CharacterBody2D
 
-var speed = 1
+@export var speed = 1
 @onready var nav_agent = $NavigationAgent2D
 
 var health = 3
@@ -16,8 +16,10 @@ func get_nearest_player():
 
 func _physics_process(delta):
 	if nearest_player:
-		var target_dir = to_local(nav_agent.get_next_path_position()).normalized()
-		position += target_dir * speed
+		nav_agent.target_position = nearest_player.global_position
+		var target_dir = (nav_agent.get_next_path_position() - global_position).normalized()
+		velocity = target_dir * speed
+	move_and_slide()
 	get_nearest_player()
 
 # hit by player

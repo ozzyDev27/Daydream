@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://5v7lxrydjm57"]
+[gd_scene load_steps=61 format=3 uid="uid://5v7lxrydjm57"]
 
 [ext_resource type="Script" uid="uid://b1xupc78nx0qa" path="res://Scenes/player.gd" id="1_5xflf"]
 [ext_resource type="Texture2D" uid="uid://tegdew2bontt" path="res://Sprites/Characters/Player/16x32 Run Cycle-Sheet.png" id="2_vgqql"]
