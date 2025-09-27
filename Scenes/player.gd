@@ -48,49 +48,17 @@ func _physics_process(delta):
 		$SlashArea.rotation = input_vector.angle()
 	if input_vector.length() > movement_deadzone:
 		velocity = velocity.move_toward(input_vector * moveSpeed, acceleration * delta)
-	
-	var angle = input_vector.angle()
-	if velocity.x < 0:
-		sprite.flip_h=false
-	elif velocity.x > 0:
-		sprite.flip_h=true
-	
-	velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	if velocity.x > 0 || velocity.y > 0:
-		if angle >= -PI/8 and angle < PI/8:
-			sprite.play("Running")
-		elif angle >= PI/8 and angle < 3*PI/8:
-			sprite.play("RunningSideDown")
-		elif angle >= 3*PI/8 and angle < 5*PI/8:
-			sprite.play("RunningDown")
-		elif angle >= 5*PI/8 and angle < 7*PI/8:
-			sprite.play("RunningSideDown")
-		elif angle >= 7*PI/8 or angle < -7*PI/8:
-			sprite.play("Running")
-		elif angle >= -7*PI/8 and angle < -5*PI/8:
-			sprite.play("RunningSideUp")
-		elif angle >= -5*PI/8 and angle < -3*PI/8:
-			sprite.play("RunningUp")
-		elif angle >= -3*PI/8 and angle < -PI/8:
-			sprite.play("RunningSideUp")
+		
+		sprite.play("Running")
+		if velocity.x < 0:
+			sprite.flip_h=true
+		elif velocity.x > 0:
+			sprite.flip_h=false
 	else:
-		if angle >= -PI/8 and angle < PI/8:
-			sprite.play("StandingSide")
-		elif angle >= PI/8 and angle < 3*PI/8:
-			sprite.play("StandingSideDown")
-		elif angle >= 3*PI/8 and angle < 5*PI/8:
-			sprite.play("Standing")
-		elif angle >= 5*PI/8 and angle < 7*PI/8:
-			sprite.play("StandingSideDown")
-		elif angle >= 7*PI/8 or angle < -7*PI/8:
-			sprite.play("StandingSide")
-		elif angle >= -7*PI/8 and angle < -5*PI/8:
-			sprite.play("StandingSideUp")
-		elif angle >= -5*PI/8 and angle < -3*PI/8:
-			sprite.play("StandingUp")
-		elif angle >= -3*PI/8 and angle < -PI/8:
-			sprite.play("StandingSideUp")
-
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+		
+		sprite.play("Standing")
+		
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
 	if Input.is_action_just_pressed("Action"+suffix) and "Battery Bullets" in upgrades:
