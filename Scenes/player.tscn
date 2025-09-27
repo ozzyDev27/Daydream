@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://5v7lxrydjm57"]
+[gd_scene load_steps=32 format=3 uid="uid://5v7lxrydjm57"]
 
 [ext_resource type="Script" uid="uid://b1xupc78nx0qa" path="res://Scenes/player.gd" id="1_5xflf"]
 [ext_resource type="Texture2D" uid="uid://cvg6oxc5x5vdh" path="res://Sprites/Characters/ozzy/Airburst/Character1M_1_damage_1.png" id="2_jrfsa"]
@@ -134,6 +134,18 @@ size = Vector2(34, 18)
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_2ijsl"]
 points = PackedVector2Array(0, 10, 0, -10, 120, -40, 120, 40)
 
+[sub_resource type="Gradient" id="Gradient_p1odr"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0gysh"]
+gradient = SubResource("Gradient_p1odr")
+width = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfarp"]
+bg_color = Color(0.84, 0.15959999, 0.15959999, 1)
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 collision_layer = 513
 script = ExtResource("1_5xflf")
@@ -156,3 +168,14 @@ shape = SubResource("ConvexPolygonShape2D_2ijsl")
 [node name="Sprite2D" type="Sprite2D" parent="SlashArea"]
 position = Vector2(93, -1)
 texture = ExtResource("25_p1odr")
+
+[node name="HealthBar" type="HSlider" parent="."]
+offset_left = -32.0
+offset_top = -55.0
+offset_right = 32.0
+offset_bottom = -39.0
+theme_override_icons/grabber_disabled = SubResource("GradientTexture1D_0gysh")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vfarp")
+value = 15.0
+editable = false
+scrollable = false

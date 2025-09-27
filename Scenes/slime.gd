@@ -20,6 +20,7 @@ func _physics_process(delta):
 
 # hit by player
 func _on_area_2d_body_entered(body):
+	body.health -= 1
 	body.damage_flash()
 	queue_free() # TODO VFX
 
