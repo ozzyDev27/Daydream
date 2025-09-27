@@ -23,6 +23,7 @@ func _ready():
 		upgrades = GlobalState.player2upgrades
 	elif deviceID == 3:
 		upgrades = GlobalState.player3upgrades
+	print(upgrades)
 	print(level)
 
 func _physics_process(delta):
