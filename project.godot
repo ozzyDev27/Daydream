@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Daydream"
-run/main_scene="uid://c0e666f0hck86"
+run/main_scene="uid://de58m3cv0apkm"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [display]
