@@ -9,10 +9,8 @@ var original_position = null
 
 func _ready():
 	original_position = global_position
-	$Label.text = upgrade_name
 
 func _process(delta):
-	$Label.visible = not not grabber
 	if grabber:
 		global_position = grabber.global_position.snapped(snap)
 		if get_overlapping_areas():

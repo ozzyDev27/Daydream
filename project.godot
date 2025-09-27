@@ -18,6 +18,11 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+players=""
+damageable=""
+
 [input]
 
 Jump={
@@ -214,6 +219,11 @@ Action3={
 "deadzone": 0.2,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":3,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":3,"axis":5,"axis_value":1.0,"script":null)
+]
+}
+DebugAction={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
 ]
 }
 
