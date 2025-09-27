@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var acceleration = 2000
 @export var friction = 1000
 @export var deviceID = 0
+var level=0
 
 @export var movement_deadzone: float = 0.15
 
@@ -28,7 +29,8 @@ func _physics_process(delta):
 		action_down, 
 		deviceID
 	)
-	
+	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
+		nextLevel()
 	if input_vector.length() > movement_deadzone:
 		velocity = velocity.move_toward(input_vector * moveSpeed, acceleration * delta)
 		
@@ -48,3 +50,11 @@ func _on_start_body_entered(_body: Node2D) -> void:
 func _on_start_body_exited(_body: Node2D) -> void:
 	touchingStart=false
 	sprite.play("dark")
+
+func nextLevel() -> void:
+	
+	var scene = load(str("res://Scenes/Levels/level_", level+1,".tscn")).instantiate()
+	get_tree().root.add_child(scene)
+	scene.get_node("Camera").make_current()
+	scene.get_node("Player0").level=level
+	get_parent().queue_free()

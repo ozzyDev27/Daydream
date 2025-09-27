@@ -7,12 +7,13 @@ extends CharacterBody2D
 @export var deviceID = 0
 @export var bulletSpeed = 400
 
+var level=0
 @export var movement_deadzone: float = 0.15
 var bullet = load("res://Scenes/bullet.tscn")
 var last_input_vector = Vector2.ZERO
 
 func _ready():
-	pass
+	print(level)
 
 func _physics_process(delta):
 	var suffix = str(deviceID)
@@ -30,7 +31,6 @@ func _physics_process(delta):
 	)
 	
 	last_input_vector = input_vector
-	
 	if input_vector.length() > movement_deadzone:
 		velocity = velocity.move_toward(input_vector * moveSpeed, acceleration * delta)
 		
@@ -44,7 +44,8 @@ func _physics_process(delta):
 		
 		sprite.play("Standing")
 		
-	
+	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
+		nextLevel()
 	if Input.is_action_just_pressed("Action"+suffix):
 		summonBullet()
 
@@ -59,3 +60,9 @@ func summonBullet():
 		newBullet.direction.y = 0
 	newBullet.modifier = bulletSpeed
 	get_parent().add_child(newBullet)
+func nextLevel() -> void:
+	var scene = load("res://Scenes/upgrades.tscn").instantiate()
+	get_tree().root.add_child(scene)
+	scene.get_node("Camera").make_current()
+	scene.get_node("PlayerMouse").level=level
+	get_parent().queue_free()
