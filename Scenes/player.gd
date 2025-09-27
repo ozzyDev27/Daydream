@@ -7,7 +7,8 @@ extends CharacterBody2D
 @export var deviceID = 0
 @export var bulletSpeed = 400
 @export var upgrades: Array[String] = []
-@export var health = 10
+@export var max_health = 10
+var health = 10
 
 var level=0
 @export var movement_deadzone: float = 0.15
@@ -15,6 +16,7 @@ var bullet = load("res://Scenes/bullet.tscn")
 var last_input_vector = Vector2.ZERO
 
 func _ready():
+	health = max_health
 	if deviceID == 0:
 		upgrades = GlobalState.player0upgrades
 	elif deviceID == 1:
@@ -23,6 +25,7 @@ func _ready():
 		upgrades = GlobalState.player2upgrades
 	elif deviceID == 3:
 		upgrades = GlobalState.player3upgrades
+	print(upgrades)
 	print(level)
 
 func _physics_process(delta):
@@ -58,10 +61,13 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
-	if Input.is_action_just_pressed("Action"+suffix) and "Battery Bullet" in upgrades:
+	if Input.is_action_just_pressed("Action"+suffix) and "Battery Bullets" in upgrades:
 		summonBullet()
 	if Input.is_action_just_pressed("Jump"+suffix) and "Slash Attack" in upgrades:
 		slashAttack()
+		
+	$HealthBar.max_value = max_health
+	$HealthBar.value = health
 
 	move_and_slide()
 

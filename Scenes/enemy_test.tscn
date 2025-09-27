@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=4 uid="uid://b4i4r8vpq26nu"]
+[gd_scene load_steps=10 format=4 uid="uid://b4i4r8vpq26nu"]
 
 [ext_resource type="TileSet" uid="uid://chtl7pkvocun1" path="res://Scenes/timemap.tres" id="1_oyc1c"]
 [ext_resource type="Texture2D" uid="uid://b1mrl2x7hebti" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/TX Props.png" id="2_c3qj7"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_421n3"]
 [ext_resource type="PackedScene" uid="uid://bmetde5x88ast" path="res://Scenes/slime.tscn" id="4_oyc1c"]
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_c3qj7"]
+[ext_resource type="Texture2D" uid="uid://277pdqqf6s5k" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/Extra/TX Props with Shadow.png" id="6_h6jhh"]
+[ext_resource type="Script" uid="uid://en14is85r0p0" path="res://Scenes/level_end.gd" id="6_qjw4q"]
 
 [sub_resource type="Environment" id="Environment_tspv2"]
 tonemap_mode = 3
 adjustment_brightness = 2.0
 adjustment_contrast = 2.77
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_421n3"]
+radius = 46.0
 
 [node name="TilemapTest" type="Node2D"]
 position = Vector2(0, -1)
@@ -46,6 +51,49 @@ region_rect = Rect2(256, 0, 32, 64)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tspv2")
 
+[node name="LevelEnd" type="Node2D" parent="."]
+position = Vector2(320, -63)
+script = ExtResource("6_qjw4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelEnd"]
+texture = ExtResource("6_h6jhh")
+region_enabled = true
+region_rect = Rect2(352, 256, 96, 96)
+
+[node name="Glows" type="Node2D" parent="LevelEnd/Sprite2D"]
+
+[node name="Glow1" type="Sprite2D" parent="LevelEnd/Sprite2D/Glows"]
+position = Vector2(-43, -7)
+texture = ExtResource("6_h6jhh")
+region_enabled = true
+region_rect = Rect2(320, 256, 16, 16)
+
+[node name="Glow2" type="Sprite2D" parent="LevelEnd/Sprite2D/Glows"]
+position = Vector2(5, -34)
+texture = ExtResource("6_h6jhh")
+region_enabled = true
+region_rect = Rect2(336, 256, 16, 16)
+
+[node name="Glow3" type="Sprite2D" parent="LevelEnd/Sprite2D/Glows"]
+position = Vector2(44, 2)
+texture = ExtResource("6_h6jhh")
+region_enabled = true
+region_rect = Rect2(336, 272, 16, 16)
+
+[node name="Glow4" type="Sprite2D" parent="LevelEnd/Sprite2D/Glows"]
+position = Vector2(-4, 29)
+texture = ExtResource("6_h6jhh")
+region_enabled = true
+region_rect = Rect2(320, 272, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="LevelEnd"]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd/Area2D"]
+scale = Vector2(1, 0.7)
+shape = SubResource("CircleShape2D_421n3")
+
 [node name="Player0" parent="." instance=ExtResource("3_421n3")]
 position = Vector2(342, 168)
 scale = Vector2(0.5, 0.5)
@@ -62,3 +110,6 @@ position = Vector2(270, 181)
 
 [node name="Spawner" parent="." instance=ExtResource("5_c3qj7")]
 position = Vector2(505, 62)
+spawn_count = 3
+
+[connection signal="body_entered" from="LevelEnd/Area2D" to="LevelEnd" method="on_player_enter"]
