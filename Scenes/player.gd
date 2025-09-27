@@ -15,6 +15,15 @@ var bullet = load("res://Scenes/bullet.tscn")
 var last_input_vector = Vector2.ZERO
 
 func _ready():
+	if deviceID == 0:
+		upgrades = GlobalState.player0upgrades
+	elif deviceID == 1:
+		upgrades = GlobalState.player1upgrades
+	elif deviceID == 2:
+		upgrades = GlobalState.player2upgrades
+	elif deviceID == 3:
+		upgrades = GlobalState.player3upgrades
+	print(upgrades)
 	print(level)
 
 func _physics_process(delta):
@@ -50,9 +59,9 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
-	if Input.is_action_just_pressed("Action"+suffix) and "BatteryBullet" in upgrades:
+	if Input.is_action_just_pressed("Action"+suffix) and "Battery Bullets" in upgrades:
 		summonBullet()
-	if Input.is_action_just_pressed("Jump"+suffix) and "Slash" in upgrades:
+	if Input.is_action_just_pressed("Jump"+suffix) and "Slash Attack" in upgrades:
 		slashAttack()
 
 	move_and_slide()
