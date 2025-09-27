@@ -1,6 +1,8 @@
 extends Node2D
 
 var speed = 1
+@onready var nav_agent = $NavigationAgent2D
+
 var health = 3
 var nearest_player: Node2D = null
 
@@ -14,7 +16,7 @@ func get_nearest_player():
 
 func _physics_process(delta):
 	if nearest_player:
-		var target_dir = global_position.direction_to(nearest_player.global_position)
+		var target_dir = to_local(nav_agent.get_next_path_position()).normalized()
 		position += target_dir * speed
 	get_nearest_player()
 
@@ -34,3 +36,7 @@ func damage(amount: int):
 	damage_flash()
 	if health <= 0:
 		queue_free() # TODO death FX
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.
