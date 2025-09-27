@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+players=""
+
 [input]
 
 Jump0={

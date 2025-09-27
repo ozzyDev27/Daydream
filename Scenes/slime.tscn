@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmetde5x88ast"]
+
+[ext_resource type="Script" uid="uid://cs1wxrl30teu4" path="res://Scenes/slime.gd" id="1_swwnm"]
+[ext_resource type="Texture2D" uid="uid://blcjsuxd8asun" path="res://Sprites/programmer art/Slime by Tofame/Slimes1.png" id="2_aiwxb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3qj7"]
+radius = 4.1231055
+
+[node name="Slime" type="Node2D"]
+script = ExtResource("1_swwnm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_aiwxb")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_c3qj7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
