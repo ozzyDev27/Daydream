@@ -15,7 +15,7 @@ func _ready():
 
 func _process(delta):
 	if grabber:
-		global_position = grabber.global_position.snapped(snap)
+		global_position = grabber.global_position.snapped(snap) + Vector2(-32, -32)
 		if get_overlapping_areas():
 			valid = false
 		if valid:
