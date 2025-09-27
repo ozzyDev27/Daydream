@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bft1hxuq72qgr"]
+
+[ext_resource type="Script" uid="uid://bv1ssie68gsmh" path="res://Scenes/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://blsavduhtv88d" path="res://Sprites/battery bullet.png" id="1_xjght"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oduel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xjght")
+}],
+"loop": true,
+"name": &"yay",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_oduel")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oduel")
+animation = &"yay"
