@@ -21,7 +21,11 @@ func _process(delta):
 	global_position += input_vector * speed
 	
 	if Input.is_action_just_pressed("Action0") and $Area2D.get_overlapping_areas():
-		$Area2D.get_overlapping_areas()[0].get_parent().grabber = self
+		$Area2D.get_overlapping_areas()[0].grabber = self
 	if Input.is_action_just_released("Action0") and $Area2D.get_overlapping_areas():
-		$Area2D.get_overlapping_areas()[0].get_parent().grabber = null
+		var grab_target = $Area2D.get_overlapping_areas()[0]
+		if grab_target.get_overlapping_areas():
+			grab_target.global_position = grab_target.original_position
+			grab_target.modulate = Color.WHITE
+		$Area2D.get_overlapping_areas()[0].grabber = null
 	
