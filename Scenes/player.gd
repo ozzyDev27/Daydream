@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var friction = 1000
 @export var deviceID = 0
 @export var bulletSpeed = 400
+@export var upgrades: Array[String] = []
+@export var health = 10
 
 var level=0
 @export var movement_deadzone: float = 0.15
@@ -31,6 +33,8 @@ func _physics_process(delta):
 	)
 	
 	last_input_vector = input_vector
+	if input_vector.length() > 0:
+		$SlashArea.rotation = input_vector.angle()
 	if input_vector.length() > movement_deadzone:
 		velocity = velocity.move_toward(input_vector * moveSpeed, acceleration * delta)
 		
@@ -46,8 +50,10 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
-	if Input.is_action_just_pressed("Action"+suffix):
+	if Input.is_action_just_pressed("Action"+suffix) and "BatteryBullet" in upgrades:
 		summonBullet()
+	if Input.is_action_just_pressed("Jump"+suffix) and "Slash" in upgrades:
+		slashAttack()
 
 	move_and_slide()
 
@@ -55,6 +61,11 @@ func damage_flash():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(10, 10, 10), 0.03)
 	tween.tween_property(self, "modulate", Color.WHITE, 0.03)
+
+func slashAttack():
+	for body in $SlashArea.get_overlapping_areas():
+		if body.is_in_group("damageable"):
+			body.get_parent().damage(1)
 
 func summonBullet():
 	var newBullet = bullet.instantiate()

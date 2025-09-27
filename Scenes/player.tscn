@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://5v7lxrydjm57"]
+[gd_scene load_steps=29 format=3 uid="uid://5v7lxrydjm57"]
 
 [ext_resource type="Script" uid="uid://b1xupc78nx0qa" path="res://Scenes/player.gd" id="1_5xflf"]
 [ext_resource type="Texture2D" uid="uid://cvg6oxc5x5vdh" path="res://Sprites/Characters/ozzy/Airburst/Character1M_1_damage_1.png" id="2_jrfsa"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://ciacppd6g8kff" path="res://Sprites/Characters/ozzy/Standing/Character1M_1_idle_5.png" id="22_aogl1"]
 [ext_resource type="Texture2D" uid="uid://dpqq54wiugl6g" path="res://Sprites/Characters/ozzy/Standing/Character1M_1_idle_6.png" id="23_na6co"]
 [ext_resource type="Texture2D" uid="uid://c2gmkaof3yxxj" path="res://Sprites/Characters/ozzy/Standing/Character1M_1_idle_7.png" id="24_0uetw"]
+[ext_resource type="Texture2D" uid="uid://cn7ox1y08dan1" path="res://Sprites/Mouse/dark.png" id="25_p1odr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_116t2"]
 animations = [{
@@ -130,6 +131,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paucl"]
 size = Vector2(34, 18)
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_2ijsl"]
+points = PackedVector2Array(0, 10, 0, -10, 120, -40, 120, 40)
+
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 collision_layer = 513
 script = ExtResource("1_5xflf")
@@ -143,3 +147,12 @@ autoplay = "Standing"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 23)
 shape = SubResource("RectangleShape2D_paucl")
+
+[node name="SlashArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlashArea"]
+shape = SubResource("ConvexPolygonShape2D_2ijsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="SlashArea"]
+position = Vector2(93, -1)
+texture = ExtResource("25_p1odr")

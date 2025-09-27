@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://b4i4r8vpq26nu"]
+[gd_scene load_steps=7 format=4 uid="uid://b4i4r8vpq26nu"]
 
 [ext_resource type="TileSet" uid="uid://chtl7pkvocun1" path="res://Scenes/timemap.tres" id="1_oyc1c"]
 [ext_resource type="Texture2D" uid="uid://b1mrl2x7hebti" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/TX Props.png" id="2_c3qj7"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_421n3"]
 [ext_resource type="PackedScene" uid="uid://bmetde5x88ast" path="res://Scenes/slime.tscn" id="4_oyc1c"]
-[ext_resource type="Script" uid="uid://cbnbaglqa52kl" path="res://Scenes/spawner.gd" id="5_421n3"]
-[ext_resource type="Texture2D" uid="uid://277pdqqf6s5k" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/Extra/TX Props with Shadow.png" id="6_h6jhh"]
+[ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_c3qj7"]
 
 [sub_resource type="Environment" id="Environment_tspv2"]
 tonemap_mode = 3
@@ -45,6 +44,7 @@ scale = Vector2(0.5, 0.5)
 moveSpeed = 125
 acceleration = 1000
 friction = 500
+upgrades = Array[String](["Slash", "BatteryBullet"])
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(408, 66)
@@ -52,22 +52,5 @@ position = Vector2(408, 66)
 [node name="Slime" parent="." instance=ExtResource("4_oyc1c")]
 position = Vector2(270, 181)
 
-[node name="Spawner" type="Node2D" parent="."]
+[node name="Spawner" parent="." instance=ExtResource("5_c3qj7")]
 position = Vector2(505, 62)
-script = ExtResource("5_421n3")
-enemy = ExtResource("4_oyc1c")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spawner"]
-texture = ExtResource("6_h6jhh")
-region_enabled = true
-region_rect = Rect2(224, 64, 32, 96)
-
-[node name="Glow" type="Sprite2D" parent="Spawner"]
-position = Vector2(0, 15)
-texture = ExtResource("6_h6jhh")
-region_enabled = true
-region_rect = Rect2(267, 96, 10, 64)
-
-[node name="Timer" type="Timer" parent="Spawner"]
-
-[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="spawn"]
