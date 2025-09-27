@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c82ni1dq5f4ys"]
+
+[ext_resource type="PackedScene" uid="uid://dp5crv8frroyw" path="res://Scenes/upgrade.tscn" id="1_h565e"]
+
+[node name="Upgrade" instance=ExtResource("1_h565e")]
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+position = Vector2(2, 0)
+polygon = PackedVector2Array(-16, -16, 80, -16, 80, 16, 48, 16, 48, 48, 16, 48, 16, 16, -16, 16)
