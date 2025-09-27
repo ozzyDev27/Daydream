@@ -15,6 +15,14 @@ var bullet = load("res://Scenes/bullet.tscn")
 var last_input_vector = Vector2.ZERO
 
 func _ready():
+	if deviceID == 0:
+		upgrades = GlobalState.player0upgrades
+	elif deviceID == 1:
+		upgrades = GlobalState.player1upgrades
+	elif deviceID == 2:
+		upgrades = GlobalState.player2upgrades
+	elif deviceID == 3:
+		upgrades = GlobalState.player3upgrades
 	print(level)
 
 func _physics_process(delta):
