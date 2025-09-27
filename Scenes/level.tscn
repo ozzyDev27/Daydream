@@ -11,4 +11,16 @@
 zoom = Vector2(0.6, 0.6)
 
 [node name="Player1" parent="." instance=ExtResource("2_6ko4u")]
-playerNum = 1
+position = Vector2(-279, -79)
+
+[node name="Player2" parent="." instance=ExtResource("2_6ko4u")]
+position = Vector2(-143, -9)
+deviceID = 1
+
+[node name="Player3" parent="." instance=ExtResource("2_6ko4u")]
+position = Vector2(-24, -9)
+deviceID = 2
+
+[node name="Player4" parent="." instance=ExtResource("2_6ko4u")]
+position = Vector2(76, 10)
+deviceID = 3
