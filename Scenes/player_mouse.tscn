@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2flvhhefgcxn"]
+
+[ext_resource type="Script" uid="uid://d1ding17kep0x" path="res://Scenes/player_mouse.gd" id="1_07hm4"]
+[ext_resource type="Texture2D" uid="uid://cn7ox1y08dan1" path="res://Sprites/Mouse/dark.png" id="1_cxrwp"]
+[ext_resource type="Texture2D" uid="uid://gphyh6j2avvr" path="res://Sprites/Mouse/light.png" id="2_07hm4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okgmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cxrwp")
+}],
+"loop": false,
+"name": &"dark",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_07hm4")
+}],
+"loop": false,
+"name": &"light",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07hm4"]
+size = Vector2(7, 8)
+
+[node name="PlayerMouse" type="CharacterBody2D"]
+script = ExtResource("1_07hm4")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_okgmj")
+animation = &"dark"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -4)
+shape = SubResource("RectangleShape2D_07hm4")

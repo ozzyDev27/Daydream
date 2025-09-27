@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0e666f0hck86"]
+
+[ext_resource type="Script" uid="uid://ce2x4dfji7n6l" path="res://Scenes/mainmenu.gd" id="1_pposm"]
+[ext_resource type="Texture2D" uid="uid://c38awdllxx0dg" path="res://Sprites/start button test.png" id="2_rtnl3"]
+[ext_resource type="PackedScene" uid="uid://b2flvhhefgcxn" path="res://Scenes/player_mouse.tscn" id="2_web8u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_web8u"]
+size = Vector2(120, 72.5)
+
+[node name="mainmenu" type="Node2D"]
+script = ExtResource("1_pposm")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 155.0
+offset_top = -5.0
+offset_right = 200.0
+offset_bottom = 26.0
+text = "debug"
+
+[node name="Start" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
+position = Vector2(74, 36.75)
+shape = SubResource("RectangleShape2D_web8u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Start"]
+position = Vector2(74.00001, 37)
+scale = Vector2(3.78125, 4.5625)
+texture = ExtResource("2_rtnl3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(10, 6)
+offset = Vector2(100, 50)
+zoom = Vector2(5, 5)
+
+[node name="PlayerMouse0" parent="." instance=ExtResource("2_web8u")]
+position = Vector2(160, 67)
+
+[node name="PlayerMouse1" parent="." instance=ExtResource("2_web8u")]
+position = Vector2(206, 49)
+deviceID = 1
+
+[connection signal="pressed" from="Button" to="." method="startgame"]
+[connection signal="body_entered" from="Start" to="PlayerMouse0" method="_on_start_body_entered"]
+[connection signal="body_exited" from="Start" to="PlayerMouse0" method="_on_start_body_exited"]
+[connection signal="startGame" from="PlayerMouse0" to="." method="startgame"]
+[connection signal="startGame" from="PlayerMouse1" to="." method="startgame"]
