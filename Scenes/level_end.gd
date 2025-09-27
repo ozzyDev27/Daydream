@@ -10,3 +10,4 @@ func on_player_enter(_body: Node2D):
 		# next level
 		GlobalState.level += 1
 		print("Go to next level...")
+		get_tree().change_scene_to_file("res://Scenes/Levels/upgrades_%d.tscn" % GlobalState.level)
