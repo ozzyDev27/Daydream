@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cylwn6aytdlg"]
+
+[ext_resource type="Script" uid="uid://en14is85r0p0" path="res://Scenes/level_end.gd" id="1_r8lt8"]
+[ext_resource type="Texture2D" uid="uid://277pdqqf6s5k" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/Extra/TX Props with Shadow.png" id="2_0xttq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_421n3"]
+radius = 46.0
+
+[node name="LevelEnd" type="Node2D"]
+script = ExtResource("1_r8lt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0xttq")
+region_enabled = true
+region_rect = Rect2(352, 256, 96, 96)
+
+[node name="Glows" type="Node2D" parent="Sprite2D"]
+
+[node name="Glow1" type="Sprite2D" parent="Sprite2D/Glows"]
+position = Vector2(-43, -7)
+texture = ExtResource("2_0xttq")
+region_enabled = true
+region_rect = Rect2(320, 256, 16, 16)
+
+[node name="Glow2" type="Sprite2D" parent="Sprite2D/Glows"]
+position = Vector2(5, -34)
+texture = ExtResource("2_0xttq")
+region_enabled = true
+region_rect = Rect2(336, 256, 16, 16)
+
+[node name="Glow3" type="Sprite2D" parent="Sprite2D/Glows"]
+position = Vector2(44, 2)
+texture = ExtResource("2_0xttq")
+region_enabled = true
+region_rect = Rect2(336, 272, 16, 16)
+
+[node name="Glow4" type="Sprite2D" parent="Sprite2D/Glows"]
+position = Vector2(-4, 29)
+texture = ExtResource("2_0xttq")
+region_enabled = true
+region_rect = Rect2(320, 272, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1, 0.7)
+shape = SubResource("CircleShape2D_421n3")
+
+[connection signal="body_entered" from="Area2D" to="." method="on_player_enter"]
