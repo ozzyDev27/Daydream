@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcruhc4adg2mm"]
+[gd_scene load_steps=14 format=3 uid="uid://bcruhc4adg2mm"]
 
 [ext_resource type="Texture2D" uid="uid://cvg6oxc5x5vdh" path="res://Sprites/Characters/ozzy/Airburst/Character1M_1_damage_1.png" id="1_mstou"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_lisd6"]
 [ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_hhb4j"]
+[ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="4_l0xsu"]
 [ext_resource type="Script" uid="uid://cb4xx8u1ssw8c" path="res://Scenes/grid_snap_picker.gd" id="4_ua6wq"]
+[ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="6_l0xsu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hhb4j"]
 radius = 6.0
@@ -20,6 +22,15 @@ gradient = SubResource("Gradient_ua6wq")
 width = 30
 height = 30
 repeat = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhb4j"]
+size = Vector2(20, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0xsu"]
+size = Vector2(167, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsmy"]
+size = Vector2(126, 126)
 
 [node name="Node2D" type="Node2D"]
 
@@ -40,6 +51,7 @@ collision_layer = 17
 collision_mask = 16
 script = ExtResource("4_ua6wq")
 snap = Vector2(32, 32)
+upgrade_name = "slopgrade 2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piece2"]
 position = Vector2(-0.99999994, -0.99999994)
@@ -80,6 +92,13 @@ shape = SubResource("RectangleShape2D_ua6wq")
 position = Vector2(1.5258789e-05, -7.629407e-06)
 scale = Vector2(1.0000008, 1.0000008)
 texture = SubResource("GradientTexture2D_hhb4j")
+
+[node name="Label" type="Label" parent="Piece2"]
+visible = false
+offset_left = 13.0
+offset_top = -45.0
+offset_right = 53.0
+offset_bottom = -22.0
 
 [node name="Piece1" type="Area2D" parent="."]
 position = Vector2(116, 104)
@@ -128,68 +147,115 @@ position = Vector2(1.5258789e-05, -7.629407e-06)
 scale = Vector2(1.0000008, 1.0000008)
 texture = SubResource("GradientTexture2D_hhb4j")
 
+[node name="Label" type="Label" parent="Piece1"]
+visible = false
+offset_left = 13.0
+offset_top = -45.0
+offset_right = 53.0
+offset_bottom = -22.0
+
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(448, 96)
+script = ExtResource("4_l0xsu")
 
-[node name="drop area5" type="Sprite2D" parent="Node2D"]
+[node name="sprite" type="Node2D" parent="Node2D"]
 position = Vector2(96, 0)
+
+[node name="drop area5" type="Sprite2D" parent="Node2D/sprite"]
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area6" type="Sprite2D" parent="Node2D"]
-position = Vector2(64, 0)
+[node name="drop area6" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-32, 0)
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area7" type="Sprite2D" parent="Node2D"]
-position = Vector2(96, -32)
-texture = ExtResource("4_hhb4j")
-
-[node name="drop area8" type="Sprite2D" parent="Node2D"]
-position = Vector2(64, -32)
-texture = ExtResource("4_hhb4j")
-
-[node name="drop area2" type="Sprite2D" parent="Node2D"]
-position = Vector2(32, 0)
-texture = ExtResource("4_hhb4j")
-
-[node name="drop area" type="Sprite2D" parent="Node2D"]
-texture = ExtResource("4_hhb4j")
-
-[node name="drop area3" type="Sprite2D" parent="Node2D"]
-position = Vector2(32, -32)
-texture = ExtResource("4_hhb4j")
-
-[node name="drop area4" type="Sprite2D" parent="Node2D"]
+[node name="drop area7" type="Sprite2D" parent="Node2D/sprite"]
 position = Vector2(0, -32)
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area9" type="Sprite2D" parent="Node2D"]
-position = Vector2(96, 64)
+[node name="drop area8" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-32, -32)
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area10" type="Sprite2D" parent="Node2D"]
-position = Vector2(64, 64)
+[node name="drop area2" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-64, 0)
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area11" type="Sprite2D" parent="Node2D"]
-position = Vector2(96, 32)
+[node name="drop area" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-96, 0)
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area12" type="Sprite2D" parent="Node2D"]
-position = Vector2(64, 32)
+[node name="drop area3" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-64, -32)
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area13" type="Sprite2D" parent="Node2D"]
-position = Vector2(32, 64)
+[node name="drop area4" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-96, -32)
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area14" type="Sprite2D" parent="Node2D"]
+[node name="drop area9" type="Sprite2D" parent="Node2D/sprite"]
 position = Vector2(0, 64)
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area15" type="Sprite2D" parent="Node2D"]
-position = Vector2(32, 32)
+[node name="drop area10" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-32, 64)
 texture = ExtResource("4_hhb4j")
 
-[node name="drop area16" type="Sprite2D" parent="Node2D"]
+[node name="drop area11" type="Sprite2D" parent="Node2D/sprite"]
 position = Vector2(0, 32)
 texture = ExtResource("4_hhb4j")
+
+[node name="drop area12" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-32, 32)
+texture = ExtResource("4_hhb4j")
+
+[node name="drop area13" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-64, 64)
+texture = ExtResource("4_hhb4j")
+
+[node name="drop area14" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-96, 64)
+texture = ExtResource("4_hhb4j")
+
+[node name="drop area15" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-64, 32)
+texture = ExtResource("4_hhb4j")
+
+[node name="drop area16" type="Sprite2D" parent="Node2D/sprite"]
+position = Vector2(-96, 32)
+texture = ExtResource("4_hhb4j")
+
+[node name="Blocker" type="Area2D" parent="Node2D"]
+position = Vector2(0, -32)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Blocker"]
+position = Vector2(122, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Blocker"]
+position = Vector2(-26, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/Blocker"]
+position = Vector2(49, 120)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/Blocker"]
+position = Vector2(48, -24)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="Interior" type="Area2D" parent="Node2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("6_l0xsu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Interior"]
+position = Vector2(48, 16)
+shape = SubResource("RectangleShape2D_rmsmy")
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 148.0
+offset_top = -63.0
+offset_right = 188.0
+offset_bottom = -40.0
