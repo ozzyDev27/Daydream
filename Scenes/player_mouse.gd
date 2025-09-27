@@ -52,8 +52,7 @@ func _on_start_body_exited(_body: Node2D) -> void:
 	sprite.play("dark")
 
 func nextLevel() -> void:
-	
-	var scene = load(str("res://Scenes/Levels/level_", level+1,".tscn")).instantiate()
+	var scene = load(str("res://Scenes/enemy_test.tscn")).instantiate()
 	get_tree().root.add_child(scene)
 	scene.get_node("Camera").make_current()
 	scene.get_node("Player0").level=level

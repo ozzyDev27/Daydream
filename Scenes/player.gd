@@ -59,7 +59,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
-	if Input.is_action_just_pressed("Action"+suffix) and "Battery Bullet" in upgrades:
+	if Input.is_action_just_pressed("Action"+suffix) and "Battery Bullets" in upgrades:
 		summonBullet()
 	if Input.is_action_just_pressed("Jump"+suffix) and "Slash Attack" in upgrades:
 		slashAttack()
