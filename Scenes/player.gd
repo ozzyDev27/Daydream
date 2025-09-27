@@ -41,5 +41,3 @@ func _physics_process(delta):
 		sprite.play("Standing")
 		
 	move_and_slide()
-	
-	print(input_vector.x," & ",input_vector.y)
