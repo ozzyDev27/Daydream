@@ -77,7 +77,7 @@ script = ExtResource("3_dq8uk")
 position = Vector2(96, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Grid1/sprite"]
-position = Vector2(-47, 17)
+position = Vector2(-48, 16)
 texture = ExtResource("4_r3g0y")
 
 [node name="drop area5" type="Sprite2D" parent="Grid1/sprite"]
@@ -186,10 +186,6 @@ script = ExtResource("3_dq8uk")
 
 [node name="sprite" type="Node2D" parent="Grid0"]
 position = Vector2(96, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Grid0/sprite"]
-position = Vector2(-47, 17)
-texture = ExtResource("4_r3g0y")
 
 [node name="drop area5" type="Sprite2D" parent="Grid0/sprite"]
 texture = ExtResource("4_jt6q5")
