@@ -7,7 +7,7 @@ func _input(event):
 func startgame() -> void:
 	var scene = load("res://intro_cutscene.tscn").instantiate()
 	get_tree().root.add_child(scene)
-	scene.get_node("Camera").make_current()
-	scene.get_node("Player0").level=1
+	#scene.get_node("Camera").make_current()
+	#scene.get_node("Player0").level=1
 	self.queue_free()
 	

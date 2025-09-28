@@ -7,9 +7,9 @@ extends CharacterBody2D
 @export var deviceID = 0
 @export var bulletSpeed = 400
 @export var upgrades: Array[String] = []
-@export var max_health = 3
+@export var max_health = 2
 @export var dashSpeed = 300
-var health = 3
+var health = 2
 var dashing=0
 var dashVector=Vector2.ZERO
 var level=0

@@ -14,6 +14,8 @@ func _process(delta):
 			grab_target.valid = true
 		$Area2D.get_overlapping_areas()[0].grabber = null
 	
+	if not get_node("../../Player%dHover" % (deviceID+1)):
+		return
 	if $Area2D.get_overlapping_areas() and "upgrade_name" in $Area2D.get_overlapping_areas():
 		get_node("../../Player%dHover" % (deviceID+1)).text = $Area2D.get_overlapping_areas()[0].upgrade_name
 	else:
