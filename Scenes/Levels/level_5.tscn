@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://d0y0flsql518w"]
+[gd_scene load_steps=10 format=4 uid="uid://coebiij1hbghc"]
 
 [ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="1_2634h"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_sanrf"]
-[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="2_2634h"]
+[ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="2_2634h"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_wakwf"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="4_reooa"]
-[ext_resource type="PackedScene" path="res://Scenes/spawner.tscn" id="5_doouk"]
+[ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_doouk"]
+[ext_resource type="PackedScene" uid="uid://wc2jfgqlln3n" path="res://Scenes/mud.tscn" id="7_reooa"]
 [ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="7_wakwf"]
 
 [sub_resource type="Environment" id="Environment_w2ac1"]
@@ -78,6 +79,12 @@ script = ExtResource("4_reooa")
 
 [node name="Spawner" parent="." instance=ExtResource("5_doouk")]
 position = Vector2(-281, -65)
+
+[node name="Spawner2" parent="." instance=ExtResource("5_doouk")]
+position = Vector2(167, -191)
+enemy = ExtResource("7_reooa")
+spawn_delay = 2
+spawn_count = 8
 
 [node name="Spawner3" parent="." instance=ExtResource("5_doouk")]
 position = Vector2(317, 101)
