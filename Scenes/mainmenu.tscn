@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c0e666f0hck86"]
+[gd_scene load_steps=15 format=4 uid="uid://beplermcgcjo1"]
 
 [ext_resource type="Script" uid="uid://ce2x4dfji7n6l" path="res://Scenes/mainmenu.gd" id="1_pposm"]
 [ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="2_v4pkt"]

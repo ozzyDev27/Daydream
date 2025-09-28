@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://buggup58icodx"]
+[gd_scene load_steps=50 format=4 uid="uid://brd6b8pc60hv1"]
 
 [ext_resource type="Script" uid="uid://b3tif88kmiwvy" path="res://shaker.gd" id="1_qyyv5"]
 [ext_resource type="Texture2D" uid="uid://cq54icgq06y78" path="res://Sprites/Space station._32_2(1).png" id="1_rlq26"]

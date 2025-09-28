@@ -93,6 +93,9 @@ func _physics_process(delta):
 	
 	velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	if velocity.x > 0 || velocity.y > 0:
+		
+		if !$walk.is_playing():
+			$walk.play()
 		if angle >= -PI/8 and angle < PI/8:
 			sprite.play("Running")
 		elif angle >= PI/8 and angle < 3*PI/8:

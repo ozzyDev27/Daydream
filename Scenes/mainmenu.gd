@@ -1,7 +1,8 @@
 extends Node2D
 
 func _input(event):
-	if event.is_action_pressed("Jump0"):
+	if event.is_action_pressed("Jump"):
+		print("amooooogus")
 		startgame()
 
 func startgame() -> void:

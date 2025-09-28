@@ -1,18 +1,19 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1qihfh16csrq"]
+[gd_scene load_steps=21 format=3 uid="uid://c6fctulk84x8v"]
 
-[ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_b5l46"]
-[ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_0nu4x"]
-[ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="3_dq8uk"]
-[ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_jt6q5"]
-[ext_resource type="Texture2D" uid="uid://ds3fw8r8hwuht" path="res://Sprites/Player 1 Brain.png" id="4_r3g0y"]
-[ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="5_r3g0y"]
-[ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="6_3vk3i"]
-[ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_4nnqe"]
-[ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_cl5uq"]
-[ext_resource type="Script" uid="uid://bf377cv1e3iox" path="res://Scenes/Levels/next_level.gd" id="10_0nu4x"]
-[ext_resource type="PackedScene" uid="uid://fgrv213wa5i3" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_dq8uk"]
-[ext_resource type="FontFile" uid="uid://c87w3bnyvvh0n" path="res://Fonts/m6x11plus.ttf" id="11_jt6q5"]
-[ext_resource type="PackedScene" uid="uid://ba1dycvvj4aut" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_r3g0y"]
+[ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_6ntsn"]
+[ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_i8jnk"]
+[ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="3_p20dd"]
+[ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_08260"]
+[ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="5_heuoo"]
+[ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="6_0qlqc"]
+[ext_resource type="PackedScene" uid="uid://f0gcsh0qutax" path="res://Scenes/Upgrade Shapes/plus.tscn" id="7_5wtmf"]
+[ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_segk8"]
+[ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_5xvus"]
+[ext_resource type="PackedScene" uid="uid://fgrv213wa5i3" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_4juob"]
+[ext_resource type="Script" uid="uid://bf377cv1e3iox" path="res://Scenes/Levels/next_level.gd" id="11_hktfv"]
+[ext_resource type="PackedScene" uid="uid://ba1dycvvj4aut" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_5oren"]
+[ext_resource type="PackedScene" uid="uid://dachvxgi71bj5" path="res://Scenes/Upgrade Shapes/evil t.tscn" id="13_qr2le"]
+[ext_resource type="PackedScene" uid="uid://c8q0du0ka54sp" path="res://Scenes/Upgrade Shapes/evil square.tscn" id="14_24pxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sy0g7"]
 size = Vector2(12, 13.5)
@@ -34,7 +35,7 @@ size = Vector2(90, 30)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="PlayerMouse" parent="." instance=ExtResource("1_b5l46")]
+[node name="PlayerMouse" parent="." instance=ExtResource("1_6ntsn")]
 z_index = 1
 position = Vector2(-253, -82)
 scale = Vector2(2, 2)
@@ -45,7 +46,7 @@ friction = 2000
 
 [node name="Slop2D" type="Sprite2D" parent="PlayerMouse"]
 position = Vector2(5, 0)
-script = ExtResource("2_0nu4x")
+script = ExtResource("2_i8jnk")
 
 [node name="Area2D" type="Area2D" parent="PlayerMouse/Slop2D"]
 monitorable = false
@@ -54,84 +55,75 @@ monitorable = false
 position = Vector2(-8.5, -4.25)
 shape = SubResource("RectangleShape2D_sy0g7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-207, -79)
-texture = ExtResource("4_r3g0y")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(415, -1)
-texture = ExtResource("4_r3g0y")
-
 [node name="Grid1" type="Node2D" parent="."]
 position = Vector2(-256, -96)
-script = ExtResource("3_dq8uk")
+script = ExtResource("3_p20dd")
 
 [node name="sprite" type="Node2D" parent="Grid1"]
-visible = false
 position = Vector2(96, 0)
 
 [node name="drop area5" type="Sprite2D" parent="Grid1/sprite"]
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area6" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-32, 0)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area7" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(0, -32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area8" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-32, -32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area2" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-64, 0)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-96, 0)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area3" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-64, -32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area4" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-96, -32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area9" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(0, 64)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area10" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-32, 64)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area11" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(0, 32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area12" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-32, 32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area13" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-64, 64)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area14" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-96, 64)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area15" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-64, 32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area16" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-96, 32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="Blocker" type="Area2D" parent="Grid1"]
 position = Vector2(0, -32)
@@ -157,7 +149,7 @@ shape = SubResource("RectangleShape2D_l0xsu")
 [node name="Interior" type="Area2D" parent="Grid1"]
 collision_layer = 0
 collision_mask = 16
-script = ExtResource("5_r3g0y")
+script = ExtResource("5_heuoo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid1/Interior"]
 position = Vector2(48, 16)
@@ -172,74 +164,73 @@ theme_override_font_sizes/font_size = 12
 
 [node name="Grid0" type="Node2D" parent="."]
 position = Vector2(160, -96)
-script = ExtResource("3_dq8uk")
+script = ExtResource("3_p20dd")
 
 [node name="sprite" type="Node2D" parent="Grid0"]
-visible = false
 position = Vector2(96, 0)
 
 [node name="drop area5" type="Sprite2D" parent="Grid0/sprite"]
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area6" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-32, 0)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area7" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(0, -32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area8" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-32, -32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area2" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-64, 0)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-96, 0)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area3" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-64, -32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area4" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-96, -32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area9" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(0, 64)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area10" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-32, 64)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area11" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(0, 32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area12" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-32, 32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area13" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-64, 64)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area14" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-96, 64)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area15" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-64, 32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="drop area16" type="Sprite2D" parent="Grid0/sprite"]
 position = Vector2(-96, 32)
-texture = ExtResource("4_jt6q5")
+texture = ExtResource("4_08260")
 
 [node name="Blocker" type="Area2D" parent="Grid0"]
 position = Vector2(0, -32)
@@ -265,7 +256,7 @@ shape = SubResource("RectangleShape2D_l0xsu")
 [node name="Interior" type="Area2D" parent="Grid0"]
 collision_layer = 0
 collision_mask = 16
-script = ExtResource("5_r3g0y")
+script = ExtResource("5_heuoo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid0/Interior"]
 position = Vector2(48, 16)
@@ -280,24 +271,41 @@ theme_override_font_sizes/font_size = 12
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
-script = ExtResource("6_3vk3i")
+script = ExtResource("6_0qlqc")
 
-[node name="Upgrade2" parent="." instance=ExtResource("8_4nnqe")]
+[node name="Upgrade" parent="." instance=ExtResource("7_5wtmf")]
+position = Vector2(-14, 105)
+highlight_color = Color(0.86, 0.5544133, 0.15480001, 1)
+upgrade_name = "Battery Bullets"
+
+[node name="Upgrade2" parent="." instance=ExtResource("8_segk8")]
 position = Vector2(32, 64)
 highlight_color = Color(0.5952, 0.84448, 0.96, 1)
 upgrade_name = "Slash Attack"
 
-[node name="Upgrade4" parent="." instance=ExtResource("8_4nnqe")]
-position = Vector2(-169, 83)
+[node name="Upgrade4" parent="." instance=ExtResource("8_segk8")]
+position = Vector2(183, 131)
+scale = Vector2(1, -1)
 highlight_color = Color(0.5952, 0.84448, 0.96, 1)
 upgrade_name = "Slash Attack"
 
-[node name="Upgrade3" parent="." instance=ExtResource("9_cl5uq")]
-position = Vector2(17, 0)
+[node name="Upgrade3" parent="." instance=ExtResource("9_5xvus")]
+position = Vector2(-172, 37)
 highlight_color = Color(0.8, 0.16, 0.16, 1)
 upgrade_name = "Extra Health"
 
-[node name="PlayerMouse2" parent="." instance=ExtResource("1_b5l46")]
+[node name="Upgrade13" parent="." instance=ExtResource("9_5xvus")]
+position = Vector2(-51, 57)
+rotation = 3.1415927
+highlight_color = Color(0.8, 0.16, 0.16, 1)
+upgrade_name = "Damage Dash"
+
+[node name="Upgrade5" parent="." instance=ExtResource("9_5xvus")]
+position = Vector2(-181, 113)
+highlight_color = Color(0.8, 0.16, 0.16, 1)
+upgrade_name = "Extra Health"
+
+[node name="PlayerMouse2" parent="." instance=ExtResource("1_6ntsn")]
 modulate = Color(0.975, 1, 0.5, 1)
 z_index = 1
 position = Vector2(-26, -97)
@@ -310,7 +318,7 @@ deviceID = 1
 
 [node name="Slop2D" type="Sprite2D" parent="PlayerMouse2"]
 position = Vector2(5, 0)
-script = ExtResource("2_0nu4x")
+script = ExtResource("2_i8jnk")
 
 [node name="Area2D" type="Area2D" parent="PlayerMouse2/Slop2D"]
 monitorable = false
@@ -319,19 +327,24 @@ monitorable = false
 position = Vector2(-8.5, -4.25)
 shape = SubResource("RectangleShape2D_dwqjb")
 
-[node name="Upgrade6" parent="." instance=ExtResource("10_dq8uk")]
-position = Vector2(-252, 84)
+[node name="Upgrade6" parent="." instance=ExtResource("10_4juob")]
+position = Vector2(106, 122)
 highlight_color = Color(0.57776016, 0.25759998, 0.92, 1)
 upgrade_name = "Faster Slash"
 
-[node name="Upgrade7" parent="." instance=ExtResource("10_dq8uk")]
-position = Vector2(-80, -56)
-highlight_color = Color(0.25759998, 0.92, 0.90896004, 1)
-upgrade_name = "Larger Slash"
+[node name="Upgrade11" parent="." instance=ExtResource("10_4juob")]
+position = Vector2(6, -7)
+highlight_color = Color(0.94743747, 0.89263606, 0.92600876, 1)
+upgrade_name = "Dash Ability"
+
+[node name="Upgrade7" parent="." instance=ExtResource("10_4juob")]
+position = Vector2(-249, 60)
+highlight_color = Color(0.25759998, 0.92, 0.87584, 1)
+upgrade_name = "Faster Firerate"
 
 [node name="NextLevel" type="Area2D" parent="."]
 position = Vector2(-1, 122)
-script = ExtResource("10_0nu4x")
+script = ExtResource("11_hktfv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
 position = Vector2(2, 11)
@@ -342,9 +355,6 @@ offset_left = -39.0
 offset_top = -1.0
 offset_right = 43.0
 offset_bottom = 22.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8862745)
-theme_override_fonts/font = ExtResource("11_jt6q5")
-theme_override_font_sizes/font_size = 22
 text = "Next Level"
 
 [node name="ColorRect" type="ColorRect" parent="NextLevel/Label"]
@@ -356,10 +366,15 @@ offset_right = 86.0
 offset_bottom = 28.0
 color = Color(0, 0, 0, 0.60784316)
 
-[node name="Upgrade9" parent="." instance=ExtResource("12_r3g0y")]
+[node name="Upgrade9" parent="." instance=ExtResource("12_5oren")]
 position = Vector2(211, 36)
 highlight_color = Color(0.2356, 0.2880401, 0.76, 1)
 upgrade_name = "Move Speed"
+
+[node name="Upgrade12" parent="." instance=ExtResource("12_5oren")]
+position = Vector2(134, 15)
+highlight_color = Color(0.86184007, 0.2978544, 0.47605407, 1)
+upgrade_name = "Long Dash"
 
 [node name="Player2Hover" type="Label" parent="."]
 offset_left = -283.0
@@ -373,6 +388,30 @@ offset_top = 131.0
 offset_right = 285.0
 offset_bottom = 154.0
 horizontal_alignment = 2
+
+[node name="Upgrade10" parent="." instance=ExtResource("13_qr2le")]
+position = Vector2(192, -127)
+upgrade_name = "Bad Omen..."
+
+[node name="Upgrade8" parent="." instance=ExtResource("14_24pxm")]
+position = Vector2(-254, -124)
+upgrade_name = "Slower Attacks"
+
+[node name="Upgrade14" parent="." instance=ExtResource("9_5xvus")]
+position = Vector2(-84, 96)
+scale = Vector2(-1, 1)
+highlight_color = Color(0.62, 0.2841667, 0.21700002, 1)
+upgrade_name = "Spike Trap"
+
+[node name="Upgrade15" parent="." instance=ExtResource("14_24pxm")]
+position = Vector2(163, -92)
+highlight_color = Color(0.6480781, 0.64807814, 0.6480781, 1)
+upgrade_name = "Slippery"
+
+[node name="Upgrade16" parent="." instance=ExtResource("12_5oren")]
+position = Vector2(36, -96)
+highlight_color = Color(0.57768, 0.83, 0.5644, 1)
+upgrade_name = "Spike Trap"
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_exited" from="NextLevel" to="NextLevel" method="_on_body_exited"]
