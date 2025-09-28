@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://drgvnpmmad2j2"]
 
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_iixi8"]
-[ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_xgxfi"]
+[ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="1_xgxfi"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_xgxfi"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="4_5f3p6"]
 [ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="5_cyadu"]
