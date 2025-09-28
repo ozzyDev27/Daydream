@@ -412,7 +412,7 @@ animations = [{
 size = Vector2(34, 18)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_2ijsl"]
-points = PackedVector2Array(0, 10, 0, -10, 120, -40, 120, 40)
+points = PackedVector2Array(0, 10, 0, -10, 80, -40, 80, 40)
 
 [sub_resource type="Gradient" id="Gradient_p1odr"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
@@ -446,6 +446,7 @@ shape = SubResource("RectangleShape2D_paucl")
 shape = SubResource("ConvexPolygonShape2D_2ijsl")
 
 [node name="Sprite2D" type="Sprite2D" parent="SlashArea"]
+visible = false
 position = Vector2(93, -1)
 texture = ExtResource("25_p1odr")
 

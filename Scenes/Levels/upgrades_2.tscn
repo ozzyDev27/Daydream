@@ -1,0 +1,515 @@
+[gd_scene load_steps=15 format=3 uid="uid://bgiqdqxsgy3i3"]
+
+[ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_dwqjb"]
+[ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_tr6v8"]
+[ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="3_o5y7c"]
+[ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_ssapi"]
+[ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="5_6b1rf"]
+[ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="6_65ab5"]
+[ext_resource type="PackedScene" uid="uid://f0gcsh0qutax" path="res://Scenes/Upgrade Shapes/plus.tscn" id="7_nl5ai"]
+[ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_lb62e"]
+[ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_1nk0x"]
+[ext_resource type="Script" uid="uid://bejfy1bgqp65b" path="res://Scenes/next_level.gd" id="10_g4w6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy0g7"]
+size = Vector2(12, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhb4j"]
+size = Vector2(20, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0xsu"]
+size = Vector2(167, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsmy"]
+size = Vector2(126, 126)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerMouse2" parent="." instance=ExtResource("1_dwqjb")]
+z_index = 1
+position = Vector2(-759, -246)
+scale = Vector2(4, 4)
+moveSpeed = 300
+acceleration = 4000
+friction = 2000
+deviceID = 1
+
+[node name="Slop2D" type="Sprite2D" parent="PlayerMouse2"]
+position = Vector2(5, 0)
+script = ExtResource("2_tr6v8")
+
+[node name="Area2D" type="Area2D" parent="PlayerMouse2/Slop2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMouse2/Slop2D/Area2D"]
+position = Vector2(-8.5, -4.25)
+shape = SubResource("RectangleShape2D_sy0g7")
+
+[node name="PlayerMouse" parent="." instance=ExtResource("1_dwqjb")]
+z_index = 1
+position = Vector2(-253, -82)
+scale = Vector2(2, 2)
+moveSpeed = 300
+acceleration = 4000
+friction = 2000
+
+[node name="Slop2D" type="Sprite2D" parent="PlayerMouse"]
+position = Vector2(5, 0)
+script = ExtResource("2_tr6v8")
+
+[node name="Area2D" type="Area2D" parent="PlayerMouse/Slop2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMouse/Slop2D/Area2D"]
+position = Vector2(-8.5, -4.25)
+shape = SubResource("RectangleShape2D_sy0g7")
+
+[node name="Grid1" type="Node2D" parent="."]
+position = Vector2(-256, -96)
+script = ExtResource("3_o5y7c")
+
+[node name="sprite" type="Node2D" parent="Grid1"]
+position = Vector2(96, 0)
+
+[node name="drop area5" type="Sprite2D" parent="Grid1/sprite"]
+texture = ExtResource("4_ssapi")
+
+[node name="drop area6" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-32, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area7" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(0, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area8" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-32, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area2" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-64, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-96, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area3" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-64, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area4" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-96, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area9" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(0, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area10" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-32, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area11" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(0, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area12" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-32, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area13" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-64, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area14" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-96, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area15" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-64, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area16" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-96, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="Blocker" type="Area2D" parent="Grid1"]
+position = Vector2(0, -32)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Grid1/Blocker"]
+position = Vector2(131, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid1/Blocker"]
+position = Vector2(-37, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid1/Blocker"]
+position = Vector2(49, 127)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid1/Blocker"]
+position = Vector2(48, -33)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="Interior" type="Area2D" parent="Grid1"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_6b1rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid1/Interior"]
+position = Vector2(48, 16)
+shape = SubResource("RectangleShape2D_rmsmy")
+
+[node name="Label" type="Label" parent="Grid1"]
+offset_left = 160.0
+offset_top = -64.0
+offset_right = 200.0
+offset_bottom = -41.0
+
+[node name="Grid0" type="Node2D" parent="."]
+position = Vector2(160, -96)
+script = ExtResource("3_o5y7c")
+
+[node name="sprite" type="Node2D" parent="Grid0"]
+position = Vector2(96, 0)
+
+[node name="drop area5" type="Sprite2D" parent="Grid0/sprite"]
+texture = ExtResource("4_ssapi")
+
+[node name="drop area6" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-32, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area7" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(0, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area8" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-32, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area2" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-64, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-96, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area3" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-64, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area4" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-96, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area9" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(0, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area10" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-32, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area11" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(0, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area12" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-32, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area13" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-64, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area14" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-96, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area15" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-64, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area16" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-96, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="Blocker" type="Area2D" parent="Grid0"]
+position = Vector2(0, -32)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Grid0/Blocker"]
+position = Vector2(131, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid0/Blocker"]
+position = Vector2(-37, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid0/Blocker"]
+position = Vector2(49, 127)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid0/Blocker"]
+position = Vector2(48, -33)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="Interior" type="Area2D" parent="Grid0"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_6b1rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid0/Interior"]
+position = Vector2(48, 16)
+shape = SubResource("RectangleShape2D_rmsmy")
+
+[node name="Label" type="Label" parent="Grid0"]
+offset_left = -128.0
+offset_top = -64.0
+offset_right = -88.0
+offset_bottom = -41.0
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+script = ExtResource("6_65ab5")
+
+[node name="Upgrade" parent="." instance=ExtResource("7_nl5ai")]
+position = Vector2(-62, 61)
+highlight_color = Color(0.86, 0.5544133, 0.15480001, 1)
+upgrade_name = "Battery Bullets"
+
+[node name="Upgrade2" parent="." instance=ExtResource("8_lb62e")]
+position = Vector2(32, 64)
+highlight_color = Color(0.5952, 0.84448, 0.96, 1)
+upgrade_name = "Slash Attack"
+
+[node name="Upgrade3" parent="." instance=ExtResource("9_1nk0x")]
+highlight_color = Color(0.8, 0.16, 0.16, 1)
+upgrade_name = "Extra Health"
+
+[node name="Grid2" type="Node2D" parent="."]
+position = Vector2(-256, 64)
+script = ExtResource("3_o5y7c")
+
+[node name="sprite" type="Node2D" parent="Grid2"]
+position = Vector2(96, 0)
+
+[node name="drop area5" type="Sprite2D" parent="Grid2/sprite"]
+texture = ExtResource("4_ssapi")
+
+[node name="drop area6" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-32, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area7" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(0, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area8" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-32, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area2" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-64, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-96, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area3" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-64, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area4" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-96, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area9" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(0, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area10" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-32, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area11" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(0, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area12" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-32, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area13" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-64, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area14" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-96, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area15" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-64, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area16" type="Sprite2D" parent="Grid2/sprite"]
+position = Vector2(-96, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="Blocker" type="Area2D" parent="Grid2"]
+position = Vector2(0, -32)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Grid2/Blocker"]
+position = Vector2(131, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid2/Blocker"]
+position = Vector2(-37, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid2/Blocker"]
+position = Vector2(49, 127)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid2/Blocker"]
+position = Vector2(48, -33)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="Interior" type="Area2D" parent="Grid2"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_6b1rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid2/Interior"]
+position = Vector2(48, 16)
+shape = SubResource("RectangleShape2D_rmsmy")
+
+[node name="Label" type="Label" parent="Grid2"]
+offset_left = 160.0
+offset_top = -64.0
+offset_right = 200.0
+offset_bottom = -41.0
+
+[node name="Grid3" type="Node2D" parent="."]
+position = Vector2(160, 64)
+script = ExtResource("3_o5y7c")
+
+[node name="sprite" type="Node2D" parent="Grid3"]
+position = Vector2(96, 0)
+
+[node name="drop area5" type="Sprite2D" parent="Grid3/sprite"]
+texture = ExtResource("4_ssapi")
+
+[node name="drop area6" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-32, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area7" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(0, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area8" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-32, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area2" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-64, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-96, 0)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area3" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-64, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area4" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-96, -32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area9" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(0, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area10" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-32, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area11" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(0, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area12" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-32, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area13" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-64, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area14" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-96, 64)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area15" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-64, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="drop area16" type="Sprite2D" parent="Grid3/sprite"]
+position = Vector2(-96, 32)
+texture = ExtResource("4_ssapi")
+
+[node name="Blocker" type="Area2D" parent="Grid3"]
+position = Vector2(0, -32)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Grid3/Blocker"]
+position = Vector2(131, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid3/Blocker"]
+position = Vector2(-37, 48)
+shape = SubResource("RectangleShape2D_hhb4j")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid3/Blocker"]
+position = Vector2(49, 127)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid3/Blocker"]
+position = Vector2(48, -33)
+shape = SubResource("RectangleShape2D_l0xsu")
+
+[node name="Interior" type="Area2D" parent="Grid3"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_6b1rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid3/Interior"]
+position = Vector2(48, 16)
+shape = SubResource("RectangleShape2D_rmsmy")
+
+[node name="Label" type="Label" parent="Grid3"]
+offset_left = -128.0
+offset_top = -64.0
+offset_right = -88.0
+offset_bottom = -41.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = -44.0
+offset_top = 123.0
+offset_right = 46.0
+offset_bottom = 154.0
+text = "Next Level"
+script = ExtResource("10_g4w6w")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

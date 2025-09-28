@@ -3,15 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://dp5crv8frroyw" path="res://Scenes/upgrade.tscn" id="1_tpltt"]
 
 [node name="Upgrade" instance=ExtResource("1_tpltt")]
-position = Vector2(-2, -2)
 
 [node name="Base" parent="." index="0"]
-position = Vector2(18.200005, 19.2)
+position = Vector2(15.680004, 15.779999)
 region_rect = Rect2(96, 32, 32, 32)
 
 [node name="Highlight" parent="Base" index="0"]
 region_rect = Rect2(96, 32, 32, 32)
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-position = Vector2(4, 4)
+position = Vector2(1.4799995, 0.579998)
 polygon = PackedVector2Array(-18, -17, 46, -17, 46, 15, 14, 15, 14, 47, -18, 47)
