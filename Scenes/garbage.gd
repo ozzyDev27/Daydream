@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 40
 @onready var nav_agent = $NavigationAgent2D
+@onready var sprite = $Sprite2D
 var dash = 0
 var health = 3
 var nearest_player: Node2D = null
@@ -26,11 +27,15 @@ func _physics_process(delta):
 		elif dash>120:
 			dash-=60*delta
 			velocity*=.95
-			print("slow down")
 		else:
 			velocity=Vector2.ZERO
 			dash-=60*delta
-		
+		if dash<30:
+			sprite.play("charge")
+		elif dash<250:
+			sprite.play("normal")
+		else:
+			sprite.play("go")
 	move_and_slide()
 	get_nearest_player()
 

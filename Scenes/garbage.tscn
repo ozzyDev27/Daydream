@@ -1,7 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyjpk5vdxdx1t"]
+[gd_scene load_steps=18 format=3 uid="uid://cyjpk5vdxdx1t"]
 
 [ext_resource type="Script" uid="uid://dxqy71m8dg42o" path="res://Scenes/garbage.gd" id="1_7hy1g"]
+[ext_resource type="Texture2D" uid="uid://bp5xa70qegkw" path="res://Sprites/programmer art/garbage bag.png" id="2_p0o0v"]
 [ext_resource type="Texture2D" uid="uid://blcjsuxd8asun" path="res://Sprites/programmer art/Slime by Tofame/Slimes1.png" id="2_vygmy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g0yy"]
+atlas = ExtResource("2_p0o0v")
+region = Rect2(64, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3251e"]
+atlas = ExtResource("2_p0o0v")
+region = Rect2(96, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_putav"]
+atlas = ExtResource("2_p0o0v")
+region = Rect2(0, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqfp4"]
+atlas = ExtResource("2_p0o0v")
+region = Rect2(32, 56, 32, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hy1g"]
 atlas = ExtResource("2_vygmy")
@@ -29,6 +46,33 @@ region = Rect2(64, 36, 32, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2g0yy"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g0yy")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3251e")
+}],
+"loop": true,
+"name": &"go",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_putav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqfp4")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7hy1g")
@@ -67,10 +111,9 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_7hy1g")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_2g0yy")
-animation = &"nyom"
-frame = 3
-frame_progress = 0.305119
+animation = &"go"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
