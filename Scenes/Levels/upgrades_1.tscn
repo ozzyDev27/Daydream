@@ -310,7 +310,7 @@ shape = SubResource("RectangleShape2D_dwqjb")
 [node name="Upgrade6" parent="." instance=ExtResource("10_dq8uk")]
 position = Vector2(-252, 84)
 highlight_color = Color(0.57776016, 0.25759998, 0.92, 1)
-upgrade_name = "Slash Damage Boost"
+upgrade_name = "Faster Slash"
 
 [node name="Upgrade7" parent="." instance=ExtResource("10_dq8uk")]
 position = Vector2(-80, -56)

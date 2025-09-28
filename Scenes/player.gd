@@ -44,6 +44,16 @@ func _ready():
 		
 	if "Larger Slash" in upgrades:
 		$SlashArea.scale = Vector2.ONE * 2
+	
+	if "Faster Slash" in upgrades:
+		$SlashTimer.wait_time = 0.1
+		
+	if "Faster Firerate" in upgrades:
+		$BulletTimer.wait_time = 0.2
+		
+	if "Slower Attacks" in upgrades:
+		$BulletTimer.wait_time += 0.1
+		$SlashTimer.wait_time += 0.1
 		
 	health = max_health
 
@@ -179,6 +189,6 @@ func nextLevel() -> void:
 
 
 func _on_bullet_timer_timeout():
-	if Input.is_action_pressed("Action"+str(deviceID)) and ["Minigun"] in upgrades:
+	if Input.is_action_pressed("Action"+str(deviceID)) and "Faster Firerate" in upgrades:
 		summonBullet()
 		$BulletTimer.start()
