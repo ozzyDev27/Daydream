@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://buggup58icodx"]
+[gd_scene load_steps=9 format=3 uid="uid://buggup58icodx"]
 
 [ext_resource type="Texture2D" uid="uid://cq54icgq06y78" path="res://Sprites/Space station._32_2(1).png" id="1_rlq26"]
-[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="2_lvalt"]
+[ext_resource type="Script" uid="uid://bfyofuw5fh6lj" path="res://change_scene.gd" id="3_b82mh"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_pcp2w"]
+[ext_resource type="PackedScene" uid="uid://bf584lq4yeprs" path="res://arrow.tscn" id="4_b82mh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lvalt"]
 
@@ -11,6 +12,9 @@ size = Vector2(191, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvalt"]
 size = Vector2(33, 218.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b82mh"]
+size = Vector2(33, 190)
 
 [node name="Intro Cutscene" type="Node2D"]
 
@@ -23,12 +27,6 @@ texture = ExtResource("1_rlq26")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(32, 149)
 zoom = Vector2(1.8, 1.8)
-
-[node name="LevelEnd" parent="." instance=ExtResource("2_lvalt")]
-position = Vector2(522, 124)
-
-[node name="LevelEnd2" parent="." instance=ExtResource("2_lvalt")]
-position = Vector2(523, 221)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-383, 0)
@@ -78,3 +76,18 @@ deviceID = 1
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(491, 116)
 shape = SubResource("RectangleShape2D_lvalt")
+
+[node name="change scene" type="Area2D" parent="."]
+position = Vector2(359, 115)
+script = ExtResource("3_b82mh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="change scene"]
+position = Vector2(-6.5, 21)
+shape = SubResource("RectangleShape2D_b82mh")
+
+[node name="Arrow" parent="." instance=ExtResource("4_b82mh")]
+modulate = Color(1, 1, 1, 0.81960785)
+position = Vector2(308, 162)
+scale = Vector2(2, 2)
+
+[connection signal="body_entered" from="change scene" to="change scene" method="_on_body_entered"]
