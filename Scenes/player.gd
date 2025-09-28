@@ -7,9 +7,9 @@ extends CharacterBody2D
 @export var deviceID = 0
 @export var bulletSpeed = 400
 @export var upgrades: Array[String] = []
-@export var max_health = 3
+@export var max_health = 2
 @export var dashSpeed = 300
-var health = 3
+var health = 2
 var dashing=0
 var dashVector=Vector2.ZERO
 var level=0
@@ -41,6 +41,9 @@ func _ready():
 		
 	if "Move Speed" in upgrades:
 		moveSpeed += 30
+		
+	if "Larger Slash" in upgrades:
+		$SlashArea.scale = Vector2.ONE * 2
 		
 	health = max_health
 
@@ -112,9 +115,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
 	if Input.is_action_just_pressed("Action"+suffix) and "Battery Bullets" in upgrades:
-		summonBullet()
+		if $BulletTimer.is_stopped():
+			$BulletTimer.start()
+			summonBullet()
 	if Input.is_action_just_pressed("Jump"+suffix) and "Slash Attack" in upgrades:
-		slashAttack()
+		if $SlashTimer.is_stopped():
+			$SlashTimer.start()
+			slashAttack()
 	if Input.is_action_just_pressed("Dash"+suffix) and "Dash Ability" in upgrades:
 		if input_vector.length() > movement_deadzone:
 			if "Long Dash" in upgrades:
@@ -169,3 +176,9 @@ func nextLevel() -> void:
 	scene.get_node("Camera").make_current()
 	scene.get_node("PlayerMouse").level=level
 	get_parent().queue_free()
+
+
+func _on_bullet_timer_timeout():
+	if Input.is_action_pressed("Action"+str(deviceID)) and ["Minigun"] in upgrades:
+		summonBullet()
+		$BulletTimer.start()

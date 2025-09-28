@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cq54icgq06y78" path="res://Sprites/Space station._32_2(1).png" id="1_rlq26"]
 [ext_resource type="Script" uid="uid://bfyofuw5fh6lj" path="res://change_scene.gd" id="3_b82mh"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_pcp2w"]
-[ext_resource type="PackedScene" uid="uid://bf584lq4yeprs" path="res://arrow.tscn" id="4_b82mh"]
+[ext_resource type="PackedScene" path="res://arrow.tscn" id="4_b82mh"]
 [ext_resource type="Texture2D" uid="uid://b72c5dhfdbc1q" path="res://Fantasy-UI.png" id="5_87rbk"]
 [ext_resource type="FontFile" uid="uid://c87w3bnyvvh0n" path="res://Fonts/m6x11plus.ttf" id="5_660lu"]
 [ext_resource type="Script" uid="uid://eteyy2yo8bw1" path="res://text_control.gd" id="5_suuxw"]
@@ -381,7 +381,7 @@ position = Vector2(127, 241)
 shape = SubResource("RectangleShape2D_suuxw")
 
 [node name="change scene" type="Area2D" parent="."]
-position = Vector2(359, 115)
+position = Vector2(340, 127)
 script = ExtResource("3_b82mh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="change scene"]

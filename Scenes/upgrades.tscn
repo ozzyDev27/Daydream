@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://bcruhc4adg2mm"]
 
-[ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_l0xsu"]
+[ext_resource type="PackedScene" uid="uid://b2flvhhefgcxn" path="res://Scenes/player_mouse.tscn" id="1_l0xsu"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_lisd6"]
 [ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_hhb4j"]
 [ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="4_l0xsu"]
 [ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="6_l0xsu"]
-[ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="7_rmsmy"]
+[ext_resource type="Script" uid="uid://cu1d6wk7p3ymt" path="res://Scenes/upgradecamera.gd" id="7_rmsmy"]
 [ext_resource type="PackedScene" uid="uid://f0gcsh0qutax" path="res://Scenes/Upgrade Shapes/plus.tscn" id="7_sy0g7"]
 [ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_copim"]
 [ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_copim"]

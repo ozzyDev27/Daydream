@@ -13,8 +13,12 @@ func _process(delta):
 			grab_target.global_position = grab_target.original_position
 			grab_target.valid = true
 		$Area2D.get_overlapping_areas()[0].grabber = null
+		
 	
-	if $Area2D.get_overlapping_areas() and "upgrade_name" in $Area2D.get_overlapping_areas():
+	if not get_node("../../Player%dHover" % (deviceID+1)):
+		print("Error! failed to find hovers")
+		return
+	if $Area2D.get_overlapping_areas() and "upgrade_name" in $Area2D.get_overlapping_areas()[0]:
 		get_node("../../Player%dHover" % (deviceID+1)).text = $Area2D.get_overlapping_areas()[0].upgrade_name
 	else:
 		get_node("../../Player%dHover" % (deviceID+1)).text = ""
