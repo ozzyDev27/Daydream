@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://buggup58icodx"]
+[gd_scene load_steps=51 format=4 uid="uid://buggup58icodx"]
 
 [ext_resource type="Script" uid="uid://b3tif88kmiwvy" path="res://shaker.gd" id="1_qyyv5"]
 [ext_resource type="Texture2D" uid="uid://cq54icgq06y78" path="res://Sprites/Space station._32_2(1).png" id="1_rlq26"]
@@ -501,6 +501,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Environment" id="Environment_8u21e"]
+background_mode = 3
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 1
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.2
+glow_bloom = 0.1
+glow_hdr_threshold = 2.09
+glow_hdr_scale = 0.83
+glow_hdr_luminance_cap = 5.0
+adjustment_contrast = 0.83
+
 [node name="Intro Cutscene" type="Node2D"]
 
 [node name="shaker" type="Node2D" parent="."]
@@ -687,6 +702,9 @@ autoplay = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(32, 149)
 zoom = Vector2(1.8, 1.8)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8u21e")
 
 [connection signal="body_entered" from="shaker/change scene" to="shaker/change scene" method="_on_body_entered"]
 [connection signal="timeout" from="shaker/Text Control/Node2D/Timer" to="shaker/Text Control" method="_on_timer_timeout"]
