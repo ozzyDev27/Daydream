@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://buawoycfc2h62"
+path="res://.godot/imported/Steps_floor-002.ogg-81e8b8f69f8a6be1ca46be898a5ef9ea.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/new folder/Steps_floor-002.ogg"
+dest_files=["res://.godot/imported/Steps_floor-002.ogg-81e8b8f69f8a6be1ca46be898a5ef9ea.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
