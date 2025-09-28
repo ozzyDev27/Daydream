@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1qihfh16csrq"]
+[gd_scene load_steps=21 format=3 uid="uid://c1qihfh16csrq"]
 
 [ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_b5l46"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_0nu4x"]
@@ -31,6 +31,21 @@ size = Vector2(12, 13.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tr6v8"]
 size = Vector2(90, 30)
+
+[sub_resource type="Environment" id="Environment_r3g0y"]
+background_mode = 3
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 1
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.2
+glow_bloom = 0.1
+glow_hdr_threshold = 2.09
+glow_hdr_scale = 0.83
+glow_hdr_luminance_cap = 5.0
+adjustment_contrast = 0.83
 
 [node name="Node2D" type="Node2D"]
 
@@ -171,6 +186,10 @@ script = ExtResource("3_dq8uk")
 
 [node name="sprite" type="Node2D" parent="Grid0"]
 position = Vector2(96, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grid0/sprite"]
+position = Vector2(-47, 17)
+texture = ExtResource("4_r3g0y")
 
 [node name="drop area5" type="Sprite2D" parent="Grid0/sprite"]
 texture = ExtResource("4_jt6q5")
@@ -367,6 +386,9 @@ offset_top = 131.0
 offset_right = 285.0
 offset_bottom = 154.0
 horizontal_alignment = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r3g0y")
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_exited" from="NextLevel" to="NextLevel" method="_on_body_exited"]
