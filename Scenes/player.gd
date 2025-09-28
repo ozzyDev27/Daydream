@@ -12,6 +12,7 @@ extends CharacterBody2D
 var health = 2
 var dashing=0
 var dashVector=Vector2.ZERO
+var canDash=true
 var level=0
 @export var movement_deadzone: float = 0.15
 var bullet = load("res://Scenes/bullet.tscn")
@@ -133,9 +134,12 @@ func _physics_process(delta):
 			$SlashTimer.start()
 			slashAttack()
 	if Input.is_action_just_pressed("Dash"+suffix) and "Dash Ability" in upgrades:
-		if input_vector.length() > movement_deadzone:
+		if input_vector.length() > movement_deadzone and canDash:
+			canDash=false
 			if "Long Dash" in upgrades:
-				dashing=10
+				dashSpeed=500
+			dashing=10
+			$DashTimer.start()
 			dashVector=input_vector
 		
 	$HealthBar.max_value = max_health
@@ -192,3 +196,7 @@ func _on_bullet_timer_timeout():
 	if Input.is_action_pressed("Action"+str(deviceID)) and "Faster Firerate" in upgrades:
 		summonBullet()
 		$BulletTimer.start()
+
+
+func _on_dash_timer_timeout() -> void:
+	canDash=true
