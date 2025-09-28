@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://btbeduc20uvwb"]
+[gd_scene load_steps=22 format=3 uid="uid://btbeduc20uvwb"]
 
+[ext_resource type="PackedScene" uid="uid://clp52ge5mwo16" path="res://the_goddamn_background.tscn" id="1_5ev0a"]
 [ext_resource type="PackedScene" uid="uid://b2flvhhefgcxn" path="res://Scenes/player_mouse.tscn" id="1_rqlnq"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_5ev0a"]
 [ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="3_d5rty"]
@@ -34,6 +35,8 @@ size = Vector2(12, 13.5)
 size = Vector2(90, 30)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="THE GODDAMN OCEAN" parent="." instance=ExtResource("1_5ev0a")]
 
 [node name="PlayerMouse" parent="." instance=ExtResource("1_rqlnq")]
 z_index = 1
