@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2xgymke613hf"]
+[gd_scene load_steps=18 format=3 uid="uid://d2xgymke613hf"]
 
 [ext_resource type="Texture2D" uid="uid://dqmgotb5qbr8l" path="res://Sprites/IMG_2315.PNG" id="1_0bnu1"]
 [ext_resource type="Script" uid="uid://bt8ddjpiro7w" path="res://boss.gd" id="1_6xxrv"]
 [ext_resource type="Texture2D" uid="uid://dmgyx3tb8qi1p" path="res://attack1charge.png" id="3_ef0k6"]
+[ext_resource type="Texture2D" uid="uid://d36tyreblmfqh" path="res://Sprites/IMG_2321.PNG" id="3_etj48"]
+[ext_resource type="Texture2D" uid="uid://qvucp4w4r780" path="res://Sprites/IMG_2320.PNG" id="4_h3lj5"]
 [ext_resource type="Texture2D" uid="uid://b6tteiyjc5mdw" path="res://attack1full.png" id="4_ry61v"]
 [ext_resource type="Texture2D" uid="uid://dgnvrd0lsnivp" path="res://attack2charge.png" id="5_kles1"]
 [ext_resource type="Texture2D" uid="uid://w1oyki1tos0s" path="res://Sprites/empty land.png" id="5_ry61v"]
@@ -17,7 +19,23 @@ animations = [{
 "texture": ExtResource("1_0bnu1")
 }],
 "loop": true,
-"name": &"default",
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_etj48")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h3lj5")
+}],
+"loop": true,
+"name": &"sadder",
 "speed": 5.0
 }]
 
@@ -88,7 +106,7 @@ script = ExtResource("1_6xxrv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6xxrv")
-frame_progress = 0.064386345
+animation = &"normal"
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 6.0

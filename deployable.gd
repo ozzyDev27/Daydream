@@ -4,7 +4,7 @@ extends CharacterBody2D
 var lastX=0
 var lastY=0
 var threshold=100
-var health = 60
+var health = 30
 func _physics_process(delta: float) -> void:
 	velocity.x=veloX*delta
 	velocity.y=veloY*delta
@@ -24,3 +24,7 @@ func damage(a):
 	print('test')
 	if health<=0:
 		queue_free()
+		if get_node("../boss").get_node("AnimatedSprite2D").animation=="normal":
+			get_node("../boss").get_node("AnimatedSprite2D").play("sad")
+		else:
+			get_node("../boss").get_node("AnimatedSprite2D").play("sadder")

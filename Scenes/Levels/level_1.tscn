@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://drgvnpmmad2j2"]
+[gd_scene load_steps=9 format=4 uid="uid://drgvnpmmad2j2"]
 
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_iixi8"]
 [ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_xgxfi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="4_5f3p6"]
 [ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="5_cyadu"]
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_xgxfi"]
+[ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="7_5f3p6"]
 
 [sub_resource type="Environment" id="Environment_tspv2"]
 tonemap_mode = 3
@@ -47,13 +48,8 @@ moveSpeed = 125
 acceleration = 1000
 friction = 500
 
-[node name="Player1" parent="." instance=ExtResource("3_xgxfi")]
-position = Vector2(-253, 203)
-scale = Vector2(0.5, 0.5)
-moveSpeed = 125
-acceleration = 1000
-friction = 500
-deviceID = 1
+[node name="Player1" parent="." instance=ExtResource("7_5f3p6")]
+position = Vector2(-261, 201)
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("4_5f3p6")
