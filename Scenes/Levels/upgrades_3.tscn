@@ -1,32 +1,48 @@
-[gd_scene load_steps=22 format=3 uid="uid://c362yh8um1rex"]
+[gd_scene load_steps=24 format=3 uid="uid://c362yh8um1rex"]
 
-[ext_resource type="PackedScene" uid="uid://clp52ge5mwo16" path="res://the_goddamn_background.tscn" id="1_3ef0y"]
-[ext_resource type="PackedScene" uid="uid://b2flvhhefgcxn" path="res://Scenes/player_mouse.tscn" id="1_8qt76"]
+[ext_resource type="PackedScene" path="res://the_goddamn_background.tscn" id="1_3ef0y"]
+[ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_8qt76"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_xrs8i"]
 [ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="3_3ef0y"]
 [ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_i327x"]
 [ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="5_6leou"]
-[ext_resource type="Script" uid="uid://cu1d6wk7p3ymt" path="res://Scenes/upgradecamera.gd" id="6_n5x3u"]
+[ext_resource type="Texture2D" uid="uid://ds3fw8r8hwuht" path="res://Sprites/Player 1 Brain.png" id="5_i327x"]
+[ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="6_n5x3u"]
 [ext_resource type="PackedScene" uid="uid://f0gcsh0qutax" path="res://Scenes/Upgrade Shapes/plus.tscn" id="7_7132y"]
 [ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_f1m3u"]
 [ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_iav1h"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_l7kyv"]
-[ext_resource type="Script" path="res://Scenes/Levels/next_level.gd" id="11_nb36t"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_gk3y6"]
+[ext_resource type="PackedScene" uid="uid://fgrv213wa5i3" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_l7kyv"]
+[ext_resource type="Script" uid="uid://bf377cv1e3iox" path="res://Scenes/Levels/next_level.gd" id="11_nb36t"]
+[ext_resource type="PackedScene" uid="uid://ba1dycvvj4aut" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_gk3y6"]
 [ext_resource type="PackedScene" uid="uid://dachvxgi71bj5" path="res://Scenes/Upgrade Shapes/evil t.tscn" id="13_jpniu"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/evil square.tscn" id="14_xrs8i"]
+[ext_resource type="PackedScene" uid="uid://c8q0du0ka54sp" path="res://Scenes/Upgrade Shapes/evil square.tscn" id="14_xrs8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sy0g7"]
 size = Vector2(12, 13.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhb4j"]
+[sub_resource type="Environment" id="Environment_6leou"]
+background_mode = 3
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 1
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.2
+glow_bloom = 0.1
+glow_hdr_threshold = 2.09
+glow_hdr_scale = 0.83
+glow_hdr_luminance_cap = 5.0
+adjustment_contrast = 0.83
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5x3u"]
 size = Vector2(20, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0xsu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7132y"]
 size = Vector2(167, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsmy"]
-size = Vector2(126, 126)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1m3u"]
+size = Vector2(126, 152.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwqjb"]
 size = Vector2(12, 13.5)
@@ -58,6 +74,21 @@ monitorable = false
 position = Vector2(-8.5, -4.25)
 shape = SubResource("RectangleShape2D_sy0g7")
 
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+script = ExtResource("6_n5x3u")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6leou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-208, -64)
+texture = ExtResource("5_i327x")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(208, -65)
+texture = ExtResource("5_i327x")
+
 [node name="Grid1" type="Node2D" parent="."]
 position = Vector2(-256, -96)
 script = ExtResource("3_3ef0y")
@@ -78,6 +109,22 @@ texture = ExtResource("4_i327x")
 
 [node name="drop area8" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-32, -32)
+texture = ExtResource("4_i327x")
+
+[node name="drop area17" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(0, 96)
+texture = ExtResource("4_i327x")
+
+[node name="drop area18" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-32, 96)
+texture = ExtResource("4_i327x")
+
+[node name="drop area19" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-64, 96)
+texture = ExtResource("4_i327x")
+
+[node name="drop area20" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-96, 96)
 texture = ExtResource("4_i327x")
 
 [node name="drop area2" type="Sprite2D" parent="Grid1/sprite"]
@@ -135,19 +182,19 @@ collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Grid1/Blocker"]
 position = Vector2(131, 48)
-shape = SubResource("RectangleShape2D_hhb4j")
+shape = SubResource("RectangleShape2D_n5x3u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid1/Blocker"]
 position = Vector2(-37, 48)
-shape = SubResource("RectangleShape2D_hhb4j")
+shape = SubResource("RectangleShape2D_n5x3u")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid1/Blocker"]
-position = Vector2(49, 127)
-shape = SubResource("RectangleShape2D_l0xsu")
+position = Vector2(50, 156)
+shape = SubResource("RectangleShape2D_7132y")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid1/Blocker"]
 position = Vector2(48, -33)
-shape = SubResource("RectangleShape2D_l0xsu")
+shape = SubResource("RectangleShape2D_7132y")
 
 [node name="Interior" type="Area2D" parent="Grid1"]
 collision_layer = 0
@@ -155,8 +202,8 @@ collision_mask = 16
 script = ExtResource("5_6leou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid1/Interior"]
-position = Vector2(48, 16)
-shape = SubResource("RectangleShape2D_rmsmy")
+position = Vector2(48, 32)
+shape = SubResource("RectangleShape2D_f1m3u")
 
 [node name="Label" type="Label" parent="Grid1"]
 offset_left = 130.0
@@ -242,19 +289,19 @@ collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Grid0/Blocker"]
 position = Vector2(131, 48)
-shape = SubResource("RectangleShape2D_hhb4j")
+shape = SubResource("RectangleShape2D_n5x3u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid0/Blocker"]
 position = Vector2(-37, 48)
-shape = SubResource("RectangleShape2D_hhb4j")
+shape = SubResource("RectangleShape2D_n5x3u")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid0/Blocker"]
-position = Vector2(49, 127)
-shape = SubResource("RectangleShape2D_l0xsu")
+position = Vector2(50, 156)
+shape = SubResource("RectangleShape2D_7132y")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid0/Blocker"]
 position = Vector2(48, -33)
-shape = SubResource("RectangleShape2D_l0xsu")
+shape = SubResource("RectangleShape2D_7132y")
 
 [node name="Interior" type="Area2D" parent="Grid0"]
 collision_layer = 0
@@ -262,8 +309,8 @@ collision_mask = 16
 script = ExtResource("5_6leou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid0/Interior"]
-position = Vector2(48, 16)
-shape = SubResource("RectangleShape2D_rmsmy")
+position = Vector2(48, 31)
+shape = SubResource("RectangleShape2D_f1m3u")
 
 [node name="Label" type="Label" parent="Grid0"]
 offset_left = -146.0
@@ -271,10 +318,6 @@ offset_top = -64.0
 offset_right = -106.0
 offset_bottom = -41.0
 theme_override_font_sizes/font_size = 12
-
-[node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-script = ExtResource("6_n5x3u")
 
 [node name="Upgrade" parent="." instance=ExtResource("7_7132y")]
 position = Vector2(-14, 105)
@@ -292,7 +335,7 @@ highlight_color = Color(0.5952, 0.84448, 0.96, 1)
 upgrade_name = "Slash Attack"
 
 [node name="Upgrade3" parent="." instance=ExtResource("9_iav1h")]
-position = Vector2(-172, 37)
+position = Vector2(-165, 59)
 highlight_color = Color(0.8, 0.16, 0.16, 1)
 upgrade_name = "Extra Health"
 
@@ -369,7 +412,7 @@ offset_bottom = 28.0
 color = Color(0, 0, 0, 0.60784316)
 
 [node name="Upgrade9" parent="." instance=ExtResource("12_gk3y6")]
-position = Vector2(211, 36)
+position = Vector2(228, 107)
 highlight_color = Color(0.2356, 0.2880401, 0.76, 1)
 upgrade_name = "Move Speed"
 

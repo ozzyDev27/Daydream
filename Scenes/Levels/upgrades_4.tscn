@@ -1,32 +1,33 @@
-[gd_scene load_steps=22 format=3 uid="uid://btbeduc20uvwb"]
+[gd_scene load_steps=23 format=3 uid="uid://n24byhuugexa"]
 
-[ext_resource type="PackedScene" uid="uid://clp52ge5mwo16" path="res://the_goddamn_background.tscn" id="1_5ev0a"]
-[ext_resource type="PackedScene" uid="uid://b2flvhhefgcxn" path="res://Scenes/player_mouse.tscn" id="1_rqlnq"]
+[ext_resource type="PackedScene" path="res://the_goddamn_background.tscn" id="1_5ev0a"]
+[ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_rqlnq"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_5ev0a"]
 [ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="3_d5rty"]
 [ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_oiw8j"]
 [ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="5_ctbeh"]
-[ext_resource type="Script" uid="uid://cu1d6wk7p3ymt" path="res://Scenes/upgradecamera.gd" id="6_hydni"]
+[ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="6_hydni"]
 [ext_resource type="PackedScene" uid="uid://f0gcsh0qutax" path="res://Scenes/Upgrade Shapes/plus.tscn" id="7_1htbu"]
 [ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_0pyva"]
 [ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_rl8ve"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_7dif4"]
-[ext_resource type="Script" path="res://Scenes/Levels/next_level.gd" id="11_smmjn"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_h3ghv"]
+[ext_resource type="PackedScene" uid="uid://fgrv213wa5i3" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_7dif4"]
+[ext_resource type="Script" uid="uid://bf377cv1e3iox" path="res://Scenes/Levels/next_level.gd" id="11_smmjn"]
+[ext_resource type="PackedScene" uid="uid://ba1dycvvj4aut" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_h3ghv"]
+[ext_resource type="Texture2D" uid="uid://ds3fw8r8hwuht" path="res://Sprites/Player 1 Brain.png" id="13_d5rty"]
 [ext_resource type="PackedScene" uid="uid://dachvxgi71bj5" path="res://Scenes/Upgrade Shapes/evil t.tscn" id="13_xukf1"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/evil square.tscn" id="14_oggmg"]
+[ext_resource type="PackedScene" uid="uid://c8q0du0ka54sp" path="res://Scenes/Upgrade Shapes/evil square.tscn" id="14_oggmg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiw8j"]
+size = Vector2(20, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctbeh"]
+size = Vector2(167, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hydni"]
+size = Vector2(126, 152.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sy0g7"]
 size = Vector2(12, 13.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhb4j"]
-size = Vector2(20, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0xsu"]
-size = Vector2(167, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsmy"]
-size = Vector2(126, 126)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwqjb"]
 size = Vector2(12, 13.5)
@@ -38,25 +39,13 @@ size = Vector2(90, 30)
 
 [node name="THE GODDAMN OCEAN" parent="." instance=ExtResource("1_5ev0a")]
 
-[node name="PlayerMouse" parent="." instance=ExtResource("1_rqlnq")]
-z_index = 1
-position = Vector2(-253, -82)
-scale = Vector2(2, 2)
-collision_mask = 0
-moveSpeed = 300
-acceleration = 4000
-friction = 2000
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-208, -64)
+texture = ExtResource("13_d5rty")
 
-[node name="Slop2D" type="Sprite2D" parent="PlayerMouse"]
-position = Vector2(5, 0)
-script = ExtResource("2_5ev0a")
-
-[node name="Area2D" type="Area2D" parent="PlayerMouse/Slop2D"]
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMouse/Slop2D/Area2D"]
-position = Vector2(-8.5, -4.25)
-shape = SubResource("RectangleShape2D_sy0g7")
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(208, -65)
+texture = ExtResource("13_d5rty")
 
 [node name="Grid1" type="Node2D" parent="."]
 position = Vector2(-256, -96)
@@ -78,6 +67,22 @@ texture = ExtResource("4_oiw8j")
 
 [node name="drop area8" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-32, -32)
+texture = ExtResource("4_oiw8j")
+
+[node name="drop area17" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(0, 96)
+texture = ExtResource("4_oiw8j")
+
+[node name="drop area18" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-32, 96)
+texture = ExtResource("4_oiw8j")
+
+[node name="drop area19" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-64, 96)
+texture = ExtResource("4_oiw8j")
+
+[node name="drop area20" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-96, 96)
 texture = ExtResource("4_oiw8j")
 
 [node name="drop area2" type="Sprite2D" parent="Grid1/sprite"]
@@ -135,19 +140,19 @@ collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Grid1/Blocker"]
 position = Vector2(131, 48)
-shape = SubResource("RectangleShape2D_hhb4j")
+shape = SubResource("RectangleShape2D_oiw8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid1/Blocker"]
 position = Vector2(-37, 48)
-shape = SubResource("RectangleShape2D_hhb4j")
+shape = SubResource("RectangleShape2D_oiw8j")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid1/Blocker"]
-position = Vector2(49, 127)
-shape = SubResource("RectangleShape2D_l0xsu")
+position = Vector2(50, 156)
+shape = SubResource("RectangleShape2D_ctbeh")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid1/Blocker"]
 position = Vector2(48, -33)
-shape = SubResource("RectangleShape2D_l0xsu")
+shape = SubResource("RectangleShape2D_ctbeh")
 
 [node name="Interior" type="Area2D" parent="Grid1"]
 collision_layer = 0
@@ -155,8 +160,8 @@ collision_mask = 16
 script = ExtResource("5_ctbeh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid1/Interior"]
-position = Vector2(48, 16)
-shape = SubResource("RectangleShape2D_rmsmy")
+position = Vector2(48, 32)
+shape = SubResource("RectangleShape2D_hydni")
 
 [node name="Label" type="Label" parent="Grid1"]
 offset_left = 130.0
@@ -242,19 +247,19 @@ collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Grid0/Blocker"]
 position = Vector2(131, 48)
-shape = SubResource("RectangleShape2D_hhb4j")
+shape = SubResource("RectangleShape2D_oiw8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid0/Blocker"]
 position = Vector2(-37, 48)
-shape = SubResource("RectangleShape2D_hhb4j")
+shape = SubResource("RectangleShape2D_oiw8j")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid0/Blocker"]
-position = Vector2(49, 127)
-shape = SubResource("RectangleShape2D_l0xsu")
+position = Vector2(50, 156)
+shape = SubResource("RectangleShape2D_ctbeh")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid0/Blocker"]
 position = Vector2(48, -33)
-shape = SubResource("RectangleShape2D_l0xsu")
+shape = SubResource("RectangleShape2D_ctbeh")
 
 [node name="Interior" type="Area2D" parent="Grid0"]
 collision_layer = 0
@@ -262,8 +267,8 @@ collision_mask = 16
 script = ExtResource("5_ctbeh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid0/Interior"]
-position = Vector2(48, 16)
-shape = SubResource("RectangleShape2D_rmsmy")
+position = Vector2(48, 31)
+shape = SubResource("RectangleShape2D_hydni")
 
 [node name="Label" type="Label" parent="Grid0"]
 offset_left = -146.0
@@ -271,6 +276,26 @@ offset_top = -64.0
 offset_right = -106.0
 offset_bottom = -41.0
 theme_override_font_sizes/font_size = 12
+
+[node name="PlayerMouse" parent="." instance=ExtResource("1_rqlnq")]
+z_index = 1
+position = Vector2(-253, -82)
+scale = Vector2(2, 2)
+collision_mask = 0
+moveSpeed = 300
+acceleration = 4000
+friction = 2000
+
+[node name="Slop2D" type="Sprite2D" parent="PlayerMouse"]
+position = Vector2(5, 0)
+script = ExtResource("2_5ev0a")
+
+[node name="Area2D" type="Area2D" parent="PlayerMouse/Slop2D"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMouse/Slop2D/Area2D"]
+position = Vector2(-8.5, -4.25)
+shape = SubResource("RectangleShape2D_sy0g7")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -412,7 +437,7 @@ highlight_color = Color(0.6480781, 0.64807814, 0.6480781, 1)
 upgrade_name = "Slippery"
 
 [node name="Upgrade16" parent="." instance=ExtResource("12_h3ghv")]
-position = Vector2(36, -96)
+position = Vector2(-254, 104)
 highlight_color = Color(0.57768, 0.83, 0.5644, 1)
 upgrade_name = "Spike Trap"
 
