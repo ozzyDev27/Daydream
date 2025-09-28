@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://byxk8x4kessrb"]
+
+[ext_resource type="Script" uid="uid://brtgtn6cjt82e" path="res://deployable.gd" id="1_cxih8"]
+[ext_resource type="Texture2D" uid="uid://ddqfcx7rfvto8" path="res://deployable1.png" id="2_uuyfl"]
+[ext_resource type="Texture2D" uid="uid://bg00rebu5135e" path="res://deployable2.png" id="3_uuyfl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cxih8"]
+radius = 106.004715
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6x1j6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uuyfl")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uuyfl")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}]
+
+[node name="Deployable" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_cxih8")
+
+[node name="bouncingcollider" type="CollisionShape2D" parent="."]
+position = Vector2(5, -10)
+shape = SubResource("CircleShape2D_cxih8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6x1j6")
+animation = &"1"
+
+[node name="hurtbox" type="Area2D" parent="." groups=["damageable"]]
+
+[node name="hurtboxcollider" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(5, -10)
+shape = SubResource("CircleShape2D_cxih8")
