@@ -11,17 +11,18 @@ background_mode = 3
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 16.0
+reflected_light_source = 1
 tonemap_mode = 3
 glow_enabled = true
-glow_intensity = 1.09
-glow_bloom = 0.97
+glow_intensity = 3.79
+glow_bloom = 0.19
 glow_hdr_threshold = 4.0
-glow_hdr_scale = 4.0
-glow_hdr_luminance_cap = 13.76
+glow_hdr_scale = 2.1
+glow_hdr_luminance_cap = 5.0
 adjustment_enabled = true
 adjustment_brightness = 0.57
-adjustment_contrast = 4.78
-adjustment_saturation = 0.83
+adjustment_contrast = 1.9
+adjustment_saturation = 0.74
 
 [node name="Level2" type="Node2D"]
 position = Vector2(0, -1)
