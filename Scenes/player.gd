@@ -180,6 +180,7 @@ func slashAttack():
 	for body in $SlashArea.get_overlapping_areas():
 		if body.is_in_group("damageable"):
 			body.get_parent().damage(1)
+	$"SlashArea/SlashSprite".play("slash")
 	
 		
 func summonBullet():

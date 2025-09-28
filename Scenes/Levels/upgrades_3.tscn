@@ -297,7 +297,7 @@ upgrade_name = "Extra Health"
 position = Vector2(-51, 57)
 rotation = 3.1415927
 highlight_color = Color(0.8, 0.16, 0.16, 1)
-upgrade_name = "Extra Health"
+upgrade_name = "Damage Dash"
 
 [node name="Upgrade5" parent="." instance=ExtResource("9_iav1h")]
 position = Vector2(-172, 114)
