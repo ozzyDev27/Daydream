@@ -1,39 +1,21 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1qihfh16csrq"]
+[gd_scene load_steps=22 format=3 uid="uid://c1qihfh16csrq"]
 
-[ext_resource type="PackedScene" uid="uid://clp52ge5mwo16" path="res://the_goddamn_background.tscn" id="1_3vk3i"]
-[ext_resource type="PackedScene" uid="uid://b2flvhhefgcxn" path="res://Scenes/player_mouse.tscn" id="1_b5l46"]
+[ext_resource type="PackedScene" path="res://the_goddamn_background.tscn" id="1_3vk3i"]
+[ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_b5l46"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_0nu4x"]
 [ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="3_dq8uk"]
 [ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_jt6q5"]
 [ext_resource type="Texture2D" uid="uid://ds3fw8r8hwuht" path="res://Sprites/Player 1 Brain.png" id="4_r3g0y"]
 [ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="5_r3g0y"]
-[ext_resource type="Script" uid="uid://cu1d6wk7p3ymt" path="res://Scenes/upgradecamera.gd" id="6_3vk3i"]
+[ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="6_3vk3i"]
 [ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_4nnqe"]
 [ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_cl5uq"]
-[ext_resource type="Script" path="res://Scenes/Levels/next_level.gd" id="10_0nu4x"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_dq8uk"]
+[ext_resource type="Script" uid="uid://bf377cv1e3iox" path="res://Scenes/Levels/next_level.gd" id="10_0nu4x"]
+[ext_resource type="PackedScene" uid="uid://fgrv213wa5i3" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_dq8uk"]
 [ext_resource type="FontFile" uid="uid://c87w3bnyvvh0n" path="res://Fonts/m6x11plus.ttf" id="11_jt6q5"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_r3g0y"]
+[ext_resource type="PackedScene" uid="uid://ba1dycvvj4aut" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_r3g0y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy0g7"]
-size = Vector2(12, 13.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhb4j"]
-size = Vector2(20, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0xsu"]
-size = Vector2(167, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsmy"]
-size = Vector2(126, 126)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwqjb"]
-size = Vector2(12, 13.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr6v8"]
-size = Vector2(90, 30)
-
-[sub_resource type="Environment" id="Environment_r3g0y"]
+[sub_resource type="Environment" id="Environment_3vk3i"]
 background_mode = 3
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
@@ -48,7 +30,28 @@ glow_hdr_scale = 0.83
 glow_hdr_luminance_cap = 5.0
 adjustment_contrast = 0.83
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy0g7"]
+size = Vector2(12, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhb4j"]
+size = Vector2(20, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0xsu"]
+size = Vector2(167, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsmy"]
+size = Vector2(126, 152.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwqjb"]
+size = Vector2(12, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr6v8"]
+size = Vector2(90, 30)
+
 [node name="Node2D" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3vk3i")
 
 [node name="THE GODDAMN OCEAN" parent="." instance=ExtResource("1_3vk3i")]
 
@@ -73,11 +76,11 @@ position = Vector2(-8.5, -4.25)
 shape = SubResource("RectangleShape2D_sy0g7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-207, -79)
+position = Vector2(-208, -64)
 texture = ExtResource("4_r3g0y")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(415, -1)
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(208, -65)
 texture = ExtResource("4_r3g0y")
 
 [node name="Grid1" type="Node2D" parent="."]
@@ -85,12 +88,7 @@ position = Vector2(-256, -96)
 script = ExtResource("3_dq8uk")
 
 [node name="sprite" type="Node2D" parent="Grid1"]
-visible = false
 position = Vector2(96, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Grid1/sprite"]
-position = Vector2(-48, 16)
-texture = ExtResource("4_r3g0y")
 
 [node name="drop area5" type="Sprite2D" parent="Grid1/sprite"]
 texture = ExtResource("4_jt6q5")
@@ -105,6 +103,22 @@ texture = ExtResource("4_jt6q5")
 
 [node name="drop area8" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-32, -32)
+texture = ExtResource("4_jt6q5")
+
+[node name="drop area17" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(0, 96)
+texture = ExtResource("4_jt6q5")
+
+[node name="drop area18" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-32, 96)
+texture = ExtResource("4_jt6q5")
+
+[node name="drop area19" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-64, 96)
+texture = ExtResource("4_jt6q5")
+
+[node name="drop area20" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-96, 96)
 texture = ExtResource("4_jt6q5")
 
 [node name="drop area2" type="Sprite2D" parent="Grid1/sprite"]
@@ -169,7 +183,7 @@ position = Vector2(-37, 48)
 shape = SubResource("RectangleShape2D_hhb4j")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid1/Blocker"]
-position = Vector2(49, 127)
+position = Vector2(50, 156)
 shape = SubResource("RectangleShape2D_l0xsu")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid1/Blocker"]
@@ -182,7 +196,7 @@ collision_mask = 16
 script = ExtResource("5_r3g0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid1/Interior"]
-position = Vector2(48, 16)
+position = Vector2(48, 20.75)
 shape = SubResource("RectangleShape2D_rmsmy")
 
 [node name="Label" type="Label" parent="Grid1"]
@@ -197,7 +211,6 @@ position = Vector2(160, -96)
 script = ExtResource("3_dq8uk")
 
 [node name="sprite" type="Node2D" parent="Grid0"]
-visible = false
 position = Vector2(96, 0)
 
 [node name="drop area5" type="Sprite2D" parent="Grid0/sprite"]
@@ -277,7 +290,7 @@ position = Vector2(-37, 48)
 shape = SubResource("RectangleShape2D_hhb4j")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid0/Blocker"]
-position = Vector2(49, 127)
+position = Vector2(50, 150)
 shape = SubResource("RectangleShape2D_l0xsu")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid0/Blocker"]
@@ -290,7 +303,7 @@ collision_mask = 16
 script = ExtResource("5_r3g0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid0/Interior"]
-position = Vector2(48, 16)
+position = Vector2(48, 24.5)
 shape = SubResource("RectangleShape2D_rmsmy")
 
 [node name="Label" type="Label" parent="Grid0"]
@@ -395,9 +408,6 @@ offset_top = 131.0
 offset_right = 285.0
 offset_bottom = 154.0
 horizontal_alignment = 2
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_r3g0y")
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_exited" from="NextLevel" to="NextLevel" method="_on_body_exited"]
