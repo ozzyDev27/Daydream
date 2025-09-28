@@ -14,6 +14,7 @@ var level=0
 @export var movement_deadzone: float = 0.15
 var bullet = load("res://Scenes/bullet.tscn")
 var last_input_vector = Vector2.ZERO
+var last_look_direction = Vector2.LEFT
 
 func _ready():
 	
@@ -52,6 +53,7 @@ func _physics_process(delta):
 	if input_vector.length() > 0:
 		$SlashArea.rotation = input_vector.angle()
 	if input_vector.length() > movement_deadzone:
+		last_look_direction = input_vector
 		velocity = velocity.move_toward(input_vector * moveSpeed, acceleration * delta)
 	
 	var angle = input_vector.angle()
@@ -107,6 +109,12 @@ func _physics_process(delta):
 		
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
+	
+	if health <= 0:
+		var grave = load("res://Scenes/tombstone.tscn").instantiate()
+		get_parent().add_child(grave)
+		grave.global_position = global_position
+		queue_free()
 
 	move_and_slide()
 
@@ -123,10 +131,8 @@ func slashAttack():
 func summonBullet():
 	var newBullet = bullet.instantiate()
 	newBullet.position = position
-	newBullet.direction = last_input_vector
-	if last_input_vector.x<0.1 and last_input_vector.y<0.1:
-		newBullet.direction.x = -1 if sprite.flip_h else 1
-		newBullet.direction.y = 0
+	newBullet.direction = last_look_direction
+	newBullet.rotation = last_look_direction.angle()
 	newBullet.modifier = bulletSpeed
 	get_parent().add_child(newBullet)
 func nextLevel() -> void:

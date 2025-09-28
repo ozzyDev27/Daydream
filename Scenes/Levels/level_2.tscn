@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://b0xj0vbqwnysb"]
 
-[ext_resource type="TileSet" uid="uid://chtl7pkvocun1" path="res://Scenes/timemap.tres" id="1_w2ac1"]
+[ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_w2ac1"]
 [ext_resource type="Texture2D" uid="uid://b1mrl2x7hebti" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/TX Props.png" id="2_ovj6s"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_8qsmg"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="4_fphuk"]
@@ -63,14 +63,6 @@ deviceID = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("4_fphuk")
-
-[node name="Player2" parent="." instance=ExtResource("3_8qsmg")]
-position = Vector2(-222, 168)
-scale = Vector2(0.5, 0.5)
-moveSpeed = 125
-acceleration = 1000
-friction = 500
-deviceID = 3
 
 [node name="Spawner2" parent="." instance=ExtResource("6_8qsmg")]
 position = Vector2(278, -88)
