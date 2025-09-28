@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://bjmssttlxuuex"]
+[gd_scene load_steps=15 format=4 uid="uid://c0e666f0hck86"]
 
 [ext_resource type="Script" uid="uid://ce2x4dfji7n6l" path="res://Scenes/mainmenu.gd" id="1_pposm"]
-[ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="2_v4pkt"]
+[ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="2_v4pkt"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="5_5326e"]
 [ext_resource type="FontFile" uid="uid://c87w3bnyvvh0n" path="res://Fonts/m6x11plus.ttf" id="5_lah54"]
 [ext_resource type="Texture2D" uid="uid://da8uhrhm24y8l" path="res://Sprites/programmer art/gdb-xbox-2.png" id="6_5326e"]
-[ext_resource type="Script" uid="uid://dohd640nayo31" path="res://Scenes/Blink.gd" id="6_juwjy"]
+[ext_resource type="Script" path="res://Scenes/Blink.gd" id="6_juwjy"]
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="6_l2o7r"]
 [ext_resource type="FontFile" uid="uid://brkuj20i8pljx" path="res://Fonts/Squares.ttf" id="8_juwjy"]
 

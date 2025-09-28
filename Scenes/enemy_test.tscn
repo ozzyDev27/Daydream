@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_oyc1c"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_421n3"]
 [ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="3_c3qj7"]
-[ext_resource type="PackedScene" uid="uid://cyjpk5vdxdx1t" path="res://Scenes/garbage.tscn" id="5_421n3"]
+[ext_resource type="PackedScene" uid="uid://wc2jfgqlln3n" path="res://Scenes/mud.tscn" id="5_421n3"]
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_c3qj7"]
 
 [sub_resource type="Environment" id="Environment_tspv2"]
@@ -30,7 +30,6 @@ tile_set = ExtResource("1_oyc1c")
 [node name="Tree Layer" type="TileMapLayer" parent="."]
 z_index = 1
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAFAP7/AQAAAAAAAAATAP//AQAFAAAAAAAOAAQAAQAJAAAAAAAOAAAAAQADAAYAAAAUAAIAAQADAAYAAAADAAQAAQADAAYAAAAKAP//AQADAAYAAAAHAP3/AQADAAYAAAADAP3/AQADAAYAAAA=")
 tile_set = ExtResource("1_oyc1c")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
