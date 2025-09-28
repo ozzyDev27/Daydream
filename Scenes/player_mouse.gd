@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var sprite = $Sprite
  ## THIS IS THE MOUSE SCRIPT!!!!!!!!!!!!!!!!!!!!!!
-@export var moveSpeed = 150
+@export var moveSpeed = 250
 @export var acceleration = 2000
 @export var friction = 1000
 @export var deviceID = 0
