@@ -1,6 +1,6 @@
-[gd_scene load_steps=53 format=4 uid="uid://buggup58icodx"]
+[gd_scene load_steps=54 format=4 uid="uid://dydvsd4urrlcy"]
 
-[ext_resource type="Script" uid="uid://b3tif88kmiwvy" path="res://shaker.gd" id="1_qyyv5"]
+[ext_resource type="Script" path="res://shaker.gd" id="1_qyyv5"]
 [ext_resource type="Texture2D" uid="uid://cq54icgq06y78" path="res://Sprites/Space station._32_2(1).png" id="1_rlq26"]
 [ext_resource type="Script" uid="uid://bfyofuw5fh6lj" path="res://change_scene.gd" id="3_b82mh"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_pcp2w"]
@@ -11,8 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bvj5a3h2s8apq" path="res://Sprites/programmer art/gdb-keyboard-2.png" id="7_usyqk"]
 [ext_resource type="Texture2D" uid="uid://da8uhrhm24y8l" path="res://Sprites/programmer art/gdb-xbox-2.png" id="8_dhk5x"]
 [ext_resource type="AudioStream" uid="uid://dl2gxqd6rsoch" path="res://Sounds/massive-explosion-2-397983.mp3" id="11_8u21e"]
+[ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="11_qflb8"]
 [ext_resource type="AudioStream" uid="uid://1fdyugl6g2kv" path="res://Sounds/siren-loop-107328.mp3" id="12_d43df"]
-[ext_resource type="Script" uid="uid://b7a1p17578uo7" path="res://Scenes/Levels/audio_stream_player_2d.gd" id="13_u8rty"]
+[ext_resource type="Script" path="res://Scenes/Levels/audio_stream_player_2d.gd" id="13_u8rty"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lvalt"]
 
@@ -687,9 +688,7 @@ moveSpeed = 125
 acceleration = 1000
 friction = 500
 
-[node name="Player1" parent="shaker" instance=ExtResource("3_pcp2w")]
-position = Vector2(-149, -39)
-scale = Vector2(0.5, 0.5)
+[node name="Player1" parent="shaker" instance=ExtResource("11_qflb8")]
 moveSpeed = 125
 acceleration = 1000
 friction = 500

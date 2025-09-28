@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_t74h0"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_yy6i0"]
-[ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="3_x1k1j"]
+[ext_resource type="PackedScene" uid="uid://c4pixxuylh7hc" path="res://Scenes/level_end.tscn" id="3_x1k1j"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="4_4ahh4"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="5_dl55b"]
 [ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="5_h0uxt"]
@@ -61,6 +61,9 @@ friction = 500
 
 [node name="Player1" parent="." instance=ExtResource("5_h0uxt")]
 position = Vector2(-261, 201)
+moveSpeed = 125
+acceleration = 1000
+friction = 500
 deviceID = 1
 
 [node name="Camera" type="Camera2D" parent="."]
