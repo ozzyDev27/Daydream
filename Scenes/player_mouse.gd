@@ -30,8 +30,6 @@ func _physics_process(delta):
 		action_down, 
 		deviceID
 	)
-	if Input.is_action_just_pressed("Jump") and deviceID==0:
-		nextLevel()
 		
 	if input_vector.length() > movement_deadzone:
 		velocity = velocity.move_toward(input_vector * moveSpeed, acceleration * delta)
