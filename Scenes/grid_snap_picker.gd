@@ -10,7 +10,7 @@ var original_position = null
 
 func _ready():
 	original_position = global_position
-	$Base/Highlight.self_modulate = highlight_color
+	#$Base/Highlight.self_modulate = highlight_color
 	
 
 func _process(delta):
