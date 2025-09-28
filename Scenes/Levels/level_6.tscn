@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://587mplef5pgb"]
+[gd_scene load_steps=10 format=4 uid="uid://b8kerhpd1t4fo"]
 
 [ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="1_ik81l"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="2_h7uay"]
 [ext_resource type="PackedScene" path="res://boss.tscn" id="3_eygg8"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="4_5l77v"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="5_6y1v7"]
-[ext_resource type="PackedScene" path="res://deployable2.tscn" id="5_eygg8"]
-[ext_resource type="PackedScene" path="res://deployable.tscn" id="6_h7uay"]
+[ext_resource type="PackedScene" uid="uid://cvendxy15pi0a" path="res://deployable2.tscn" id="5_eygg8"]
+[ext_resource type="PackedScene" uid="uid://byxk8x4kessrb" path="res://deployable.tscn" id="6_h7uay"]
+[ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="7_5l77v"]
 
 [sub_resource type="Environment" id="Environment_eygg8"]
 background_mode = 3
@@ -52,6 +53,10 @@ tile_set = ExtResource("2_h7uay")
 position = Vector2(10, -131)
 scale = Vector2(0.2, 0.2)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="Deployable" parent="." instance=ExtResource("6_h7uay")]
 position = Vector2(-268, 112)
 
@@ -67,12 +72,8 @@ moveSpeed = 125
 acceleration = 1000
 friction = 500
 
-[node name="Player1" parent="." instance=ExtResource("4_5l77v")]
-position = Vector2(26, 181)
-scale = Vector2(0.5, 0.5)
-moveSpeed = 125
-acceleration = 1000
-friction = 500
+[node name="Player1" parent="." instance=ExtResource("7_5l77v")]
+position = Vector2(-261, 201)
 deviceID = 1
 
 [node name="Camera" type="Camera2D" parent="."]

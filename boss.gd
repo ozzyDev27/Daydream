@@ -22,7 +22,8 @@ func summonDeployables():
 
 func _on_attack_timer_timeout() -> void:
 	$AttackTimer.start()
-	randomAttack()
+	if $AnimatedSprite2D.animation!="sadder":
+		randomAttack()
 	
 func randomAttack():
 	$ChargeTimer.start()
@@ -36,5 +37,4 @@ func _on_charge_timer_timeout() -> void:
 	for body in get_node(str("Attack",randomness,"Area")).get_overlapping_bodies():
 		if body.is_in_group("players"):
 			body.damage(1000000)
-			print("yowzers!!!!!!!!!!!!!!!!")
 			
