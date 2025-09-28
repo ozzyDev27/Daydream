@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1tgv8s3pdg2u"]
+
+[ext_resource type="PackedScene" uid="uid://co6r4kx8ngo70" path="res://new dialgoeu level 1.tscn" id="1_icxd0"]
+
+[node name="text control gui" instance=ExtResource("1_icxd0")]

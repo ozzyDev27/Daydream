@@ -1,21 +1,21 @@
-[gd_scene load_steps=23 format=3 uid="uid://n24byhuugexa"]
+[gd_scene load_steps=23 format=3 uid="uid://divfa5nnrj81v"]
 
 [ext_resource type="PackedScene" path="res://the_goddamn_background.tscn" id="1_5ev0a"]
 [ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_rqlnq"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_5ev0a"]
 [ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="3_d5rty"]
 [ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_oiw8j"]
-[ext_resource type="Script" uid="uid://cehb4ng7ors3k" path="res://Scenes/validator.gd" id="5_ctbeh"]
+[ext_resource type="Script" path="res://Scenes/validator.gd" id="5_ctbeh"]
 [ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="6_hydni"]
 [ext_resource type="PackedScene" uid="uid://f0gcsh0qutax" path="res://Scenes/Upgrade Shapes/plus.tscn" id="7_1htbu"]
 [ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_0pyva"]
 [ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_rl8ve"]
-[ext_resource type="PackedScene" uid="uid://fgrv213wa5i3" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_7dif4"]
-[ext_resource type="Script" uid="uid://bf377cv1e3iox" path="res://Scenes/Levels/next_level.gd" id="11_smmjn"]
-[ext_resource type="PackedScene" uid="uid://ba1dycvvj4aut" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_h3ghv"]
+[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_7dif4"]
+[ext_resource type="Script" path="res://Scenes/Levels/next_level.gd" id="11_smmjn"]
+[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_h3ghv"]
 [ext_resource type="Texture2D" uid="uid://ds3fw8r8hwuht" path="res://Sprites/Player 1 Brain.png" id="13_d5rty"]
-[ext_resource type="PackedScene" uid="uid://dachvxgi71bj5" path="res://Scenes/Upgrade Shapes/evil t.tscn" id="13_xukf1"]
-[ext_resource type="PackedScene" uid="uid://c8q0du0ka54sp" path="res://Scenes/Upgrade Shapes/evil square.tscn" id="14_oggmg"]
+[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/evil t.tscn" id="13_xukf1"]
+[ext_resource type="PackedScene" path="res://Scenes/Upgrade Shapes/evil square.tscn" id="14_oggmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oiw8j"]
 size = Vector2(20, 128)
@@ -38,6 +38,14 @@ size = Vector2(90, 30)
 [node name="Node2D" type="Node2D"]
 
 [node name="THE GODDAMN OCEAN" parent="." instance=ExtResource("1_5ev0a")]
+
+[node name="ColorRect" type="ColorRect" parent="THE GODDAMN OCEAN"]
+offset_left = -366.0
+offset_top = -247.0
+offset_right = -326.0
+offset_bottom = -207.0
+scale = Vector2(20.88, 11.959999)
+color = Color(0.20511743, 0.20511743, 0.20511743, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-208, -64)
