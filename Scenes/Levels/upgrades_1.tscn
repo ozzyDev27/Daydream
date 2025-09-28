@@ -24,7 +24,7 @@ size = Vector2(20, 128)
 size = Vector2(167, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsmy"]
-size = Vector2(126, 126)
+size = Vector2(126, 152.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwqjb"]
 size = Vector2(12, 13.5)
@@ -69,12 +69,13 @@ monitorable = false
 position = Vector2(-8.5, -4.25)
 shape = SubResource("RectangleShape2D_sy0g7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-207, -79)
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(208, -80)
 texture = ExtResource("4_r3g0y")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(415, -1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-207, -74)
+scale = Vector2(1, 1.1)
 texture = ExtResource("4_r3g0y")
 
 [node name="Grid1" type="Node2D" parent="."]
@@ -82,12 +83,7 @@ position = Vector2(-256, -96)
 script = ExtResource("3_dq8uk")
 
 [node name="sprite" type="Node2D" parent="Grid1"]
-visible = false
 position = Vector2(96, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Grid1/sprite"]
-position = Vector2(-48, 16)
-texture = ExtResource("4_r3g0y")
 
 [node name="drop area5" type="Sprite2D" parent="Grid1/sprite"]
 texture = ExtResource("4_jt6q5")
@@ -102,6 +98,22 @@ texture = ExtResource("4_jt6q5")
 
 [node name="drop area8" type="Sprite2D" parent="Grid1/sprite"]
 position = Vector2(-32, -32)
+texture = ExtResource("4_jt6q5")
+
+[node name="drop area17" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(0, 96)
+texture = ExtResource("4_jt6q5")
+
+[node name="drop area18" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-32, 96)
+texture = ExtResource("4_jt6q5")
+
+[node name="drop area19" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-64, 96)
+texture = ExtResource("4_jt6q5")
+
+[node name="drop area20" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-96, 96)
 texture = ExtResource("4_jt6q5")
 
 [node name="drop area2" type="Sprite2D" parent="Grid1/sprite"]
@@ -166,7 +178,7 @@ position = Vector2(-37, 48)
 shape = SubResource("RectangleShape2D_hhb4j")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid1/Blocker"]
-position = Vector2(49, 127)
+position = Vector2(50, 156)
 shape = SubResource("RectangleShape2D_l0xsu")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid1/Blocker"]
@@ -179,7 +191,7 @@ collision_mask = 16
 script = ExtResource("5_r3g0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid1/Interior"]
-position = Vector2(48, 16)
+position = Vector2(48, 20.75)
 shape = SubResource("RectangleShape2D_rmsmy")
 
 [node name="Label" type="Label" parent="Grid1"]
@@ -274,7 +286,7 @@ position = Vector2(-37, 48)
 shape = SubResource("RectangleShape2D_hhb4j")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Grid0/Blocker"]
-position = Vector2(49, 127)
+position = Vector2(50, 150)
 shape = SubResource("RectangleShape2D_l0xsu")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Grid0/Blocker"]
@@ -287,7 +299,7 @@ collision_mask = 16
 script = ExtResource("5_r3g0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid0/Interior"]
-position = Vector2(48, 16)
+position = Vector2(48, 24.5)
 shape = SubResource("RectangleShape2D_rmsmy")
 
 [node name="Label" type="Label" parent="Grid0"]
