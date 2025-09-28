@@ -107,9 +107,10 @@ func _physics_process(delta):
 		summonBullet()
 	if Input.is_action_just_pressed("Jump"+suffix) and "Slash Attack" in upgrades:
 		slashAttack()
-	if Input.is_action_just_pressed("Dash"+suffix):
+	if Input.is_action_just_pressed("Dash"+suffix) and "Dash" in upgrades:
 		if input_vector.length() > movement_deadzone:
-			dashing=10
+			if "LongDash" in upgrades:
+				dashing=10
 			dashVector=input_vector
 		
 	$HealthBar.max_value = max_health

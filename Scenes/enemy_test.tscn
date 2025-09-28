@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=4 uid="uid://b4i4r8vpq26nu"]
 
-[ext_resource type="TileSet" uid="uid://chtl7pkvocun1" path="res://Scenes/timemap.tres" id="1_oyc1c"]
-[ext_resource type="Texture2D" uid="uid://b1mrl2x7hebti" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/TX Props.png" id="2_c3qj7"]
+[ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_oyc1c"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_421n3"]
 [ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="3_c3qj7"]
+[ext_resource type="PackedScene" uid="uid://cyjpk5vdxdx1t" path="res://Scenes/garbage.tscn" id="5_421n3"]
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_c3qj7"]
 
 [sub_resource type="Environment" id="Environment_tspv2"]
@@ -33,12 +33,6 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAFAP7/AQAAAAAAAAATAP//AQAFAAAAAAAOAAQAAQAJAAAAAAAOAAAAAQADAAYAAAAUAAIAAQADAAYAAAADAAQAAQADAAYAAAAKAP//AQADAAYAAAAHAP3/AQADAAYAAAADAP3/AQADAAYAAAA=")
 tile_set = ExtResource("1_oyc1c")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(208, -32)
-texture = ExtResource("2_c3qj7")
-region_enabled = true
-region_rect = Rect2(256, 0, 32, 64)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tspv2")
 
@@ -57,5 +51,6 @@ position = Vector2(408, 66)
 
 [node name="Spawner" parent="." instance=ExtResource("5_c3qj7")]
 position = Vector2(496, 80)
+enemy = ExtResource("5_421n3")
 spawn_delay = 3
 spawn_count = 4
