@@ -1,5 +1,8 @@
 extends Node2D
 
+func _input(event):
+	if event.is_action_pressed("Jump0"):
+		startgame()
 
 func startgame() -> void:
 	var scene = load("res://Scenes/Levels/level_1.tscn").instantiate()
