@@ -7,9 +7,9 @@ extends CharacterBody2D
 @export var deviceID = 0
 @export var bulletSpeed = 400
 @export var upgrades: Array[String] = []
-@export var max_health = 3
+@export var max_health = 2
 @export var dashSpeed = 300
-var health = 3
+var health = 2
 var dashing=0
 var dashVector=Vector2.ZERO
 var level=0
@@ -41,6 +41,9 @@ func _ready():
 		
 	if "Move Speed" in upgrades:
 		moveSpeed += 30
+		
+	if "Larger Slash" in upgrades:
+		$SlashArea.scale = Vector2.ONE * 2
 		
 	health = max_health
 
