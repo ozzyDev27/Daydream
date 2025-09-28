@@ -156,6 +156,10 @@ func _physics_process(delta):
 	if dashing>0:
 		dashing-=1
 		velocity=dashVector*dashSpeed
+		if "Damage Dash" in upgrades:
+			for body in $DashArea.get_overlapping_areas():
+				if body.is_in_group("damageable"):
+					body.get_parent().damage(1)
 		
 	
 	move_and_slide()
