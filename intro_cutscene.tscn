@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://buggup58icodx"]
+[gd_scene load_steps=50 format=4 uid="uid://buggup58icodx"]
 
 [ext_resource type="Script" uid="uid://b3tif88kmiwvy" path="res://shaker.gd" id="1_qyyv5"]
 [ext_resource type="Texture2D" uid="uid://cq54icgq06y78" path="res://Sprites/Space station._32_2(1).png" id="1_rlq26"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://eteyy2yo8bw1" path="res://text_control.gd" id="5_suuxw"]
 [ext_resource type="Texture2D" uid="uid://bvj5a3h2s8apq" path="res://Sprites/programmer art/gdb-keyboard-2.png" id="7_usyqk"]
 [ext_resource type="Texture2D" uid="uid://da8uhrhm24y8l" path="res://Sprites/programmer art/gdb-xbox-2.png" id="8_dhk5x"]
+[ext_resource type="AudioStream" uid="uid://dl2gxqd6rsoch" path="res://Sounds/massive-explosion-2-397983.mp3" id="11_8u21e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lvalt"]
 
@@ -678,6 +679,10 @@ deviceID = 1
 
 [node name="Timer" type="Timer" parent="shaker"]
 wait_time = 2.312
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="shaker"]
+stream = ExtResource("11_8u21e")
+autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(32, 149)
