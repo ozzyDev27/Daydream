@@ -5,13 +5,13 @@
 [node name="Upgrade" instance=ExtResource("1_e2t4v")]
 
 [node name="Base" parent="." index="0"]
-position = Vector2(46.066673, 44.288895)
+position = Vector2(14.066673, 12.288897)
 region_rect = Rect2(48, 96, 32, 32)
 
 [node name="Highlight" parent="Base" index="0"]
 region_rect = Rect2(48, 64, 32, 32)
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-position = Vector2(17.06667, 31.28889)
+position = Vector2(-14.933329, -0.71110535)
 scale = Vector2(0.8, 0.8)
 polygon = PackedVector2Array(0, -17.777779, 71.111115, -17.777779, 71.111115, 53.333336, 0, 53.333336)

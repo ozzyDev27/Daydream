@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgiqdqxsgy3i3"]
+[gd_scene load_steps=19 format=3 uid="uid://bgiqdqxsgy3i3"]
 
 [ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_dwqjb"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_tr6v8"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_1nk0x"]
 [ext_resource type="Script" uid="uid://bf377cv1e3iox" path="res://Scenes/Levels/next_level.gd" id="11_o5y7c"]
 [ext_resource type="PackedScene" uid="uid://fgrv213wa5i3" path="res://Scenes/Upgrade Shapes/square.tscn" id="11_tr6v8"]
+[ext_resource type="PackedScene" uid="uid://ba1dycvvj4aut" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_o5y7c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sy0g7"]
 size = Vector2(12, 13.5)
@@ -155,6 +156,7 @@ offset_left = 130.0
 offset_top = -64.0
 offset_right = 170.0
 offset_bottom = -41.0
+theme_override_font_sizes/font_size = 12
 
 [node name="Grid0" type="Node2D" parent="."]
 position = Vector2(160, -96)
@@ -261,6 +263,7 @@ offset_left = -128.0
 offset_top = -64.0
 offset_right = -88.0
 offset_bottom = -41.0
+theme_override_font_sizes/font_size = 12
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -282,11 +285,13 @@ highlight_color = Color(0.5952, 0.84448, 0.96, 1)
 upgrade_name = "Slash Attack"
 
 [node name="Upgrade3" parent="." instance=ExtResource("9_1nk0x")]
+position = Vector2(17, 0)
 highlight_color = Color(0.8, 0.16, 0.16, 1)
 upgrade_name = "Extra Health"
 
 [node name="Upgrade5" parent="." instance=ExtResource("9_1nk0x")]
-position = Vector2(-191, 92)
+position = Vector2(-172, 114)
+scale = Vector2(-1, -1)
 highlight_color = Color(0.8, 0.16, 0.16, 1)
 upgrade_name = "Extra Health"
 
@@ -317,8 +322,8 @@ upgrade_name = "Slash Damage Boost"
 
 [node name="Upgrade7" parent="." instance=ExtResource("11_tr6v8")]
 position = Vector2(-80, -56)
-highlight_color = Color(0.92, 0.25759998, 0.5335999, 1)
-upgrade_name = "Bullet Speed Boost"
+highlight_color = Color(0.25759998, 0.92, 0.90896004, 1)
+upgrade_name = "Dash Ability"
 
 [node name="NextLevel" type="Area2D" parent="."]
 position = Vector2(-1, 122)
@@ -343,6 +348,16 @@ offset_top = -2.0
 offset_right = 86.0
 offset_bottom = 28.0
 color = Color(0, 0, 0, 0.60784316)
+
+[node name="Upgrade9" parent="." instance=ExtResource("12_o5y7c")]
+position = Vector2(211, 36)
+highlight_color = Color(0.2356, 0.2880401, 0.76, 1)
+upgrade_name = "Move Speed"
+
+[node name="Upgrade8" parent="." instance=ExtResource("12_o5y7c")]
+position = Vector2(-247, 32)
+highlight_color = Color(0.76, 0.7163, 0.2356, 1)
+upgrade_name = "Dash Invincibility"
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_exited" from="NextLevel" to="NextLevel" method="_on_body_exited"]
