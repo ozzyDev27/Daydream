@@ -14,6 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump"):
 		if dialoguesAmount < len(dialogues) - 1:
+			print("dklfjaslkdfjasdf")
 			dialoguesAmount += 1
 			$AnimationPlayer.play("text scroll")
 			$Dialogue1.bbcode_text = dialogues[dialoguesAmount]
