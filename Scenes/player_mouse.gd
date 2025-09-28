@@ -45,6 +45,7 @@ func _physics_process(delta):
 		emit_signal("startGame")
 	
 	if touching_next_level and (Input.is_action_just_pressed("Jump"+suffix) or Input.is_action_just_pressed("Action"+suffix)):
+		GlobalState.players_alive = 0
 		get_tree().change_scene_to_file("res://Scenes/Levels/level_%d.tscn" % GlobalState.level)
 	
 	if touchingStart or touching_next_level:

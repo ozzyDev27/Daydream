@@ -20,6 +20,8 @@ var last_look_direction = Vector2.LEFT
 
 func _ready():
 	
+	GlobalState.players_alive += 1
+	
 	if deviceID == 0:
 		upgrades = GlobalState.player0upgrades
 	elif deviceID == 1:
@@ -30,6 +32,9 @@ func _ready():
 		upgrades = GlobalState.player3upgrades
 	print(upgrades)
 	print(level)
+	
+	if "Less Health" in upgrades:
+		max_health -= 1
 	
 	if "Extra Health" in upgrades:
 		max_health += 2
@@ -120,10 +125,13 @@ func _physics_process(delta):
 	$HealthBar.value = health
 	
 	if health <= 0:
+		GlobalState.players_alive -= 1
 		var grave = load("res://Scenes/tombstone.tscn").instantiate()
 		get_parent().add_child(grave)
 		grave.global_position = global_position
 		queue_free()
+		if GlobalState.players_alive <= 0:
+			get_tree().reload_current_scene()
 	if dashing>0:
 		dashing-=1
 		velocity=dashVector*dashSpeed
