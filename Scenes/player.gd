@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export var upgrades: Array[String] = []
 @export var max_health = 2
 @export var dashSpeed = 300
+var spike: Node2D = null
+var spike_scene = preload("res://spike.tscn")
 var health = 2
 var dashing=0
 var dashVector=Vector2.ZERO
@@ -141,6 +143,12 @@ func _physics_process(delta):
 			dashing=10
 			$DashTimer.start()
 			dashVector=input_vector
+			
+	if Input.is_action_just_pressed("Spike"+suffix) and "Spike Trap" in upgrades:
+		if spike == null:
+			spike = spike_scene.instantiate()
+			get_parent().add_child(spike)
+		spike.global_position = global_position
 		
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
