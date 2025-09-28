@@ -1,4 +1,5 @@
 [gd_scene load_steps=9 format=4 uid="uid://b0xj0vbqwnysb"]
+[gd_scene load_steps=9 format=4 uid="uid://b0xj0vbqwnysb"]
 
 [ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="1_fphuk"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_w2ac1"]
@@ -56,6 +57,15 @@ region_rect = Rect2(256, 0, 32, 64)
 
 [node name="LevelEnd" parent="." instance=ExtResource("5_ovj6s")]
 position = Vector2(173, 169)
+
+[node name="Spawner2" parent="." instance=ExtResource("6_8qsmg")]
+position = Vector2(278, -88)
+
+[node name="Spawner" parent="." instance=ExtResource("6_8qsmg")]
+position = Vector2(-99, 18)
+
+[node name="Spawner3" parent="." instance=ExtResource("6_8qsmg")]
+position = Vector2(309, 129)
 
 [node name="Player0" parent="." instance=ExtResource("3_8qsmg")]
 position = Vector2(-293, 202)

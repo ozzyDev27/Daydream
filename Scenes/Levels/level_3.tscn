@@ -50,6 +50,12 @@ tile_set = ExtResource("1_jqrsn")
 [node name="LevelEnd" parent="." instance=ExtResource("2_t74h0")]
 position = Vector2(1, 1)
 
+[node name="Spawner" parent="." instance=ExtResource("5_keyqw")]
+position = Vector2(-285, -164)
+
+[node name="Spawner3" parent="." instance=ExtResource("5_keyqw")]
+position = Vector2(164, -163)
+
 [node name="Player0" parent="." instance=ExtResource("3_i4hbv")]
 position = Vector2(-293, 202)
 scale = Vector2(0.5, 0.5)
