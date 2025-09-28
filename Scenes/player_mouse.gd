@@ -11,6 +11,7 @@ var level=0
 
 signal startGame
 var touchingStart = false
+var touching_next_level = false
 
 func _ready():
 	pass
@@ -41,15 +42,21 @@ func _physics_process(delta):
 	move_and_slide()
 	if touchingStart and (Input.is_action_just_pressed("Jump"+suffix) or Input.is_action_just_pressed("Action"+suffix)):
 		emit_signal("startGame")
+	
+	if touching_next_level and (Input.is_action_just_pressed("Jump"+suffix) or Input.is_action_just_pressed("Action"+suffix)):
+		get_tree().change_scene_to_file("res://Scenes/Levels/level_%d.tscn" % GlobalState.level)
+	
+	if touchingStart or touching_next_level:
+		sprite.play("light")
+	else:
+		sprite.play("dark")
 
 
 func _on_start_body_entered(_body: Node2D) -> void:
 	touchingStart=true
-	sprite.play("light")
 
 func _on_start_body_exited(_body: Node2D) -> void:
 	touchingStart=false
-	sprite.play("dark")
 
 func nextLevel() -> void:
 	var scene = load(str("res://Scenes/enemy_test.tscn")).instantiate()
