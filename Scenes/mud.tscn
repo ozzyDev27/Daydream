@@ -1,24 +1,40 @@
-[gd_scene load_steps=18 format=3 uid="uid://wc2jfgqlln3n"]
+[gd_scene load_steps=22 format=3 uid="uid://wc2jfgqlln3n"]
 
 [ext_resource type="Script" uid="uid://4d2nompons4l" path="res://Scenes/mud.gd" id="1_nctmv"]
-[ext_resource type="Texture2D" uid="uid://bp5xa70qegkw" path="res://Sprites/programmer art/garbage bag.png" id="2_vf452"]
+[ext_resource type="Texture2D" uid="uid://bsujpusnsim8l" path="res://Sprites/mud.PNG" id="2_nctmv"]
 [ext_resource type="Texture2D" uid="uid://blcjsuxd8asun" path="res://Sprites/programmer art/Slime by Tofame/Slimes1.png" id="3_0bcrk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2g0yy"]
-atlas = ExtResource("2_vf452")
-region = Rect2(64, 56, 32, 56)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf452"]
+atlas = ExtResource("2_nctmv")
+region = Rect2(12, 32, 327, 321)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3251e"]
-atlas = ExtResource("2_vf452")
-region = Rect2(96, 56, 32, 56)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bcrk"]
+atlas = ExtResource("2_nctmv")
+region = Rect2(339, 32, 327, 321)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_putav"]
-atlas = ExtResource("2_vf452")
-region = Rect2(0, 56, 32, 56)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewtqw"]
+atlas = ExtResource("2_nctmv")
+region = Rect2(666, 32, 327, 321)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqfp4"]
-atlas = ExtResource("2_vf452")
-region = Rect2(32, 56, 32, 56)
+[sub_resource type="AtlasTexture" id="AtlasTexture_52keg"]
+atlas = ExtResource("2_nctmv")
+region = Rect2(993, 32, 327, 321)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx5ud"]
+atlas = ExtResource("2_nctmv")
+region = Rect2(12, 32, 327, 321)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y18df"]
+atlas = ExtResource("2_nctmv")
+region = Rect2(12, 32, 327, 321)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mclo2"]
+atlas = ExtResource("2_nctmv")
+region = Rect2(339, 32, 327, 321)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n74ye"]
+atlas = ExtResource("2_nctmv")
+region = Rect2(666, 32, 327, 321)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hy1g"]
 atlas = ExtResource("3_0bcrk")
@@ -48,7 +64,16 @@ region = Rect2(64, 36, 32, 36)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2g0yy")
+"texture": SubResource("AtlasTexture_vf452")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bcrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewtqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52keg")
 }],
 "loop": true,
 "name": &"charge",
@@ -56,7 +81,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3251e")
+"texture": SubResource("AtlasTexture_mx5ud")
 }],
 "loop": true,
 "name": &"go",
@@ -64,10 +89,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_putav")
+"texture": SubResource("AtlasTexture_y18df")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tqfp4")
+"texture": SubResource("AtlasTexture_mclo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n74ye")
 }],
 "loop": true,
 "name": &"normal",
@@ -112,9 +140,9 @@ script = ExtResource("1_nctmv")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(5.8719515e-06, 0.87502134, 0.59541225, 1)
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.063, 0.063)
 sprite_frames = SubResource("SpriteFrames_2g0yy")
-animation = &"charge"
+animation = &"normal"
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
@@ -126,7 +154,6 @@ position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_c3qj7")
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["damageable"]]
-visible = false
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -134,7 +161,6 @@ position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_swwnm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_aiwxb")
 
