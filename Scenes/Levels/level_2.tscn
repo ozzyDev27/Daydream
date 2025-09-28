@@ -9,10 +9,20 @@
 [ext_resource type="PackedScene" path="res://Scenes/spawner.tscn" id="6_8qsmg"]
 [ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="8_pnnky"]
 
-[sub_resource type="Environment" id="Environment_w2ac1"]
+[sub_resource type="Environment" id="Environment_pnnky"]
+background_mode = 3
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 1
 tonemap_mode = 3
-adjustment_brightness = 2.0
-adjustment_contrast = 2.77
+glow_enabled = true
+glow_intensity = 0.2
+glow_bloom = 0.1
+glow_hdr_threshold = 2.09
+glow_hdr_scale = 0.83
+glow_hdr_luminance_cap = 5.0
+adjustment_contrast = 0.83
 
 [node name="Level2" type="Node2D"]
 position = Vector2(0, -1)
@@ -44,9 +54,6 @@ position = Vector2(208, -32)
 texture = ExtResource("2_ovj6s")
 region_enabled = true
 region_rect = Rect2(256, 0, 32, 64)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_w2ac1")
 
 [node name="LevelEnd" parent="." instance=ExtResource("5_ovj6s")]
 position = Vector2(173, 169)
@@ -83,3 +90,6 @@ stream = ExtResource("8_pnnky")
 volume_db = 3.903
 autoplay = true
 parameters/looping = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pnnky")
