@@ -259,9 +259,9 @@ position = Vector2(48, 16)
 shape = SubResource("RectangleShape2D_rmsmy")
 
 [node name="Label" type="Label" parent="Grid0"]
-offset_left = -128.0
+offset_left = -146.0
 offset_top = -64.0
-offset_right = -88.0
+offset_right = -106.0
 offset_bottom = -41.0
 theme_override_font_sizes/font_size = 12
 
@@ -358,6 +358,19 @@ upgrade_name = "Move Speed"
 position = Vector2(-247, 32)
 highlight_color = Color(0.76, 0.7163, 0.2356, 1)
 upgrade_name = "Dash Invincibility"
+
+[node name="Player2Hover" type="Label" parent="."]
+offset_left = -283.0
+offset_top = 129.0
+offset_right = -83.0
+offset_bottom = 152.0
+
+[node name="Player1Hover" type="Label" parent="."]
+offset_left = 85.0
+offset_top = 131.0
+offset_right = 285.0
+offset_bottom = 154.0
+horizontal_alignment = 2
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_exited" from="NextLevel" to="NextLevel" method="_on_body_exited"]
