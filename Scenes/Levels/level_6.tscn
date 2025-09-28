@@ -59,6 +59,10 @@ environment = SubResource("Environment_w2ac1")
 position = Vector2(10, -131)
 scale = Vector2(0.2, 0.2)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="Deployable" parent="." instance=ExtResource("6_h7uay")]
 position = Vector2(-268, 112)
 
@@ -76,6 +80,7 @@ friction = 500
 
 [node name="Player1" parent="." instance=ExtResource("7_5l77v")]
 position = Vector2(-261, 201)
+deviceID = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("5_6y1v7")

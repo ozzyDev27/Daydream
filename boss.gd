@@ -22,7 +22,8 @@ func summonDeployables():
 
 func _on_attack_timer_timeout() -> void:
 	$AttackTimer.start()
-	randomAttack()
+	if $AnimatedSprite2D.animation!="sadder":
+		randomAttack()
 	
 func randomAttack():
 	$ChargeTimer.start()

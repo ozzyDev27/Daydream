@@ -1,13 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://bt4fvhh3tybnk"]
+[gd_scene load_steps=11 format=4 uid="uid://bt4fvhh3tybnk"]
 
 [ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_t74h0"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_yy6i0"]
-[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="3_x1k1j"]
+[ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="3_x1k1j"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="4_4ahh4"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="5_dl55b"]
 [ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="5_h0uxt"]
-[ext_resource type="PackedScene" path="res://Scenes/spawner.tscn" id="6_osqx1"]
-[ext_resource type="PackedScene" path="res://Scenes/mud.tscn" id="7_i4hbv"]
+[ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="6_osqx1"]
+[ext_resource type="PackedScene" uid="uid://wc2jfgqlln3n" path="res://Scenes/mud.tscn" id="7_i4hbv"]
 [ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="8_h0uxt"]
 
 [sub_resource type="Environment" id="Environment_w2ac1"]
@@ -15,7 +15,7 @@ tonemap_mode = 3
 adjustment_brightness = 2.0
 adjustment_contrast = 2.77
 
-[node name="Level2" type="Node2D"]
+[node name="Level3" type="Node2D"]
 position = Vector2(0, -1)
 
 [node name="THE GODDAMN OCEAN" parent="." instance=ExtResource("1_t74h0")]
@@ -54,6 +54,7 @@ friction = 500
 
 [node name="Player1" parent="." instance=ExtResource("5_h0uxt")]
 position = Vector2(-261, 201)
+deviceID = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("5_dl55b")

@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://coebiij1hbghc"]
+[gd_scene load_steps=11 format=4 uid="uid://coebiij1hbghc"]
 
-[ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="1_2634h"]
+[ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_2634h"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_sanrf"]
 [ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="2_2634h"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_wakwf"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="4_reooa"]
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_doouk"]
+[ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="5_wakwf"]
 [ext_resource type="PackedScene" uid="uid://wc2jfgqlln3n" path="res://Scenes/mud.tscn" id="7_reooa"]
 [ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="7_wakwf"]
-[ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="5_wakwf"]
 
 [sub_resource type="Environment" id="Environment_w2ac1"]
 background_mode = 3
@@ -69,6 +69,7 @@ friction = 500
 
 [node name="Player1" parent="." instance=ExtResource("5_wakwf")]
 position = Vector2(-261, 201)
+deviceID = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("4_reooa")

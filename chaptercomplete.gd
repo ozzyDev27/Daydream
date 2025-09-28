@@ -9,8 +9,6 @@ func _process(delta: float) -> void:
 		dialoguesAmount = dialoguesAmount + 1
 		$AnimationPlayer.play("text scroll")
 		$Dialogue1.bbcode_text = dialogues[dialoguesAmount]
-	elif Input.is_action_just_pressed("Jump") && !(len(dialogues) < dialoguesAmount):
-		self.hide()
 
 
 func _on_timer_timeout() -> void:
