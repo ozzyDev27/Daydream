@@ -1,0 +1,238 @@
+[gd_scene load_steps=16 format=3 uid="uid://d2xgymke613hf"]
+
+[ext_resource type="Texture2D" uid="uid://dqmgotb5qbr8l" path="res://Sprites/IMG_2315.PNG" id="1_0bnu1"]
+[ext_resource type="Script" uid="uid://bt8ddjpiro7w" path="res://boss.gd" id="1_6xxrv"]
+[ext_resource type="Texture2D" uid="uid://dmgyx3tb8qi1p" path="res://attack1charge.png" id="3_ef0k6"]
+[ext_resource type="Texture2D" uid="uid://b6tteiyjc5mdw" path="res://attack1full.png" id="4_ry61v"]
+[ext_resource type="Texture2D" uid="uid://dgnvrd0lsnivp" path="res://attack2charge.png" id="5_kles1"]
+[ext_resource type="Texture2D" uid="uid://w1oyki1tos0s" path="res://Sprites/empty land.png" id="5_ry61v"]
+[ext_resource type="Texture2D" uid="uid://cbtrm7qs0lxbr" path="res://attack2full.png" id="6_etj48"]
+[ext_resource type="Texture2D" uid="uid://by86x30avvblv" path="res://attack3charge.png" id="7_h3lj5"]
+[ext_resource type="Texture2D" uid="uid://dwqvkqskmtrmm" path="res://attack3full.png" id="8_1s1j2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6xxrv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0bnu1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ef0k6"]
+size = Vector2(816.7999, 321.2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry61v"]
+size = Vector2(839.1, 306.7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_km2bi"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("3_ef0k6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ry61v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ry61v")
+}],
+"loop": false,
+"name": &"attack1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("5_kles1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_etj48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ry61v")
+}],
+"loop": false,
+"name": &"attack2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("7_h3lj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1s1j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ry61v")
+}],
+"loop": false,
+"name": &"attack3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kles1"]
+size = Vector2(64.99994, 697.7999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etj48"]
+size = Vector2(61.802895, 1147.9946)
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_6xxrv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6xxrv")
+frame_progress = 0.064386345
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="ChargeTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Attack1Area" type="Area2D" parent="."]
+visible = false
+position = Vector2(-107.99999, 971.0001)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack1Area"]
+position = Vector2(1.0000114, -189.4)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_ef0k6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Attack1Area"]
+position = Vector2(10.849973, 192.74994)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_ry61v")
+
+[node name="attack" type="AnimatedSprite2D" parent="."]
+position = Vector2(-107.99999, 971.0001)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_km2bi")
+animation = &"empty"
+autoplay = "empty"
+
+[node name="Attack2Area" type="Area2D" parent="."]
+visible = false
+position = Vector2(-107.99999, 971.0001)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack2Area"]
+position = Vector2(-323.79996, -0.5)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_kles1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Attack2Area"]
+position = Vector2(-418.40002, -0.5000122)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_kles1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Attack2Area"]
+position = Vector2(-220.4, -1.5000122)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_kles1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Attack2Area"]
+position = Vector2(-125.799995, -1.5000122)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_kles1")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Attack2Area"]
+position = Vector2(-20.399994, -1.5000122)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_kles1")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Attack2Area"]
+position = Vector2(69.200005, 1.4999878)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_kles1")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Attack2Area"]
+position = Vector2(166.7, 1.4999878)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_kles1")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Attack2Area"]
+position = Vector2(259.3, 1.4999878)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_kles1")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Attack2Area"]
+position = Vector2(363.7, 1.4999878)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_kles1")
+
+[node name="Attack3Area" type="Area2D" parent="."]
+visible = false
+position = Vector2(-107.99999, 971.0001)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(17.972103, -45.62665)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(169.79999, -47.700016)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(308.89996, -47.700016)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(477.90002, -47.700016)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(632.80005, -47.700016)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(-127.29999, -47.700016)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(-249.79999, -47.700016)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(-382.79996, -47.700016)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(-528.5, -47.700016)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Attack3Area"]
+position = Vector2(-697.4, -47.700016)
+rotation = -0.7853982
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_etj48")
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
