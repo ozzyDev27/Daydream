@@ -42,6 +42,9 @@ func _ready():
 	if "Move Speed" in upgrades:
 		moveSpeed += 30
 		
+	if "Larger Slash" in upgrades:
+		$SlashArea.scale = Vector2.ONE * 2
+		
 	health = max_health
 
 func _physics_process(delta):
