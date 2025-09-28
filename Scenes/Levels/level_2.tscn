@@ -50,6 +50,15 @@ environment = SubResource("Environment_w2ac1")
 [node name="LevelEnd" parent="." instance=ExtResource("5_ovj6s")]
 position = Vector2(173, 169)
 
+[node name="Spawner2" parent="." instance=ExtResource("6_8qsmg")]
+position = Vector2(278, -88)
+
+[node name="Spawner" parent="." instance=ExtResource("6_8qsmg")]
+position = Vector2(-99, 18)
+
+[node name="Spawner3" parent="." instance=ExtResource("6_8qsmg")]
+position = Vector2(309, 129)
+
 [node name="Player0" parent="." instance=ExtResource("3_8qsmg")]
 position = Vector2(-293, 202)
 scale = Vector2(0.5, 0.5)
@@ -67,12 +76,3 @@ deviceID = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("4_fphuk")
-
-[node name="Spawner2" parent="." instance=ExtResource("6_8qsmg")]
-position = Vector2(278, -88)
-
-[node name="Spawner" parent="." instance=ExtResource("6_8qsmg")]
-position = Vector2(-99, 18)
-
-[node name="Spawner3" parent="." instance=ExtResource("6_8qsmg")]
-position = Vector2(309, 129)

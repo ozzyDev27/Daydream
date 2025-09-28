@@ -40,6 +40,15 @@ tile_set = ExtResource("1_iixi8")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tspv2")
 
+[node name="Spawner" parent="." instance=ExtResource("5_xgxfi")]
+position = Vector2(-227, -177)
+
+[node name="Spawner2" parent="." instance=ExtResource("5_xgxfi")]
+position = Vector2(332, 161)
+
+[node name="LevelEnd" parent="." instance=ExtResource("5_cyadu")]
+position = Vector2(316, -177)
+
 [node name="Player0" parent="." instance=ExtResource("3_xgxfi")]
 position = Vector2(-293, 202)
 scale = Vector2(0.5, 0.5)
@@ -57,12 +66,3 @@ deviceID = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("4_5f3p6")
-
-[node name="LevelEnd" parent="." instance=ExtResource("5_cyadu")]
-position = Vector2(316, -177)
-
-[node name="Spawner" parent="." instance=ExtResource("5_xgxfi")]
-position = Vector2(-227, -177)
-
-[node name="Spawner2" parent="." instance=ExtResource("5_xgxfi")]
-position = Vector2(332, 161)
