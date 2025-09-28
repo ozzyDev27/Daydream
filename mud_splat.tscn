@@ -91,10 +91,11 @@ animation = &"nyom"
 [node name="Hurtbox" type="Area2D" parent="." groups=["damageable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, 4)
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_f38vo")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

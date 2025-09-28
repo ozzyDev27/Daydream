@@ -54,6 +54,9 @@ func _ready():
 	if "Faster Firerate" in upgrades:
 		$BulletTimer.wait_time = 0.2
 		
+	if "Slippery" in upgrades:
+		friction = 50
+		
 	if "Slower Attacks" in upgrades:
 		$BulletTimer.wait_time += 0.1
 		$SlashTimer.wait_time += 0.1

@@ -1,13 +1,12 @@
-[gd_scene load_steps=22 format=4 uid="uid://c0e666f0hck86"]
+[gd_scene load_steps=15 format=4 uid="uid://c0e666f0hck86"]
 
 [ext_resource type="Script" uid="uid://ce2x4dfji7n6l" path="res://Scenes/mainmenu.gd" id="1_pposm"]
-[ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="2_v4pkt"]
+[ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="2_v4pkt"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="5_5326e"]
 [ext_resource type="FontFile" uid="uid://c87w3bnyvvh0n" path="res://Fonts/m6x11plus.ttf" id="5_lah54"]
 [ext_resource type="Texture2D" uid="uid://da8uhrhm24y8l" path="res://Sprites/programmer art/gdb-xbox-2.png" id="6_5326e"]
-[ext_resource type="Script" uid="uid://dohd640nayo31" path="res://Scenes/Blink.gd" id="6_juwjy"]
+[ext_resource type="Script" path="res://Scenes/Blink.gd" id="6_juwjy"]
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="6_l2o7r"]
-[ext_resource type="Texture2D" uid="uid://bvj5a3h2s8apq" path="res://Sprites/programmer art/gdb-keyboard-2.png" id="8_0y15m"]
 [ext_resource type="FontFile" uid="uid://brkuj20i8pljx" path="res://Fonts/Squares.ttf" id="8_juwjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_web8u"]
@@ -48,57 +47,6 @@ animations = [{
 "name": &"default",
 "speed": 3.0
 }]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3m3i7"]
-atlas = ExtResource("8_0y15m")
-region = Rect2(32, 576, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7p75p"]
-atlas = ExtResource("8_0y15m")
-region = Rect2(64, 576, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rvxi5"]
-atlas = ExtResource("8_0y15m")
-region = Rect2(96, 576, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ltqx2"]
-atlas = ExtResource("8_0y15m")
-region = Rect2(128, 576, 32, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kceem"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3m3i7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7p75p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rvxi5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ltqx2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 3.0
-}]
-
-[sub_resource type="Environment" id="Environment_qyrli"]
-background_mode = 3
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 16.0
-reflected_light_source = 1
-tonemap_mode = 3
-glow_enabled = true
-glow_intensity = 0.2
-glow_bloom = 0.1
-glow_hdr_threshold = 2.09
-glow_hdr_scale = 0.83
-glow_hdr_luminance_cap = 5.0
-adjustment_contrast = 0.83
 
 [node name="mainmenu" type="Node2D"]
 script = ExtResource("1_pposm")
@@ -156,8 +104,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8509804)
 theme_override_colors/font_outline_color = Color(0.08468992, 0.08468992, 0.08468992, 1)
 theme_override_fonts/font = ExtResource("5_lah54")
 theme_override_font_sizes/font_size = 54
-text = "Press __ To Start!
-(Or  .   )"
+text = "Press __ To Start!"
 script = ExtResource("6_juwjy")
 
 [node name="Timer" type="Timer" parent="Label"]
@@ -166,12 +113,6 @@ script = ExtResource("6_juwjy")
 position = Vector2(140, 35)
 scale = Vector2(3.3125, 3.3125)
 sprite_frames = SubResource("SpriteFrames_hu3kb")
-autoplay = "default"
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Label"]
-position = Vector2(97, 90)
-scale = Vector2(2.34375, 2.34375)
-sprite_frames = SubResource("SpriteFrames_kceem")
 autoplay = "default"
 
 [node name="Title" type="Label" parent="."]
@@ -186,9 +127,6 @@ theme_override_fonts/font = ExtResource("8_juwjy")
 theme_override_font_sizes/font_size = 22
 text = "MEMORY
 LEAK"
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qyrli")
 
 [connection signal="pressed" from="Button" to="." method="startgame"]
 [connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]
