@@ -1,0 +1,253 @@
+[gd_scene load_steps=10 format=4 uid="uid://co6r4kx8ngo70"]
+
+[ext_resource type="Script" uid="uid://cjs1vlp5jg0rm" path="res://new dialogue.gd" id="1_w0i2u"]
+[ext_resource type="Texture2D" uid="uid://b72c5dhfdbc1q" path="res://Fantasy-UI.png" id="2_gmsic"]
+[ext_resource type="FontFile" uid="uid://c87w3bnyvvh0n" path="res://Fonts/m6x11plus.ttf" id="3_jirfo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aq876"]
+texture = ExtResource("2_gmsic")
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+12:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+4:15/0 = 0
+6:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+3:16/0 = 0
+5:16/0 = 0
+7:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_japoe"]
+sources/0 = SubResource("TileSetAtlasSource_aq876")
+
+[sub_resource type="Animation" id="Animation_87rbk"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogue1:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(40, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialogue1:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_suuxw"]
+resource_name = "text scroll"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogue1:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialogue1:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.25, 0.16666667, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_usyqk"]
+_data = {
+&"RESET": SubResource("Animation_87rbk"),
+&"text scroll": SubResource("Animation_suuxw")
+}
+
+[sub_resource type="Environment" id="Environment_w0i2u"]
+background_mode = 3
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 1
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.2
+glow_bloom = 0.1
+glow_hdr_threshold = 2.09
+glow_hdr_scale = 0.83
+glow_hdr_luminance_cap = 5.0
+adjustment_contrast = 0.83
+
+[node name="text control gui" type="CanvasLayer"]
+layer = 10
+follow_viewport_enabled = true
+
+[node name="Text Control" type="Node2D" parent="."]
+top_level = true
+position = Vector2(553, 95)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_w0i2u")
+
+[node name="The Back" type="TileMapLayer" parent="Text Control"]
+position = Vector2(-181, 284)
+tile_map_data = PackedByteArray("AAD8//3/AAADAAoAAAD6//3/AAACAAoAAAD7//3/AAADAAoAAAD9//3/AAADAAoAAAD+//3/AAADAAoAAAD///3/AAADAAoAAAAAAP3/AAADAAoAAAABAP3/AAADAAoAAAACAP3/AAADAAoAAAADAP3/AAADAAoAAAAEAP3/AAADAAoAAAAFAP3/AAADAAoAAAAGAP3/AAADAAoAAAAHAP3/AAADAAoAAAAIAP3/AAADAAoAAAAJAP3/AAADAAoAAAAKAP3/AAADAAoAAAALAP3/AAADAAoAAAAMAP3/AAADAAoAAAANAP3/AAADAAoAAAAOAP3/AAADAAoAAAAPAP3/AAADAAoAAAAQAP3/AAADAAoAAAARAP3/AAADAAoAAAASAP3/AAADAAoAAAATAP3/AAADAAoAAAAUAP3/AAADAAoAAAAVAP3/AAADAAoAAAAWAP3/AAADAAoAAAAXAP3/AAADAAoAAAAYAP3/AAADAAoAAAAZAP3/AAADAAoAAAAaAP3/AAADAAoAAAAbAP3/AAADAAoAAAAcAP3/AAADAAoAAAAdAP3/AAADAAoAAAAeAP3/AAAGAAoAAAAeAP7/AAAGAAsAAAAeAP//AAAGAAsAAAAeAAAAAAAGAAsAAAD6//7/AAACAAwAAAD6////AAACAAwAAAD6/wAAAAACAAwAAAD6/wEAAAACAA0AAAD7//7/AAADAAsAAAD7////AAADAAsAAAD7/wAAAAADAAsAAAD7/wEAAAADAA0AAAD8//7/AAADAAsAAAD8////AAADAAsAAAD8/wAAAAADAAsAAAD8/wEAAAADAA0AAAD9//7/AAADAAsAAAD9////AAADAAsAAAD9/wAAAAADAAsAAAD9/wEAAAADAA0AAAD+//7/AAADAAsAAAD+////AAADAAsAAAD+/wAAAAADAAsAAAD+/wEAAAADAA0AAAD///7/AAADAAsAAAD/////AAADAAsAAAD//wAAAAADAAsAAAD//wEAAAAEAA0AAAAAAP7/AAADAAsAAAAAAP//AAADAAsAAAAAAAAAAAADAAsAAAAAAAEAAAAEAA0AAAABAP7/AAADAAsAAAABAP//AAADAAsAAAABAAAAAAADAAsAAAABAAEAAAAEAA0AAAACAP7/AAADAAsAAAACAP//AAADAAsAAAACAAAAAAADAAsAAAACAAEAAAAEAA0AAAADAP7/AAADAAsAAAADAP//AAADAAsAAAADAAAAAAADAAsAAAADAAEAAAAEAA0AAAAEAP7/AAADAAsAAAAEAP//AAADAAsAAAAEAAAAAAADAAsAAAAEAAEAAAAEAA0AAAAFAP7/AAADAAsAAAAFAP//AAADAAsAAAAFAAAAAAADAAsAAAAFAAEAAAAEAA0AAAAGAP7/AAADAAsAAAAGAP//AAADAAsAAAAGAAAAAAADAAsAAAAGAAEAAAAEAA0AAAAHAP7/AAADAAsAAAAHAP//AAADAAsAAAAHAAAAAAADAAsAAAAHAAEAAAAEAA0AAAAIAP7/AAADAAsAAAAIAP//AAADAAsAAAAIAAAAAAADAAsAAAAIAAEAAAAEAA0AAAAJAP7/AAADAAsAAAAJAP//AAADAAsAAAAJAAAAAAADAAsAAAAJAAEAAAAEAA0AAAAKAP7/AAADAAsAAAAKAP//AAADAAsAAAAKAAAAAAADAAsAAAAKAAEAAAAEAA0AAAALAP7/AAADAAsAAAALAP//AAADAAsAAAALAAAAAAADAAsAAAALAAEAAAAEAA0AAAAMAP7/AAADAAsAAAAMAP//AAADAAsAAAAMAAAAAAADAAsAAAAMAAEAAAAEAA0AAAANAP7/AAADAAsAAAANAP//AAADAAsAAAANAAAAAAADAAsAAAANAAEAAAAEAA0AAAAOAP7/AAADAAsAAAAOAP//AAADAAsAAAAOAAAAAAADAAsAAAAOAAEAAAAEAA0AAAAPAP7/AAADAAsAAAAPAP//AAADAAsAAAAPAAAAAAADAAsAAAAPAAEAAAAEAA0AAAAQAP7/AAADAAsAAAAQAP//AAADAAsAAAAQAAAAAAADAAsAAAAQAAEAAAAEAA0AAAARAP7/AAADAAsAAAARAP//AAADAAsAAAARAAAAAAADAAsAAAARAAEAAAAEAA0AAAASAP7/AAADAAsAAAASAP//AAADAAsAAAASAAAAAAADAAsAAAASAAEAAAAEAA0AAAATAP7/AAADAAsAAAATAP//AAADAAsAAAATAAAAAAADAAsAAAATAAEAAAAEAA0AAAAUAP7/AAADAAsAAAAUAP//AAADAAsAAAAUAAAAAAADAAsAAAAUAAEAAAAEAA0AAAAVAP7/AAADAAsAAAAVAP//AAADAAsAAAAVAAAAAAADAAsAAAAVAAEAAAAEAA0AAAAWAP7/AAADAAsAAAAWAP//AAADAAsAAAAWAAAAAAADAAsAAAAWAAEAAAAEAA0AAAAXAP7/AAADAAsAAAAXAP//AAADAAsAAAAXAAAAAAADAAsAAAAXAAEAAAAEAA0AAAAYAP7/AAADAAsAAAAYAP//AAADAAsAAAAYAAAAAAADAAsAAAAYAAEAAAAEAA0AAAAZAP7/AAADAAsAAAAZAP//AAADAAsAAAAZAAAAAAADAAsAAAAZAAEAAAAEAA0AAAAaAP7/AAADAAsAAAAaAP//AAADAAsAAAAaAAAAAAADAAsAAAAaAAEAAAAEAA0AAAAbAP7/AAADAAsAAAAbAP//AAADAAsAAAAbAAAAAAADAAsAAAAbAAEAAAAEAA0AAAAcAP7/AAADAAsAAAAcAP//AAADAAsAAAAcAAAAAAADAAsAAAAcAAEAAAADAA0AAAAdAP7/AAADAAsAAAAdAP//AAADAAsAAAAdAAAAAAADAAsAAAAdAAEAAAADAA0AAAAeAAEAAAAGAA0AAAA=")
+tile_set = SubResource("TileSet_japoe")
+
+[node name="Dialogue1" type="RichTextLabel" parent="Text Control"]
+offset_left = -268.0
+offset_top = 240.0
+offset_right = 306.0
+offset_bottom = 312.0
+theme_override_colors/font_shadow_color = Color(0.13725491, 0.13725491, 0.13725491, 0.9098039)
+theme_override_fonts/normal_font = ExtResource("3_jirfo")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Wow that was a big crash! Everyone alright?"
+fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Text Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_usyqk")
+}
+autoplay = "text scroll"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w0i2u")

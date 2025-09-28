@@ -10,10 +10,20 @@
 [ext_resource type="PackedScene" uid="uid://wc2jfgqlln3n" path="res://Scenes/mud.tscn" id="7_167vu"]
 [ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="8_x1k1j"]
 
-[sub_resource type="Environment" id="Environment_w2ac1"]
+[sub_resource type="Environment" id="Environment_x1k1j"]
+background_mode = 3
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 1
 tonemap_mode = 3
-adjustment_brightness = 2.0
-adjustment_contrast = 2.77
+glow_enabled = true
+glow_intensity = 0.2
+glow_bloom = 0.1
+glow_hdr_threshold = 2.09
+glow_hdr_scale = 0.83
+glow_hdr_luminance_cap = 5.0
+adjustment_contrast = 0.83
 
 [node name="Level2" type="Node2D"]
 position = Vector2(0, -1)
@@ -39,9 +49,6 @@ z_index = 1
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD4/wAAAQABAAYAAAAJAPv/AQABAAYAAAAHAAUAAQABAAYAAAABAPr/AQADAAYAAAD8/wUAAQADAAYAAAAEAAMAAQAHAAYAAAADAAMAAQAGAAYAAAAEAAIAAQAHAAUAAAAEAAQAAQAHAAcAAAAFAAMAAQAIAAYAAAAGAAIAAQAJAAUAAAAGAAMAAQAJAAYAAAAGAAQAAQAJAAcAAAD1//7/AQAKAAYAAAD2//3/AQALAAUAAAD2//7/AQALAAYAAAD2////AQALAAcAAAD3//7/AQAMAAYAAAAGAPz/AQAKAAYAAAAHAPv/AQALAAUAAAAHAPz/AQALAAYAAAAHAP3/AQALAAcAAAAIAPz/AQAMAAYAAAD9//v/AQAAAAAAAAD5/wIAAQAFAAAAAAAHAAIAAQAJAAAAAAA=")
 tile_set = ExtResource("1_jqrsn")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_w2ac1")
 
 [node name="LevelEnd" parent="." instance=ExtResource("2_t74h0")]
 position = Vector2(1, 1)
@@ -78,3 +85,6 @@ stream = ExtResource("8_x1k1j")
 volume_db = 3.903
 autoplay = true
 parameters/looping = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x1k1j")

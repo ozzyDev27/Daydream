@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://drgvnpmmad2j2"]
+[gd_scene load_steps=10 format=4 uid="uid://drgvnpmmad2j2"]
 
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_iixi8"]
 [ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_xgxfi"]
@@ -7,11 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="5_cyadu"]
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_xgxfi"]
 [ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="7_5f3p6"]
+[ext_resource type="PackedScene" uid="uid://co6r4kx8ngo70" path="res://new dialgoeu level 1.tscn" id="8_jv26f"]
 
-[sub_resource type="Environment" id="Environment_tspv2"]
+[sub_resource type="Environment" id="Environment_5f3p6"]
+background_mode = 3
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 1
 tonemap_mode = 3
-adjustment_brightness = 2.0
-adjustment_contrast = 2.77
+glow_enabled = true
+glow_intensity = 0.2
+glow_bloom = 0.1
+glow_hdr_threshold = 2.09
+glow_hdr_scale = 0.83
+glow_hdr_luminance_cap = 5.0
+adjustment_contrast = 0.83
 
 [node name="Level1" type="Node2D"]
 position = Vector2(0, -1)
@@ -37,9 +48,6 @@ z_index = 1
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAKAAEAAQAJAAAAAAD3//n/AQAFAAAAAAAJAPv/AQABAAYAAAAHAAUAAQABAAYAAAABAPr/AQADAAYAAAD8/wUAAQADAAYAAAD1//7/AQAKAAYAAAD2//3/AQALAAUAAAD2//7/AQALAAYAAAD2////AQALAAcAAAD3//7/AQAMAAYAAAAGAPz/AQAKAAYAAAAHAPv/AQALAAUAAAAHAPz/AQALAAYAAAAHAP3/AQALAAcAAAAIAPz/AQAMAAYAAAADAP7/AQAAAAAAAAAEAAQAAQADAAYAAAAIAP3/AQADAAYAAAA=")
 tile_set = ExtResource("1_iixi8")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tspv2")
 
 [node name="Player0" parent="." instance=ExtResource("3_xgxfi")]
 position = Vector2(-293, 202)
@@ -67,3 +75,10 @@ position = Vector2(332, 161)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = 3.903
 autoplay = true
+parameters/looping = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5f3p6")
+
+[node name="text control gui" parent="." instance=ExtResource("8_jv26f")]
+follow_viewport_enabled = false
