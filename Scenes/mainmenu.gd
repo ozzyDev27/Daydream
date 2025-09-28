@@ -5,5 +5,5 @@ func _input(event):
 		startgame()
 
 func startgame() -> void:
-	get_tree().change_scene_to_file("res://intro_cutscene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/intro_cutscene.tscn")
 	

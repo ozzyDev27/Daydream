@@ -1,18 +1,20 @@
 extends Sprite2D
 
 @onready var deviceID = get_parent().deviceID
+var currently_holding: Node2D = null
 @export var speed = 10
 
 func _process(delta):
 	if Input.is_action_just_pressed("Action" + str(deviceID)) and $Area2D.get_overlapping_areas():
 		$Area2D.get_overlapping_areas()[0].grabber = self
 		$Area2D.get_overlapping_areas()[0].valid = false
-	if Input.is_action_just_released("Action" + str(deviceID)) and $Area2D.get_overlapping_areas():
-		var grab_target = $Area2D.get_overlapping_areas()[0]
-		if not grab_target.valid:
-			grab_target.global_position = grab_target.original_position
-			grab_target.valid = true
-		$Area2D.get_overlapping_areas()[0].grabber = null
+		currently_holding = $Area2D.get_overlapping_areas()[0]
+	if Input.is_action_just_released("Action" + str(deviceID)) and currently_holding:
+		if not currently_holding.valid:
+			currently_holding.global_position = currently_holding.original_position
+			currently_holding.valid = true
+		currently_holding.grabber = null
+		currently_holding = null
 		
 	
 	if not get_node("../../Player%dHover" % (deviceID+1)):

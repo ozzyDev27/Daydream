@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://c87w3bnyvvh0n" path="res://Fonts/m6x11plus.ttf" id="5_lah54"]
 [ext_resource type="Texture2D" uid="uid://da8uhrhm24y8l" path="res://Sprites/programmer art/gdb-xbox-2.png" id="6_5326e"]
 [ext_resource type="Script" uid="uid://dohd640nayo31" path="res://Scenes/Blink.gd" id="6_juwjy"]
-[ext_resource type="PackedScene" path="res://Scenes/spawner.tscn" id="6_l2o7r"]
+[ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="6_l2o7r"]
 [ext_resource type="Texture2D" uid="uid://bvj5a3h2s8apq" path="res://Sprites/programmer art/gdb-keyboard-2.png" id="8_0y15m"]
 [ext_resource type="FontFile" uid="uid://brkuj20i8pljx" path="res://Fonts/Squares.ttf" id="8_juwjy"]
 
