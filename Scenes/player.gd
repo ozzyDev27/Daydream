@@ -8,8 +8,10 @@ extends CharacterBody2D
 @export var bulletSpeed = 400
 @export var upgrades: Array[String] = []
 @export var max_health = 10
+@export var dashSpeed = 300
 var health = 10
-
+var dashing=0
+var dashVector=Vector2.ZERO
 var level=0
 @export var movement_deadzone: float = 0.15
 var bullet = load("res://Scenes/bullet.tscn")
@@ -98,7 +100,6 @@ func _physics_process(delta):
 		elif angle >= -3*PI/8 and angle < -PI/8:
 			sprite.play("StandingSideUp")
 			
-	print(angle)
 	
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
@@ -106,6 +107,10 @@ func _physics_process(delta):
 		summonBullet()
 	if Input.is_action_just_pressed("Jump"+suffix) and "Slash Attack" in upgrades:
 		slashAttack()
+	if Input.is_action_just_pressed("Dash"+suffix):
+		if input_vector.length() > movement_deadzone:
+			dashing=10
+			dashVector=input_vector
 		
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
@@ -115,7 +120,11 @@ func _physics_process(delta):
 		get_parent().add_child(grave)
 		grave.global_position = global_position
 		queue_free()
-
+	if dashing>0:
+		dashing-=1
+		velocity=dashVector*dashSpeed
+		
+	
 	move_and_slide()
 
 func damage_flash():
@@ -127,7 +136,8 @@ func slashAttack():
 	for body in $SlashArea.get_overlapping_areas():
 		if body.is_in_group("damageable"):
 			body.get_parent().damage(1)
-
+	
+		
 func summonBullet():
 	var newBullet = bullet.instantiate()
 	newBullet.position = position
