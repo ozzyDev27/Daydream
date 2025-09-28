@@ -1,9 +1,10 @@
-[gd_scene load_steps=61 format=3 uid="uid://5v7lxrydjm57"]
+[gd_scene load_steps=75 format=3 uid="uid://5v7lxrydjm57"]
 
 [ext_resource type="Script" uid="uid://b1xupc78nx0qa" path="res://Scenes/player.gd" id="1_5xflf"]
 [ext_resource type="Texture2D" uid="uid://tegdew2bontt" path="res://Sprites/Characters/Player/16x32 Run Cycle-Sheet.png" id="2_vgqql"]
+[ext_resource type="Texture2D" uid="uid://cfla507vy5401" path="res://Sprites/Slash.png" id="4_fkybt"]
+[ext_resource type="Texture2D" uid="uid://w1oyki1tos0s" path="res://Sprites/empty land.png" id="5_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://b0xhufv2cbg0k" path="res://Sprites/Characters/Player/Player 1 Idle Sheet.png" id="10_gymyn"]
-[ext_resource type="Texture2D" uid="uid://cn7ox1y08dan1" path="res://Sprites/Mouse/dark.png" id="25_p1odr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
 atlas = ExtResource("2_vgqql")
@@ -414,6 +415,96 @@ size = Vector2(34, 18)
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_2ijsl"]
 points = PackedVector2Array(0, 10, 0, -10, 80, -40, 80, 40)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pukcj"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1htnp"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m376e"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b312"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lisdf"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1x1j"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8b32"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj1g2"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usbl8"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtg1u"]
+atlas = ExtResource("4_fkybt")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuaet"]
+atlas = ExtResource("5_x3wgy")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqbau"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"no slash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pukcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1htnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m376e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b312")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lisdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1x1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8b32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj1g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usbl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtg1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuaet")
+}],
+"loop": false,
+"name": &"slash",
+"speed": 45.0
+}]
+
 [sub_resource type="Gradient" id="Gradient_p1odr"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
 
@@ -425,6 +516,9 @@ width = 1
 bg_color = Color(0.84, 0.15959999, 0.15959999, 1)
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(45, 59)
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 collision_layer = 513
@@ -445,10 +539,13 @@ shape = SubResource("RectangleShape2D_paucl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlashArea"]
 shape = SubResource("ConvexPolygonShape2D_2ijsl")
 
-[node name="Sprite2D" type="Sprite2D" parent="SlashArea"]
-visible = false
-position = Vector2(93, -1)
-texture = ExtResource("25_p1odr")
+[node name="SlashSprite" type="AnimatedSprite2D" parent="SlashArea"]
+position = Vector2(34, 8.000001)
+scale = Vector2(2.075, 2.075)
+sprite_frames = SubResource("SpriteFrames_bqbau")
+animation = &"slash"
+frame = 10
+frame_progress = 1.0
 
 [node name="HealthBar" type="HSlider" parent="."]
 offset_left = -32.0
@@ -471,6 +568,12 @@ one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.6
+
+[node name="DashArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashArea"]
+position = Vector2(0.5, 6.5)
+shape = SubResource("RectangleShape2D_vgqql")
 
 [connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

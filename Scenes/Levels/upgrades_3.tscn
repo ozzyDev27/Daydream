@@ -274,7 +274,7 @@ zoom = Vector2(2, 2)
 script = ExtResource("6_n5x3u")
 
 [node name="Upgrade" parent="." instance=ExtResource("7_7132y")]
-position = Vector2(-62, 61)
+position = Vector2(-14, 105)
 highlight_color = Color(0.86, 0.5544133, 0.15480001, 1)
 upgrade_name = "Battery Bullets"
 
@@ -292,6 +292,12 @@ upgrade_name = "Slash Attack"
 position = Vector2(-172, 37)
 highlight_color = Color(0.8, 0.16, 0.16, 1)
 upgrade_name = "Extra Health"
+
+[node name="Upgrade13" parent="." instance=ExtResource("9_iav1h")]
+position = Vector2(-51, 57)
+rotation = 3.1415927
+highlight_color = Color(0.8, 0.16, 0.16, 1)
+upgrade_name = "Damage Dash"
 
 [node name="Upgrade5" parent="." instance=ExtResource("9_iav1h")]
 position = Vector2(-172, 114)
