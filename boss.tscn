@@ -91,11 +91,12 @@ sprite_frames = SubResource("SpriteFrames_6xxrv")
 frame_progress = 0.064386345
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 6.0
 autostart = true
 
 [node name="ChargeTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
 
 [node name="Attack1Area" type="Area2D" parent="."]
 visible = false
