@@ -87,11 +87,8 @@ modulate = Color(0.9600598, 0, 0.0935021, 1)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_qvgbj")
 animation = &"nyom"
-frame_progress = 0.17567195
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["damageable"]]
-visible = false
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 4)
