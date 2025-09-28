@@ -460,3 +460,13 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vfarp")
 value = 15.0
 editable = false
 scrollable = false
+
+[node name="SlashTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="BulletTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]

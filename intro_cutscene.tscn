@@ -78,7 +78,7 @@ position = Vector2(491, 116)
 shape = SubResource("RectangleShape2D_lvalt")
 
 [node name="change scene" type="Area2D" parent="."]
-position = Vector2(359, 115)
+position = Vector2(340, 127)
 script = ExtResource("3_b82mh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="change scene"]
