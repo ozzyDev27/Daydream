@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://cc7y3emrdvn8s"]
+
+[ext_resource type="Script" uid="uid://dgesnb3frae6n" path="res://mud_splat.gd" id="1_v2aq3"]
+[ext_resource type="Texture2D" uid="uid://bp5xa70qegkw" path="res://Sprites/programmer art/garbage bag.png" id="2_jnisj"]
+[ext_resource type="Texture2D" uid="uid://blcjsuxd8asun" path="res://Sprites/programmer art/Slime by Tofame/Slimes1.png" id="3_rgacx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g0yy"]
+atlas = ExtResource("2_jnisj")
+region = Rect2(64, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3251e"]
+atlas = ExtResource("2_jnisj")
+region = Rect2(96, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_putav"]
+atlas = ExtResource("2_jnisj")
+region = Rect2(0, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqfp4"]
+atlas = ExtResource("2_jnisj")
+region = Rect2(32, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hy1g"]
+atlas = ExtResource("3_rgacx")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vygmy"]
+atlas = ExtResource("3_rgacx")
+region = Rect2(32, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0o0v"]
+atlas = ExtResource("3_rgacx")
+region = Rect2(64, 0, 32, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qvgbj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g0yy")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3251e")
+}],
+"loop": true,
+"name": &"go",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_putav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqfp4")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hy1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vygmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0o0v")
+}],
+"loop": true,
+"name": &"nyom",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f38vo"]
+radius = 13.0
+
+[node name="MudSplat" type="Node2D"]
+script = ExtResource("1_v2aq3")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.9600598, 0, 0.0935021, 1)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_qvgbj")
+animation = &"nyom"
+frame_progress = 0.17567195
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["damageable"]]
+visible = false
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_f38vo")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

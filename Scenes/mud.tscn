@@ -1,0 +1,150 @@
+[gd_scene load_steps=18 format=3 uid="uid://wc2jfgqlln3n"]
+
+[ext_resource type="Script" uid="uid://4d2nompons4l" path="res://Scenes/mud.gd" id="1_nctmv"]
+[ext_resource type="Texture2D" uid="uid://bp5xa70qegkw" path="res://Sprites/programmer art/garbage bag.png" id="2_vf452"]
+[ext_resource type="Texture2D" uid="uid://blcjsuxd8asun" path="res://Sprites/programmer art/Slime by Tofame/Slimes1.png" id="3_0bcrk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g0yy"]
+atlas = ExtResource("2_vf452")
+region = Rect2(64, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3251e"]
+atlas = ExtResource("2_vf452")
+region = Rect2(96, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_putav"]
+atlas = ExtResource("2_vf452")
+region = Rect2(0, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqfp4"]
+atlas = ExtResource("2_vf452")
+region = Rect2(32, 56, 32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hy1g"]
+atlas = ExtResource("3_0bcrk")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vygmy"]
+atlas = ExtResource("3_0bcrk")
+region = Rect2(32, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0o0v"]
+atlas = ExtResource("3_0bcrk")
+region = Rect2(64, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i1s3"]
+atlas = ExtResource("3_0bcrk")
+region = Rect2(0, 36, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afss2"]
+atlas = ExtResource("3_0bcrk")
+region = Rect2(32, 36, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ac3i"]
+atlas = ExtResource("3_0bcrk")
+region = Rect2(64, 36, 32, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2g0yy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g0yy")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3251e")
+}],
+"loop": true,
+"name": &"go",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_putav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqfp4")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hy1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vygmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0o0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i1s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afss2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ac3i")
+}],
+"loop": true,
+"name": &"nyom",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3qj7"]
+radius = 9.055386
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_swwnm"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aiwxb"]
+
+[node name="Garbage" type="CharacterBody2D" groups=["enemy"]]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_nctmv")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(5.8719515e-06, 0.87502134, 0.59541225, 1)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_2g0yy")
+animation = &"charge"
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_c3qj7")
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["damageable"]]
+visible = false
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_swwnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_aiwxb")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+debug_path_custom_line_width = 1.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
