@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://5v7lxrydjm57"]
+[gd_scene load_steps=62 format=3 uid="uid://5v7lxrydjm57"]
 
 [ext_resource type="Script" uid="uid://b1xupc78nx0qa" path="res://Scenes/player.gd" id="1_5xflf"]
 [ext_resource type="Texture2D" uid="uid://tegdew2bontt" path="res://Sprites/Characters/Player/16x32 Run Cycle-Sheet.png" id="2_vgqql"]
@@ -426,6 +426,9 @@ bg_color = Color(0.84, 0.15959999, 0.15959999, 1)
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(45, 59)
+
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 collision_layer = 513
 script = ExtResource("1_5xflf")
@@ -471,6 +474,12 @@ one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.6
+
+[node name="DashArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashArea"]
+position = Vector2(0.5, 6.5)
+shape = SubResource("RectangleShape2D_vgqql")
 
 [connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
