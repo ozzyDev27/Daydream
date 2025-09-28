@@ -8,12 +8,15 @@ extends CharacterBody2D
 @export var bulletSpeed = 400
 @export var upgrades: Array[String] = []
 @export var max_health = 10
+@export var dashSpeed = 300
 var health = 10
-
+var dashing=0
+var dashVector=Vector2.ZERO
 var level=0
 @export var movement_deadzone: float = 0.15
 var bullet = load("res://Scenes/bullet.tscn")
 var last_input_vector = Vector2.ZERO
+var last_look_direction = Vector2.LEFT
 
 func _ready():
 	
@@ -30,6 +33,9 @@ func _ready():
 	
 	if "Extra Health" in upgrades:
 		max_health += 2
+		
+	if "Move Speed" in upgrades:
+		moveSpeed += 50
 		
 	health = max_health
 
@@ -52,6 +58,7 @@ func _physics_process(delta):
 	if input_vector.length() > 0:
 		$SlashArea.rotation = input_vector.angle()
 	if input_vector.length() > movement_deadzone:
+		last_look_direction = input_vector
 		velocity = velocity.move_toward(input_vector * moveSpeed, acceleration * delta)
 	
 	var angle = input_vector.angle()
@@ -96,7 +103,6 @@ func _physics_process(delta):
 		elif angle >= -3*PI/8 and angle < -PI/8:
 			sprite.play("StandingSideUp")
 			
-	print(angle)
 	
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
@@ -104,11 +110,31 @@ func _physics_process(delta):
 		summonBullet()
 	if Input.is_action_just_pressed("Jump"+suffix) and "Slash Attack" in upgrades:
 		slashAttack()
+	if Input.is_action_just_pressed("Dash"+suffix) and "Dash Ability" in upgrades:
+		if input_vector.length() > movement_deadzone:
+			dashing=10
+			dashVector=input_vector
 		
 	$HealthBar.max_value = max_health
 	$HealthBar.value = health
-
+	
+	if health <= 0:
+		var grave = load("res://Scenes/tombstone.tscn").instantiate()
+		get_parent().add_child(grave)
+		grave.global_position = global_position
+		queue_free()
+	if dashing>0:
+		dashing-=1
+		velocity=dashVector*dashSpeed
+		
+	
 	move_and_slide()
+	
+func damage(amount):
+	if dashing>0 and ["Dash Invincibility" in upgrades]:
+		return
+	health -= amount
+	damage_flash()
 
 func damage_flash():
 	var tween = create_tween()
@@ -119,14 +145,13 @@ func slashAttack():
 	for body in $SlashArea.get_overlapping_areas():
 		if body.is_in_group("damageable"):
 			body.get_parent().damage(1)
-
+	
+		
 func summonBullet():
 	var newBullet = bullet.instantiate()
 	newBullet.position = position
-	newBullet.direction = last_input_vector
-	if last_input_vector.x<0.1 and last_input_vector.y<0.1:
-		newBullet.direction.x = -1 if sprite.flip_h else 1
-		newBullet.direction.y = 0
+	newBullet.direction = last_look_direction
+	newBullet.rotation = last_look_direction.angle()
 	newBullet.modifier = bulletSpeed
 	get_parent().add_child(newBullet)
 func nextLevel() -> void:

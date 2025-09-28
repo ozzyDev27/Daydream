@@ -1,7 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmetde5x88ast"]
+[gd_scene load_steps=10 format=3 uid="uid://bmetde5x88ast"]
 
 [ext_resource type="Script" uid="uid://cs1wxrl30teu4" path="res://Scenes/slime.gd" id="1_swwnm"]
 [ext_resource type="Texture2D" uid="uid://blcjsuxd8asun" path="res://Sprites/programmer art/Slime by Tofame/Slimes1.png" id="2_aiwxb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swwnm"]
+atlas = ExtResource("2_aiwxb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aiwxb"]
+atlas = ExtResource("2_aiwxb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paq7w"]
+atlas = ExtResource("2_aiwxb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4si1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swwnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aiwxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paq7w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3qj7"]
 radius = 9.055386
@@ -10,6 +39,7 @@ radius = 9.055386
 radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aiwxb"]
+radius = 6.0827627
 
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
@@ -17,16 +47,16 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_swwnm")
 speed = 30
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_aiwxb")
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f4si1")
+autoplay = "default"
+frame_progress = 0.6453886
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 512
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_c3qj7")
 
@@ -49,5 +79,5 @@ path_postprocessing = 1
 avoidance_enabled = true
 debug_path_custom_line_width = 1.0
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

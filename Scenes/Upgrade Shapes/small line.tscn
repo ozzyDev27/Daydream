@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba1dycvvj4aut"]
+
+[ext_resource type="PackedScene" uid="uid://dp5crv8frroyw" path="res://Scenes/upgrade.tscn" id="1_jgehj"]
+
+[node name="Upgrade" instance=ExtResource("1_jgehj")]
+
+[node name="Base" parent="." index="0"]
+position = Vector2(14.066671, 0.53333473)
+region_rect = Rect2(0, 112, 32, 16)
+
+[node name="Highlight" parent="Base" index="0"]
+region_rect = Rect2(16, 32, 32, 16)
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+position = Vector2(-13.93333, -13.466665)
+scale = Vector2(0.8, 0.8)
+polygon = PackedVector2Array(71.111115, 0, 71.111115, 35.555557, 0, 35.555557, 0, 0)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://x675wstpv06b"]
+
+[ext_resource type="Texture2D" uid="uid://277pdqqf6s5k" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/Extra/TX Props with Shadow.png" id="1_ltgf3"]
+
+[node name="Tombstone" type="Sprite2D"]
+position = Vector2(8, -7)
+texture = ExtResource("1_ltgf3")
+region_enabled = true
+region_rect = Rect2(224, 224, 48, 64)

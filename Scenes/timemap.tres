@@ -525,12 +525,14 @@ texture_region_size = Vector2i(32, 32)
 12:0/0/texture_origin = Vector2i(0, 16)
 1:9/size_in_atlas = Vector2i(4, 3)
 1:9/0 = 0
+1:9/0/texture_origin = Vector2i(-48, 32)
 5:9/size_in_atlas = Vector2i(4, 3)
 5:9/0 = 0
 5:12/size_in_atlas = Vector2i(4, 3)
 5:12/0 = 0
 1:12/size_in_atlas = Vector2i(4, 3)
 1:12/0 = 0
+1:12/0/texture_origin = Vector2i(48, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mfy0"]
 texture = ExtResource("5_m10g2")
