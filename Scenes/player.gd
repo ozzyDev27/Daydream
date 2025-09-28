@@ -152,6 +152,7 @@ func _physics_process(delta):
 		grave.global_position = global_position
 		queue_free()
 		if GlobalState.players_alive <= 0:
+			GlobalState.spawners_remaining = 0
 			get_tree().reload_current_scene()
 	if dashing>0:
 		dashing-=1
