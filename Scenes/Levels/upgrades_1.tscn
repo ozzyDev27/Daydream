@@ -26,9 +26,10 @@ size = Vector2(126, 126)
 [node name="Node2D" type="Node2D"]
 
 [node name="PlayerMouse2" parent="." instance=ExtResource("1_b5l46")]
+modulate = Color(0.975, 1, 0.5, 1)
 z_index = 1
-position = Vector2(-759, -246)
-scale = Vector2(4, 4)
+position = Vector2(-26, -97)
+scale = Vector2(2, 2)
 moveSpeed = 300
 acceleration = 4000
 friction = 2000

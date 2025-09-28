@@ -34,6 +34,9 @@ func _ready():
 	if "Extra Health" in upgrades:
 		max_health += 2
 		
+	if "Move Speed" in upgrades:
+		moveSpeed += 50
+		
 	health = max_health
 
 func _physics_process(delta):
@@ -107,9 +110,9 @@ func _physics_process(delta):
 		summonBullet()
 	if Input.is_action_just_pressed("Jump"+suffix) and "Slash Attack" in upgrades:
 		slashAttack()
-	if Input.is_action_just_pressed("Dash"+suffix) and "Dash" in upgrades:
+	if Input.is_action_just_pressed("Dash"+suffix) and "Dash Ability" in upgrades:
 		if input_vector.length() > movement_deadzone:
-			if "LongDash" in upgrades:
+			if "Long Dash" in upgrades:
 				dashing=10
 			dashVector=input_vector
 		
@@ -127,6 +130,12 @@ func _physics_process(delta):
 		
 	
 	move_and_slide()
+	
+func damage(amount):
+	if dashing>0 and ["Dash Invincibility" in upgrades]:
+		return
+	health -= amount
+	damage_flash()
 
 func damage_flash():
 	var tween = create_tween()
