@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1qihfh16csrq"]
+[gd_scene load_steps=20 format=3 uid="uid://c1qihfh16csrq"]
 
 [ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_b5l46"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_0nu4x"]
 [ext_resource type="Script" uid="uid://caar4xtrujnsu" path="res://Scenes/upgrade_manager.gd" id="3_dq8uk"]
 [ext_resource type="Texture2D" uid="uid://dij802jahnt" path="res://Sprites/programmer art/border.png" id="4_jt6q5"]
+[ext_resource type="Texture2D" uid="uid://ds3fw8r8hwuht" path="res://Sprites/Player 1 Brain.png" id="4_r3g0y"]
 [ext_resource type="Script" path="res://Scenes/validator.gd" id="5_r3g0y"]
 [ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="6_3vk3i"]
 [ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_4nnqe"]
@@ -59,6 +60,10 @@ script = ExtResource("3_dq8uk")
 
 [node name="sprite" type="Node2D" parent="Grid1"]
 position = Vector2(96, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grid1/sprite"]
+position = Vector2(-47, 17)
+texture = ExtResource("4_r3g0y")
 
 [node name="drop area5" type="Sprite2D" parent="Grid1/sprite"]
 texture = ExtResource("4_jt6q5")
