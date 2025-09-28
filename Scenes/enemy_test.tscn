@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://b4i4r8vpq26nu"]
+[gd_scene load_steps=8 format=4 uid="uid://b4i4r8vpq26nu"]
 
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_oyc1c"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_421n3"]
 [ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="3_c3qj7"]
 [ext_resource type="PackedScene" uid="uid://wc2jfgqlln3n" path="res://Scenes/mud.tscn" id="5_421n3"]
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_c3qj7"]
+[ext_resource type="PackedScene" uid="uid://qa4bduh547xv" path="res://spike.tscn" id="6_421n3"]
 
 [sub_resource type="Environment" id="Environment_tspv2"]
 tonemap_mode = 3
@@ -53,3 +54,6 @@ position = Vector2(496, 80)
 enemy = ExtResource("5_421n3")
 spawn_delay = 3
 spawn_count = 4
+
+[node name="Spike" parent="." instance=ExtResource("6_421n3")]
+position = Vector2(428, 144)

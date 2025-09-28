@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 40
+@export var speed = 140
 @onready var nav_agent = $NavigationAgent2D
 @onready var sprite = $Sprite2D
 var splat = load("res://mud_splat.tscn")
