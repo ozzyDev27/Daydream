@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8q0du0ka54sp"]
+
+[ext_resource type="PackedScene" uid="uid://fgrv213wa5i3" path="res://Scenes/Upgrade Shapes/square.tscn" id="1_ho0nu"]
+[ext_resource type="Texture2D" uid="uid://t7daevsg45py" path="res://Sprites/evil blocks.png" id="2_cgsqy"]
+
+[node name="Upgrade" instance=ExtResource("1_ho0nu")]
+
+[node name="Base" parent="." index="0"]
+texture = ExtResource("2_cgsqy")
+
+[node name="Highlight" parent="Base" index="0"]
+visible = false
