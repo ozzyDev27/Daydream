@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://drgvnpmmad2j2"]
+[gd_scene load_steps=10 format=4 uid="uid://drgvnpmmad2j2"]
 
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_iixi8"]
 [ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="1_xgxfi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="5_cyadu"]
 [ext_resource type="PackedScene" path="res://Scenes/spawner.tscn" id="5_xgxfi"]
 [ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="7_5f3p6"]
+[ext_resource type="PackedScene" uid="uid://co6r4kx8ngo70" path="res://new dialgoeu level 1.tscn" id="8_jv26f"]
 
 [sub_resource type="Environment" id="Environment_5f3p6"]
 background_mode = 3
@@ -83,3 +84,6 @@ parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5f3p6")
+
+[node name="text control gui" parent="." instance=ExtResource("8_jv26f")]
+follow_viewport_enabled = false

@@ -1,14 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://b8kerhpd1t4fo"]
+[gd_scene load_steps=9 format=4 uid="uid://587mplef5pgb"]
 
-[ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_ik81l"]
+[ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="1_ik81l"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="2_h7uay"]
-[ext_resource type="PackedScene" uid="uid://d2xgymke613hf" path="res://boss.tscn" id="3_eygg8"]
+[ext_resource type="PackedScene" path="res://boss.tscn" id="3_eygg8"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="4_5l77v"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="5_6y1v7"]
-[ext_resource type="PackedScene" uid="uid://cvendxy15pi0a" path="res://deployable2.tscn" id="5_eygg8"]
-[ext_resource type="PackedScene" uid="uid://byxk8x4kessrb" path="res://deployable.tscn" id="6_h7uay"]
+[ext_resource type="PackedScene" path="res://deployable2.tscn" id="5_eygg8"]
+[ext_resource type="PackedScene" path="res://deployable.tscn" id="6_h7uay"]
 
-[sub_resource type="Environment" id="Environment_w2ac1"]
+[sub_resource type="Environment" id="Environment_eygg8"]
 background_mode = 3
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
@@ -16,15 +16,12 @@ ambient_light_energy = 16.0
 reflected_light_source = 1
 tonemap_mode = 3
 glow_enabled = true
-glow_intensity = 1.0
-glow_bloom = 0.31
-glow_hdr_threshold = 3.37
-glow_hdr_scale = 1.76
+glow_intensity = 0.2
+glow_bloom = 0.1
+glow_hdr_threshold = 2.09
+glow_hdr_scale = 0.83
 glow_hdr_luminance_cap = 5.0
-adjustment_enabled = true
-adjustment_brightness = 0.73
-adjustment_contrast = 1.9
-adjustment_saturation = 0.74
+adjustment_contrast = 0.83
 
 [node name="BossBattke" type="Node2D"]
 position = Vector2(0, -1)
@@ -50,9 +47,6 @@ tile_set = ExtResource("2_h7uay")
 z_index = 1
 texture_filter = 1
 tile_set = ExtResource("2_h7uay")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_w2ac1")
 
 [node name="boss" parent="." instance=ExtResource("3_eygg8")]
 position = Vector2(10, -131)
@@ -83,3 +77,6 @@ deviceID = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("5_6y1v7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eygg8")
