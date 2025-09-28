@@ -7,9 +7,9 @@ extends CharacterBody2D
 @export var deviceID = 0
 @export var bulletSpeed = 400
 @export var upgrades: Array[String] = []
-@export var max_health = 10
+@export var max_health = 3
 @export var dashSpeed = 300
-var health = 10
+var health = 3
 var dashing=0
 var dashVector=Vector2.ZERO
 var level=0
@@ -19,6 +19,8 @@ var last_input_vector = Vector2.ZERO
 var last_look_direction = Vector2.LEFT
 
 func _ready():
+	
+	GlobalState.players_alive += 1
 	
 	if deviceID == 0:
 		upgrades = GlobalState.player0upgrades
@@ -31,11 +33,14 @@ func _ready():
 	print(upgrades)
 	print(level)
 	
+	if "Less Health" in upgrades:
+		max_health -= 1
+	
 	if "Extra Health" in upgrades:
 		max_health += 2
 		
 	if "Move Speed" in upgrades:
-		moveSpeed += 50
+		moveSpeed += 30
 		
 	health = max_health
 
@@ -120,10 +125,13 @@ func _physics_process(delta):
 	$HealthBar.value = health
 	
 	if health <= 0:
+		GlobalState.players_alive -= 1
 		var grave = load("res://Scenes/tombstone.tscn").instantiate()
 		get_parent().add_child(grave)
 		grave.global_position = global_position
 		queue_free()
+		if GlobalState.players_alive <= 0:
+			get_tree().reload_current_scene()
 	if dashing>0:
 		dashing-=1
 		velocity=dashVector*dashSpeed

@@ -30,8 +30,9 @@ func _physics_process(delta):
 		action_down, 
 		deviceID
 	)
-	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
+	if Input.is_action_just_pressed("Jump") and deviceID==0:
 		nextLevel()
+		
 	if input_vector.length() > movement_deadzone:
 		velocity = velocity.move_toward(input_vector * moveSpeed, acceleration * delta)
 		
@@ -44,6 +45,7 @@ func _physics_process(delta):
 		emit_signal("startGame")
 	
 	if touching_next_level and (Input.is_action_just_pressed("Jump"+suffix) or Input.is_action_just_pressed("Action"+suffix)):
+		GlobalState.players_alive = 0
 		get_tree().change_scene_to_file("res://Scenes/Levels/level_%d.tscn" % GlobalState.level)
 	
 	if touchingStart or touching_next_level:

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq52ub32phwus"]
+
+[ext_resource type="Shader" uid="uid://b7pbt7t5bp758" path="res://Clouds.gdshader" id="1_fmmfq"]
+[ext_resource type="Texture2D" uid="uid://c38awdllxx0dg" path="res://Sprites/start button test.png" id="2_fhetm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nith5"]
+shader = ExtResource("1_fmmfq")
+shader_parameter/r = 0.0
+shader_parameter/offset = 5.236000723709999
+
+[node name="scrolling clouds" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nith5")
+position = Vector2(7.5, 5.5)
+scale = Vector2(1.46875, 1.6875)
+texture = ExtResource("2_fhetm")

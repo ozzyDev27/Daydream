@@ -7,3 +7,4 @@ var player3upgrades: Array[String]
 
 var level = 1
 var spawners_remaining = 0
+var players_alive = 0
