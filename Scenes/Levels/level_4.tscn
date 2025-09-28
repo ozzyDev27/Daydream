@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://bt4fvhh3tybnk"]
+[gd_scene load_steps=10 format=4 uid="uid://bsimulv5vsnwa"]
 
 [ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="1_t74h0"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_yy6i0"]
-[ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="3_x1k1j"]
+[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="3_x1k1j"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="4_4ahh4"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="5_dl55b"]
-[ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="6_osqx1"]
-[ext_resource type="PackedScene" uid="uid://wc2jfgqlln3n" path="res://Scenes/mud.tscn" id="7_i4hbv"]
+[ext_resource type="PackedScene" path="res://Scenes/spawner.tscn" id="6_osqx1"]
+[ext_resource type="PackedScene" path="res://Scenes/mud.tscn" id="7_i4hbv"]
+[ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="8_h0uxt"]
 
 [sub_resource type="Environment" id="Environment_w2ac1"]
 tonemap_mode = 3
@@ -73,3 +74,9 @@ enemy = ExtResource("7_i4hbv")
 spawn_delay = 3
 spawn_radius = 100
 spawn_count = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_h0uxt")
+volume_db = 3.903
+autoplay = true
+parameters/looping = true
