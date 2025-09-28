@@ -4,7 +4,7 @@ extends CharacterBody2D
 var lastX=0
 var lastY=0
 var threshold=100
-var health = 2
+var health = 20
 func _physics_process(delta: float) -> void:
 	velocity.x=veloX*delta
 	velocity.y=veloY*delta

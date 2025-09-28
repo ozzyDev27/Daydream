@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b0xj0vbqwnysb"]
+[gd_scene load_steps=12 format=4 uid="uid://b0xj0vbqwnysb"]
 
 [ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_fphuk"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_w2ac1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="6_8qsmg"]
 [ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="6_pnnky"]
 [ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="8_pnnky"]
+[ext_resource type="PackedScene" uid="uid://cyjpk5vdxdx1t" path="res://Scenes/garbage.tscn" id="9_1jlnc"]
 
 [sub_resource type="Environment" id="Environment_pnnky"]
 background_mode = 3
@@ -81,6 +82,7 @@ position = Vector2(278, -88)
 
 [node name="Spawner" parent="." instance=ExtResource("6_8qsmg")]
 position = Vector2(-99, 18)
+enemy = ExtResource("9_1jlnc")
 
 [node name="Spawner3" parent="." instance=ExtResource("6_8qsmg")]
 position = Vector2(309, 129)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://8j7dwipht0m4"]
+[gd_scene load_steps=12 format=4 uid="uid://8j7dwipht0m4"]
 
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_jqrsn"]
 [ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_yy6i0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="5_keyqw"]
 [ext_resource type="PackedScene" uid="uid://do5un1l8j6bkp" path="res://playertwo.tscn" id="5_x1k1j"]
 [ext_resource type="PackedScene" uid="uid://wc2jfgqlln3n" path="res://Scenes/mud.tscn" id="7_167vu"]
+[ext_resource type="PackedScene" uid="uid://cyjpk5vdxdx1t" path="res://Scenes/garbage.tscn" id="8_dl55b"]
 [ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="8_x1k1j"]
 
 [sub_resource type="Environment" id="Environment_x1k1j"]
@@ -72,9 +73,11 @@ script = ExtResource("4_h0uxt")
 
 [node name="Spawner" parent="." instance=ExtResource("5_keyqw")]
 position = Vector2(-285, -164)
+enemy = ExtResource("8_dl55b")
 
 [node name="Spawner3" parent="." instance=ExtResource("5_keyqw")]
 position = Vector2(164, -163)
+enemy = ExtResource("7_167vu")
 
 [node name="Spawner4" parent="." instance=ExtResource("5_keyqw")]
 position = Vector2(76, 82)
