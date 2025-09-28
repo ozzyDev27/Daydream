@@ -115,9 +115,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("DebugAction") and deviceID==0:
 		nextLevel()
 	if Input.is_action_just_pressed("Action"+suffix) and "Battery Bullets" in upgrades:
-		summonBullet()
+		if $BulletTimer.is_stopped():
+			$BulletTimer.start()
+			summonBullet()
 	if Input.is_action_just_pressed("Jump"+suffix) and "Slash Attack" in upgrades:
-		slashAttack()
+		if $SlashTimer.is_stopped():
+			$SlashTimer.start()
+			slashAttack()
 	if Input.is_action_just_pressed("Dash"+suffix) and "Dash Ability" in upgrades:
 		if input_vector.length() > movement_deadzone:
 			if "Long Dash" in upgrades:
@@ -172,3 +176,9 @@ func nextLevel() -> void:
 	scene.get_node("Camera").make_current()
 	scene.get_node("PlayerMouse").level=level
 	get_parent().queue_free()
+
+
+func _on_bullet_timer_timeout():
+	if Input.is_action_pressed("Action"+str(deviceID)) and ["Minigun"] in upgrades:
+		summonBullet()
+		$BulletTimer.start()

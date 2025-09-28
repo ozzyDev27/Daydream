@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1qihfh16csrq"]
+[gd_scene load_steps=18 format=3 uid="uid://c1qihfh16csrq"]
 
 [ext_resource type="PackedScene" path="res://Scenes/player_mouse.tscn" id="1_b5l46"]
 [ext_resource type="Script" uid="uid://bb7dwr525ykqm" path="res://player_cursor.gd" id="2_0nu4x"]
@@ -8,8 +8,9 @@
 [ext_resource type="Script" path="res://Scenes/upgradecamera.gd" id="6_3vk3i"]
 [ext_resource type="PackedScene" uid="uid://c82ni1dq5f4ys" path="res://Scenes/Upgrade Shapes/t.tscn" id="8_4nnqe"]
 [ext_resource type="PackedScene" uid="uid://dxmerl6teflny" path="res://Scenes/Upgrade Shapes/small l.tscn" id="9_cl5uq"]
-[ext_resource type="Script" uid="uid://bejfy1bgqp65b" path="res://Scenes/next_level.gd" id="10_0nu4x"]
+[ext_resource type="Script" uid="uid://bf377cv1e3iox" path="res://Scenes/Levels/next_level.gd" id="10_0nu4x"]
 [ext_resource type="PackedScene" uid="uid://fgrv213wa5i3" path="res://Scenes/Upgrade Shapes/square.tscn" id="10_dq8uk"]
+[ext_resource type="PackedScene" uid="uid://ba1dycvvj4aut" path="res://Scenes/Upgrade Shapes/small line.tscn" id="12_r3g0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sy0g7"]
 size = Vector2(12, 13.5)
@@ -23,32 +24,19 @@ size = Vector2(167, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsmy"]
 size = Vector2(126, 126)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwqjb"]
+size = Vector2(12, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr6v8"]
+size = Vector2(90, 30)
+
 [node name="Node2D" type="Node2D"]
-
-[node name="PlayerMouse2" parent="." instance=ExtResource("1_b5l46")]
-modulate = Color(0.975, 1, 0.5, 1)
-z_index = 1
-position = Vector2(-26, -97)
-scale = Vector2(2, 2)
-moveSpeed = 300
-acceleration = 4000
-friction = 2000
-deviceID = 1
-
-[node name="Slop2D" type="Sprite2D" parent="PlayerMouse2"]
-position = Vector2(5, 0)
-script = ExtResource("2_0nu4x")
-
-[node name="Area2D" type="Area2D" parent="PlayerMouse2/Slop2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMouse2/Slop2D/Area2D"]
-position = Vector2(-8.5, -4.25)
-shape = SubResource("RectangleShape2D_sy0g7")
 
 [node name="PlayerMouse" parent="." instance=ExtResource("1_b5l46")]
 z_index = 1
 position = Vector2(-253, -82)
 scale = Vector2(2, 2)
+collision_mask = 0
 moveSpeed = 300
 acceleration = 4000
 friction = 2000
@@ -58,6 +46,7 @@ position = Vector2(5, 0)
 script = ExtResource("2_0nu4x")
 
 [node name="Area2D" type="Area2D" parent="PlayerMouse/Slop2D"]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMouse/Slop2D/Area2D"]
 position = Vector2(-8.5, -4.25)
@@ -164,10 +153,11 @@ position = Vector2(48, 16)
 shape = SubResource("RectangleShape2D_rmsmy")
 
 [node name="Label" type="Label" parent="Grid1"]
-offset_left = 160.0
+offset_left = 130.0
 offset_top = -64.0
-offset_right = 200.0
+offset_right = 170.0
 offset_bottom = -41.0
+theme_override_font_sizes/font_size = 12
 
 [node name="Grid0" type="Node2D" parent="."]
 position = Vector2(160, -96)
@@ -270,46 +260,104 @@ position = Vector2(48, 16)
 shape = SubResource("RectangleShape2D_rmsmy")
 
 [node name="Label" type="Label" parent="Grid0"]
-offset_left = -128.0
+offset_left = -146.0
 offset_top = -64.0
-offset_right = -88.0
+offset_right = -106.0
 offset_bottom = -41.0
+theme_override_font_sizes/font_size = 12
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 script = ExtResource("6_3vk3i")
 
 [node name="Upgrade2" parent="." instance=ExtResource("8_4nnqe")]
-position = Vector2(196, 110)
+position = Vector2(32, 64)
+highlight_color = Color(0.5952, 0.84448, 0.96, 1)
+upgrade_name = "Slash Attack"
+
+[node name="Upgrade4" parent="." instance=ExtResource("8_4nnqe")]
+position = Vector2(-169, 83)
 highlight_color = Color(0.5952, 0.84448, 0.96, 1)
 upgrade_name = "Slash Attack"
 
 [node name="Upgrade3" parent="." instance=ExtResource("9_cl5uq")]
-position = Vector2(-13, 67)
+position = Vector2(17, 0)
 highlight_color = Color(0.8, 0.16, 0.16, 1)
 upgrade_name = "Extra Health"
 
-[node name="Upgrade5" parent="." instance=ExtResource("8_4nnqe")]
-position = Vector2(-159, 103)
-highlight_color = Color(0.5952, 0.84448, 0.96, 1)
-upgrade_name = "Slash Attack"
+[node name="PlayerMouse2" parent="." instance=ExtResource("1_b5l46")]
+modulate = Color(0.975, 1, 0.5, 1)
+z_index = 1
+position = Vector2(-26, -97)
+scale = Vector2(2, 2)
+collision_mask = 0
+moveSpeed = 300
+acceleration = 4000
+friction = 2000
+deviceID = 1
 
-[node name="Upgrade6" parent="." instance=ExtResource("8_4nnqe")]
-position = Vector2(-252, 63)
-highlight_color = Color(0.5952, 0.84448, 0.96, 1)
+[node name="Slop2D" type="Sprite2D" parent="PlayerMouse2"]
+position = Vector2(5, 0)
+script = ExtResource("2_0nu4x")
+
+[node name="Area2D" type="Area2D" parent="PlayerMouse2/Slop2D"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMouse2/Slop2D/Area2D"]
+position = Vector2(-8.5, -4.25)
+shape = SubResource("RectangleShape2D_dwqjb")
+
+[node name="Upgrade6" parent="." instance=ExtResource("10_dq8uk")]
+position = Vector2(-252, 84)
+highlight_color = Color(0.57776016, 0.25759998, 0.92, 1)
 upgrade_name = "Slash Damage Boost"
 
-[node name="Button" type="Button" parent="."]
-offset_left = -44.0
-offset_top = 123.0
-offset_right = 46.0
-offset_bottom = 154.0
-text = "Next Level"
-script = ExtResource("10_0nu4x")
-
-[node name="Upgrade" parent="." instance=ExtResource("10_dq8uk")]
-position = Vector2(85, 46)
-highlight_color = Color(0.55242026, 0.3168, 0.99, 1)
+[node name="Upgrade7" parent="." instance=ExtResource("10_dq8uk")]
+position = Vector2(-80, -56)
+highlight_color = Color(0.25759998, 0.92, 0.90896004, 1)
 upgrade_name = "Larger Slash"
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="NextLevel" type="Area2D" parent="."]
+position = Vector2(-1, 122)
+script = ExtResource("10_0nu4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(2, 11)
+shape = SubResource("RectangleShape2D_tr6v8")
+
+[node name="Label" type="Label" parent="NextLevel"]
+offset_left = -39.0
+offset_top = -1.0
+offset_right = 43.0
+offset_bottom = 22.0
+text = "Next Level"
+
+[node name="ColorRect" type="ColorRect" parent="NextLevel/Label"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = -2.0
+offset_right = 86.0
+offset_bottom = 28.0
+color = Color(0, 0, 0, 0.60784316)
+
+[node name="Upgrade9" parent="." instance=ExtResource("12_r3g0y")]
+position = Vector2(211, 36)
+highlight_color = Color(0.2356, 0.2880401, 0.76, 1)
+upgrade_name = "Move Speed"
+
+[node name="Player2Hover" type="Label" parent="."]
+offset_left = -283.0
+offset_top = 129.0
+offset_right = -83.0
+offset_bottom = 152.0
+
+[node name="Player1Hover" type="Label" parent="."]
+offset_left = 85.0
+offset_top = 131.0
+offset_right = 285.0
+offset_bottom = 154.0
+horizontal_alignment = 2
+
+[connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
+[connection signal="body_exited" from="NextLevel" to="NextLevel" method="_on_body_exited"]
