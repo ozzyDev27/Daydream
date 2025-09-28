@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://b0xj0vbqwnysb"]
+[gd_scene load_steps=10 format=4 uid="uid://b0xj0vbqwnysb"]
 
-[ext_resource type="PackedScene" path="res://the_goddamn_ocean.tscn" id="1_fphuk"]
+[ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="1_fphuk"]
 [ext_resource type="TileSet" uid="uid://bckcptk7v581" path="res://Scenes/timemap.tres" id="1_w2ac1"]
 [ext_resource type="Texture2D" uid="uid://b1mrl2x7hebti" path="res://Sprites/Pixel Art Top Down - Basic v1.2.2/Texture/TX Props.png" id="2_ovj6s"]
 [ext_resource type="PackedScene" uid="uid://5v7lxrydjm57" path="res://Scenes/player.tscn" id="3_8qsmg"]
 [ext_resource type="Script" uid="uid://bdu68n0ga1arp" path="res://Scenes/camera.gd" id="4_fphuk"]
-[ext_resource type="PackedScene" uid="uid://cylwn6aytdlg" path="res://Scenes/level_end.tscn" id="5_ovj6s"]
-[ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="6_8qsmg"]
+[ext_resource type="PackedScene" path="res://Scenes/level_end.tscn" id="5_ovj6s"]
+[ext_resource type="PackedScene" path="res://Scenes/spawner.tscn" id="6_8qsmg"]
+[ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="8_pnnky"]
 
 [sub_resource type="Environment" id="Environment_w2ac1"]
 tonemap_mode = 3
@@ -76,3 +77,9 @@ position = Vector2(-99, 18)
 
 [node name="Spawner3" parent="." instance=ExtResource("6_8qsmg")]
 position = Vector2(309, 129)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_pnnky")
+volume_db = 3.903
+autoplay = true
+parameters/looping = true

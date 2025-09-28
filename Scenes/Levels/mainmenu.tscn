@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bxrowqhb15f4j"]
+[gd_scene load_steps=23 format=4 uid="uid://c0e666f0hck86"]
 
 [ext_resource type="Script" uid="uid://ce2x4dfji7n6l" path="res://Scenes/mainmenu.gd" id="1_pposm"]
 [ext_resource type="PackedScene" uid="uid://bkuxymia7ca1j" path="res://the_goddamn_ocean.tscn" id="2_v4pkt"]
@@ -6,9 +6,10 @@
 [ext_resource type="FontFile" uid="uid://c87w3bnyvvh0n" path="res://Fonts/m6x11plus.ttf" id="5_lah54"]
 [ext_resource type="Texture2D" uid="uid://da8uhrhm24y8l" path="res://Sprites/programmer art/gdb-xbox-2.png" id="6_5326e"]
 [ext_resource type="Script" uid="uid://dohd640nayo31" path="res://Scenes/Blink.gd" id="6_juwjy"]
-[ext_resource type="PackedScene" uid="uid://ihy85nbhhbqt" path="res://Scenes/spawner.tscn" id="6_l2o7r"]
+[ext_resource type="PackedScene" path="res://Scenes/spawner.tscn" id="6_l2o7r"]
 [ext_resource type="Texture2D" uid="uid://bvj5a3h2s8apq" path="res://Sprites/programmer art/gdb-keyboard-2.png" id="8_0y15m"]
 [ext_resource type="FontFile" uid="uid://brkuj20i8pljx" path="res://Fonts/Squares.ttf" id="8_juwjy"]
+[ext_resource type="AudioStream" uid="uid://dxt4002ja17rj" path="res://Sounds/nature-ambience-323729.mp3" id="10_kceem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_web8u"]
 size = Vector2(120, 72.5)
@@ -189,6 +190,12 @@ LEAK"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qyrli")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_kceem")
+volume_db = 3.903
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="." method="startgame"]
 [connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]
