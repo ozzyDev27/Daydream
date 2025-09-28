@@ -7,9 +7,9 @@ extends CharacterBody2D
 @export var deviceID = 0
 @export var bulletSpeed = 400
 @export var upgrades: Array[String] = []
-@export var max_health = 10
+@export var max_health = 3
 @export var dashSpeed = 300
-var health = 10
+var health = 3
 var dashing=0
 var dashVector=Vector2.ZERO
 var level=0
@@ -35,7 +35,7 @@ func _ready():
 		max_health += 2
 		
 	if "Move Speed" in upgrades:
-		moveSpeed += 50
+		moveSpeed += 30
 		
 	health = max_health
 
@@ -112,7 +112,8 @@ func _physics_process(delta):
 		slashAttack()
 	if Input.is_action_just_pressed("Dash"+suffix) and "Dash Ability" in upgrades:
 		if input_vector.length() > movement_deadzone:
-			dashing=10
+			if "Long Dash" in upgrades:
+				dashing=10
 			dashVector=input_vector
 		
 	$HealthBar.max_value = max_health
