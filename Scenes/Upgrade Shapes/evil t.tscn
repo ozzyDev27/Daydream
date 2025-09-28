@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dachvxgi71bj5"]
+
+[ext_resource type="PackedScene" uid="uid://dp5crv8frroyw" path="res://Scenes/upgrade.tscn" id="1_b5i3l"]
+[ext_resource type="Texture2D" uid="uid://t7daevsg45py" path="res://Sprites/evil blocks.png" id="2_f5q3v"]
+
+[node name="Upgrade" instance=ExtResource("1_b5i3l")]
+
+[node name="Base" parent="." index="0"]
+texture = ExtResource("2_f5q3v")
+
+[node name="Highlight" parent="Base" index="0"]
+visible = false
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+position = Vector2(2, 0)
+polygon = PackedVector2Array(-16, -16, 80, -16, 80, 16, 48, 16, 48, 48, 16, 48, 16, 16, -16, 16)
